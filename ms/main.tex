@@ -64,7 +64,7 @@ I compute the \panchang{} for every day from 2005 to 2026 with the Swiss Ephemer
 
 \begin{table}[t]
 \centering
-\caption{Computed panchang against Drik Panchang (New Delhi): dates that match exactly}
+\caption{Computed panchang against two published calendars: dates that match exactly}
 \label{tab:validation}
 \small
 \input{../tabs/tab_validation.tex}
@@ -183,7 +183,7 @@ Percentage effects with Driscoll--Kraay 95\% intervals. Change after CRC: the in
 \end{minipage}
 \end{table}
 
-\paragraph{Robustness.} Table~\ref{tab:robustness} repeats the three tests under the six pre-listed variants. The Pitru Paksha and \tithi{} nulls hold in all of them. The \muhurat{} effect holds when the sample starts in 2010 and under either closure rule alone. It shrinks to \RobSatPTwo\% when Saturdays are included and to \RobOlsPTwo\% in a linear model of log counts, and in both its interval includes zero.
+\paragraph{Robustness.} Table~\ref{tab:robustness} repeats the three tests under five of the six pre-listed variants; the sixth, Driscoll--Kraay rather than calendar-shift $p$-values, is in Table~\ref{tab:primary} and leaves all three conclusions unchanged. The Pitru Paksha and \tithi{} nulls hold in all of them. The \muhurat{} effect holds when the sample starts in 2010 and under either closure rule alone. It shrinks to \RobSatPTwo\% when Saturdays are included and to \RobOlsPTwo\% in a linear model of log counts, and in both its interval includes zero.
 
 \begin{table}[t]
 \centering
@@ -215,7 +215,7 @@ Percentage effects with Driscoll--Kraay 95\% intervals. Days before closure: ind
 
 \section{Discussion}
 
-The registry shows a narrow form of \panchang{} timing. A few named days that are themselves occasions for beginnings, Dhanteras and the new year, attract registrations moved from nearby days. The broad rules of electional astrology, which classify every lunar day and mark a fortnight as unfit, leave no trace in when companies are approved.
+The registry shows a narrow form of \panchang{} timing. A few named days that are themselves occasions for beginnings, Dhanteras and the new year, attract more registrations, possibly moved from nearby days. The broad rules of electional astrology, which classify every lunar day and mark a fortnight as unfit, leave no trace in when companies are approved.
 
 Three features of the data limit what this establishes. The registry records approval, not filing; before March 2016 the gap between the two was long enough to blur targeting by a day, and the null for the lunar day could reflect that. The effect sizes after March 2016, when the gap was short, are similar but imprecise. The snapshot ends in January 2020, which leaves under four years of central registration. And the \muhurat{} result rests on \NDhanterasDates{} Dhanteras and \NGudiDates{} Gudi Padwa dates, and it weakens under two of six robustness checks. MCA's monthly lists of newly registered companies extend to the present and would add both precision and post-2016 years.
 

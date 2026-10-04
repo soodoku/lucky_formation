@@ -30,9 +30,9 @@ comp <- bind_rows(
   s$components %>% mutate(block = "Daily attributes (one model)"),
   s$named %>% mutate(block = "Named days (one model)")
 )
-body <- unlist(map(unique(comp$block), function(b) {
-  rows <- filter(comp, block == b)
-  c(sprintf("\\multicolumn{2}{l}{\\textit{%s}} \\\\", b),
+body <- unlist(map(unique(comp$block), function(blk) {
+  rows <- filter(comp, block == .env$blk)
+  c(sprintf("\\multicolumn{2}{l}{\\textit{%s}} \\\\", blk),
     sprintf("\\quad %s & %s \\\\", comp_labels[rows$term], ci(rows$pct, rows$lo, rows$hi)))
 }))
 save_tex_table(wrap("lc", " & Effect, \\% [95\\% CI] \\\\", body), "tab_components.tex")
