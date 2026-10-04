@@ -91,38 +91,40 @@ tab <- c(
 save_tex_table(tab, "tab_sample.tex")
 
 # --- Validation table ---------------------------------------------------------------
-val_table <- function(fest, days) {
-  labels <- c(
-    gudi_padwa = "Gudi Padwa / Ugadi", akshaya_tritiya = "Akshaya Tritiya",
-    vijayadashami = "Vijayadashami", dhanteras = "Dhanteras", diwali = "Lakshmi Puja (Diwali)",
-    pitru_paksha_first = "Pitru Paksha, first day", pitru_paksha_last = "Pitru Paksha, last day"
-  )
-  bind_rows(
-    fest %>%
-      group_by(event) %>%
-      summarise(match = sum(drik_offset_days %in% 0), n = n()) %>%
-      mutate(event = labels[event]),
-    tibble(event = "Sunrise tithi, random days", match = sum(days$tithi_ok), n = nrow(days)),
-    tibble(event = "Sunrise nakshatra, random days", match = sum(days$nak_ok), n = nrow(days))
-  )
-}
-v_in <- val_table(read_csv(file.path(PATH_DATA, "validation_festivals.csv"),
-                           show_col_types = FALSE),
-                  read_csv(file.path(PATH_DATA, "validation_days.csv"), show_col_types = FALSE))
-v_out <- val_table(read_csv(file.path(PATH_DATA, "validation_festivals_holdout.csv"),
-                            show_col_types = FALSE),
-                   read_csv(file.path(PATH_DATA, "validation_days_holdout.csv"),
-                            show_col_types = FALSE))
-val <- left_join(v_in, v_out, by = "event", suffix = c("_in", "_out"))
+# Drik Panchang for the sample years (rules tuned there); the holidays package, never used
+# for tuning, for the sample years and 2020-2025.
+labels <- c(
+  gudi_padwa = "Gudi Padwa / Ugadi", akshaya_tritiya = "Akshaya Tritiya",
+  vijayadashami = "Vijayadashami", dhanteras = "Dhanteras", diwali = "Lakshmi Puja (Diwali)",
+  pitru_paksha_first = "Pitru Paksha, first day", pitru_paksha_last = "Pitru Paksha, last day"
+)
+fest <- read_csv(file.path(PATH_DATA, "validation_festivals.csv"), show_col_types = FALSE)
+days <- read_csv(file.path(PATH_DATA, "validation_days.csv"), show_col_types = FALSE)
+pkg <- read_csv(file.path(PATH_DATA, "validation_holidays_pkg.csv"), show_col_types = FALSE) %>%
+  mutate(late = year(as.Date(package)) >= 2020)
+cell <- function(m, n) if (n == 0) "" else sprintf("%d / %d", m, n)
+v_drik <- fest %>%
+  group_by(event) %>%
+  summarise(drik = cell(sum(drik_offset_days %in% 0), n()))
+v_pkg <- pkg %>%
+  group_by(event) %>%
+  summarise(pkg_in = cell(sum(match[!late]), sum(!late)),
+            pkg_out = cell(sum(match[late]), sum(late)))
+val <- full_join(v_drik, v_pkg, by = "event") %>%
+  mutate(across(everything(), ~ replace_na(.x, "")), event = labels[event]) %>%
+  bind_rows(tibble(event = c("Sunrise tithi, random days", "Sunrise nakshatra, random days"),
+                   drik = c(cell(sum(days$tithi_ok), nrow(days)),
+                            cell(sum(days$nak_ok), nrow(days))),
+                   pkg_in = "", pkg_out = ""))
 tab_val <- c(
-  "\\begin{tabular}{lcc}", "\\toprule",
-  " & 2006--2019 & 2020--2025 \\\\",
-  " & (rules tuned) & (holdout) \\\\", "\\midrule",
-  sprintf("%s & %d / %d & %d / %d \\\\", val$event, val$match_in, val$n_in,
-          val$match_out, val$n_out),
+  "\\begin{tabular}{lccc}", "\\toprule",
+  " & Drik Panchang & \\multicolumn{2}{c}{\\texttt{holidays} package} \\\\",
+  " & 2006--2019 & 2006--2019 & 2020--2025 \\\\", "\\midrule",
+  sprintf("%s & %s & %s & %s \\\\", val$event, val$drik, val$pkg_in, val$pkg_out),
   "\\bottomrule", "\\end{tabular}"
 )
 save_tex_table(tab_val, "tab_validation.tex")
+pkg_miss <- filter(pkg, !match)
 
 write_numbers(c(
   NRegistered = fmt_int(sum(panel$n_all)),
@@ -132,6 +134,7 @@ write_numbers(c(
   NRocDays = fmt_int(nrow(prim)),
   NRocDaysClosed = fmt_int(sum(prim$closed)),
   MeanPerRocDay = sprintf("%.1f", mean(prim$n_dom[!prim$closed])),
-  ValFestIn = sum(v_in$match[1:7]), ValFestInN = sum(v_in$n[1:7]),
-  ValFestOut = sum(v_out$match[1:7]), ValFestOutN = sum(v_out$n[1:7])
+  ValFestIn = sum(fest$drik_offset_days %in% 0), ValFestInN = nrow(fest),
+  ValPkgOut = sum(pkg$match[pkg$late]), ValPkgOutN = sum(pkg$late),
+  ValPkgIn = sum(pkg$match[!pkg$late]), ValPkgInN = sum(!pkg$late)
 ), "numbers_describe.tex")

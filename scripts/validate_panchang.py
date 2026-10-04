@@ -129,6 +129,7 @@ def main() -> None:
     parser.add_argument("--first-year", type=int, default=2006)
     parser.add_argument("--last-year", type=int, default=2019)
     parser.add_argument("--n-days", type=int, default=40)
+    parser.add_argument("--tag", default="", help="suffix for output files, e.g. _holdout")
     args = parser.parse_args()
 
     CACHE.mkdir(parents=True, exist_ok=True)
@@ -137,11 +138,11 @@ def main() -> None:
     years = range(args.first_year, args.last_year + 1)
 
     fest = check_festivals(pan, years)
-    fest.to_csv("data/validation_festivals.csv", index=False)
+    fest.to_csv(f"data/validation_festivals{args.tag}.csv", index=False)
     print(fest.groupby("event")["drik_offset_days"].value_counts(dropna=False).to_string())
 
     days = check_days(pan, args.n_days, years, seed=1)
-    days.to_csv("data/validation_days.csv", index=False)
+    days.to_csv(f"data/validation_days{args.tag}.csv", index=False)
     print(f"\nTithi match {days.tithi_ok.mean():.0%}, nakshatra match {days.nak_ok.mean():.0%}")
     print(days[~(days.tithi_ok & days.nak_ok)].to_string())
 

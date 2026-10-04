@@ -144,6 +144,7 @@ write_numbers(c(
   NNoRoc = fmt_int(n_no_roc),
   NRocs = n_distinct(panel$roc),
   NBusinessDays = fmt_int(n_distinct(panel$date[panel$weekday <= 5])),
+  NDisruptedWeeks = sum(disrupted$disrupted_week),
   ShareClosedListedAgree = fmt_pct(
     with(detectable, mean(holiday_listed[closure_detected])), 0),
   ShareListedClosed = fmt_pct(

@@ -9,6 +9,7 @@ all: data analysis paper
 data:
 	$(PY) scripts/00_generate_panchang.py
 	$(PY) scripts/build_holidays.py
+	$(PY) scripts/validate_holidays_pkg.py
 	$(R) scripts/01_clean_companies.R
 	$(R) scripts/02_build_panel.R
 
@@ -17,6 +18,8 @@ analysis:
 	$(R) scripts/04_describe.R
 	$(R) scripts/05_primary.R
 	$(R) scripts/06_secondary.R
+	$(R) scripts/07_exploratory.R
+	$(R) scripts/08_tables.R
 
 paper:
 	cd ms && latexmk -pdf -interaction=nonstopmode -quiet main.tex
