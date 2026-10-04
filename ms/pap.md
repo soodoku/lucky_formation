@@ -38,6 +38,10 @@ registry preregistration.
   - detected closures: the whole country registering under a tenth of that week's median
     day, or a pre-CRC registrar averaging at least ten a day registering under a tenth of its
     weekly median.
+- **Disrupted weeks**, also excluded: any week whose national registrations fall below half
+  the 17-week rolling median around it (16 weeks, chiefly April–May 2014, when the
+  Companies Act 2013 forms took effect, and late March–April 2016, when the CRC took over).
+  Added before estimation; see Deviations.
 - **Panchang**: computed at sunrise in New Delhi (Swiss Ephemeris, Lahiri ayanamsa). Named
   days use the classical time-of-day rules. Validated against Drik Panchang: all 98
   festival and Pitru Paksha boundary dates 2006–2019 and 40 random days' tithi and nakshatra
@@ -82,12 +86,12 @@ direction that is not within 2 days of a whole number of lunar months: 482 shift
   intervals.
 
 **Power** (from the shift distributions, before estimation): the minimum detectable effect
-at 80% power, one-sided 5%, is 15.3% for P1, 10.2% for P2, and 1.0% per unit of the tithi
+at 80% power, one-sided 5%, is 13.8% for P1, 10.1% for P2, and 1.0% per unit of the tithi
 index for P3.
 
 **Expected magnitudes.** Trade press reports car sales down ~40% and property registrations
 down far more during Pitru Paksha. Company registration is a paperwork step with an
-approval lag, so I expect much less, if anything. A P1 effect under 15% would be missed with
+approval lag, so I expect much less, if anything. A P1 effect under 14% would be missed with
 material probability. A P3 effect of 1% per index unit (about 2% between auspicious and
 inauspicious tithis) is detectable.
 
@@ -129,5 +133,9 @@ inauspicious tithis) is detectable.
 - Kharmas (the Sun in Sagittarius or Pisces) dropped: it is set by the solar sidereal
   calendar, which falls on nearly the same Gregorian dates every year, so the week-of-year
   fixed effects absorb it.
+- Disrupted weeks excluded (see Data). Found while plotting the weekly series, before any
+  primary estimate. Within-week closure detection cannot catch a whole dead week, and
+  Akshaya Tritiya 2014 falls inside one. The MDEs above were recomputed on the reduced
+  sample.
 - CIN serial-number gaps dropped as a survivorship check: serials are shared across entity
   types and cumulative within a state, so a gap does not identify a missing company.

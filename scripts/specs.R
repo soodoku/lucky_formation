@@ -12,10 +12,11 @@ PANCHANG_COLS <- c(
 
 SYNODIC <- 29.530589
 
-# Registrar-days the primaries are estimated on: weekdays when the registrar was open.
+# Registrar-days the primaries are estimated on: weekdays when the registrar was open, outside
+# weeks of system-wide disruption.
 primary_sample <- function(panel) {
   panel %>%
-    filter(weekday <= 5, !closed) %>%
+    filter(weekday <= 5, !closed, !disrupted_week) %>%
     mutate(
       muhurat_day = pmax(gudi_padwa, akshaya_tritiya, vijayadashami, dhanteras),
       t = as.integer(date - SAMPLE_START)

@@ -72,6 +72,22 @@ panel <- panel %>%
     closed = holiday_listed | closure_detected
   )
 
+# Disrupted weeks: whole weeks far below trend, from regime changes (Companies Act 2013 forms
+# in April 2014, the CRC take-over in March 2016) and portal outages. A within-week median
+# cannot see these, so compare each week with the 17-week rolling median around it.
+disrupted <- national %>%
+  group_by(week) %>%
+  summarise(n = sum(n_nat), .groups = "drop") %>%
+  arrange(week) %>%
+  mutate(
+    trend = zoo::rollapply(n, 17, median, fill = NA, align = "center", partial = TRUE),
+    disrupted_week = n < 0.5 * trend
+  )
+message("Disrupted weeks: ", paste(disrupted$week[disrupted$disrupted_week], collapse = ", "))
+panel <- panel %>%
+  left_join(select(disrupted, week, disrupted_week), by = "week") %>%
+  mutate(disrupted_week = replace_na(disrupted_week, FALSE))
+
 # Backlog: a closure pushes approvals onto the neighbouring open days.
 panel <- panel %>%
   arrange(roc, date) %>%
