@@ -1,0 +1,22 @@
+# Raw/large data: regenerated or obtained separately (see data/README.md)
+data/registered_companies.csv.zip
+data/companies_clean.parquet
+data/raw/
+*.rds
+
+# LaTeX build
+ms/*.aux
+ms/*.bbl
+ms/*.blg
+ms/*.log
+ms/*.out
+ms/*.fdb_latexmk
+ms/*.fls
+ms/*.synctex.gz
+
+# Python
+__pycache__/
+.venv/
+
+.DS_Store
+.Rhistory

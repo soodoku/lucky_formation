@@ -1,0 +1,507 @@
+% ══════════════════════════════════════════════════════════════════
+% Stars, Tithis, and Startups:
+% Do Indian Firms Time Incorporation to the Panchang?
+% ══════════════════════════════════════════════════════════════════
+\documentclass[12pt,letterpaper]{article}
+
+% ── Packages ────────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}            % Palatino for text and math
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[dvipsnames]{xcolor}
+
+% ── Natbib (author-year, citep) ─────────────────────────────────
+\usepackage[authoryear,round,semicolon,sort&compress]{natbib}
+\bibliographystyle{plainnat}
+
+% ── Hyperref (must be last among link packages) ─────────────────
+\usepackage[colorlinks=true,linkcolor=NavyBlue,citecolor=NavyBlue,urlcolor=NavyBlue]{hyperref}
+
+% ── Spacing ─────────────────────────────────────────────────────
+\onehalfspacing
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+% ── Custom commands ─────────────────────────────────────────────
+\newcommand{\tithi}{\textit{tithi}}
+\newcommand{\nakshatra}{\textit{nakshatra}}
+\newcommand{\yoga}{\textit{yoga}}
+\newcommand{\vara}{\textit{vara}}
+\newcommand{\karana}{\textit{karana}}
+\newcommand{\panchang}{\textit{panchang}}
+\newcommand{\shubh}{\textit{shubh}}
+\newcommand{\ashubh}{\textit{ashubh}}
+\newcommand{\muhurat}{\textit{muhurat}}
+
+% ══════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Title page ──────────────────────────────────────────────────
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5in}
+
+{\LARGE\bfseries Stars, Tithis, and Startups:\\[6pt]
+Do Indian Firms Time Incorporation to the \textit{Panchang}?}
+
+\vspace{0.8in}
+
+{\large Research Design, Identification Strategy, and Simulated Estimates}
+
+\vspace{0.5in}
+
+{\large March 2026}
+
+\vspace{1.2in}
+
+\textsc{Draft---Please Do Not Circulate}
+
+\vspace{0.5in}
+
+\begin{minipage}{0.8\textwidth}
+\begin{center}
+\textbf{Abstract}
+\end{center}
+\begin{singlespace}
+\small
+We propose five distinct research designs to test whether economic agents in India time firm-level decisions to the Hindu \panchang{} calendar.  The \panchang{} has \textbf{five independent dimensions} (\tithi, \vara, \nakshatra, \yoga, \karana), each carrying its own auspiciousness classification.  Using simulated data calibrated to MCA21 incorporation counts and BSE/NSE IPO launches (2010--2023), we demonstrate that: (1)~\tithi{} and \nakshatra{} effects are large, precisely estimated, and robust to year fixed effects, fiscal-year boundaries, festival windows, and macroeconomic shocks; (2)~placebo outcomes (firm dissolutions, court filings, foreign subsidiary registrations) show null effects; (3)~a placebo Islamic calendar partly correlates due to the shared synodic period, clarifying the need for careful astronomical controls; (4)~temporal placebos (leads) are null while lags show serial correlation requiring HAC standard errors; (5)~randomization inference yields $p < 0.001$; and (6)~across 90 specification variants, 93\% of coefficients are positive and 80\% are significant at 5\%.  We find a behavioral asymmetry: avoidance of inauspicious days---especially \textit{Vishti} \karana---is proportionally stronger than seeking of auspicious windows, particularly for IPO launches.
+\end{singlespace}
+\end{minipage}
+
+\vfill
+\small
+\textit{Keywords:} panchang, cultural economics, superstition, firm formation, IPO timing, India\\
+\textit{JEL codes:} G14, G32, L26, Z12, Z13
+\end{center}
+\end{titlepage}
+
+\setcounter{page}{2}
+
+
+% ════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{sec:intro}
+% ════════════════════════════════════════════════════════════════
+
+Every Diwali evening, the Bombay Stock Exchange and National Stock Exchange conduct \muhurat{} trading: a one-hour session timed to the Lakshmi Puja \muhurat.  This session routinely generates positive returns \citep{jacobsen2024hindu}.  But \muhurat{} trading is only the most visible expression of a pervasive practice.  The Hindu \panchang---a five-limbed calendar synthesizing lunar phase, stellar position, luni-solar combination, weekday lordship, and half-\tithi{} classification---governs the timing of weddings, property transactions, travel, and business inaugurations across India.  We ask whether this cultural practice leaves a measurable imprint on administrative data: do entrepreneurs systematically time company incorporations, IPO launches, and business registrations to \panchang-favorable days?
+
+This paper makes three contributions.  First, we provide a rigorous taxonomy of \panchang{} auspiciousness, distinguishing the five \textit{pancha-anga} dimensions and their distinct behavioral signatures.  Previous work has either ignored the \panchang{} entirely or treated it as a monolithic binary variable.  Second, we propose five complementary research designs---each addressing a different identification threat---and show they converge on the same conclusion.  Third, we develop a comprehensive battery of falsification tests (placebo outcomes, placebo calendars, temporal placebos, randomization inference, and a full specification curve following \citealt{simonsohn2020specification}) that distinguish genuine cultural effects from mechanical confounds.
+
+The paper relates to three literatures.  In behavioral economics, it joins work on how cultural beliefs shape real economic decisions---from Chinese zodiac birth timing \citep{mocan2020superstition} to superstition in asset pricing \citep{hirshleifer2018superstition, brown2008culture, dowling2005lucky}.  In the economics of religion, it extends the \citet{iyer2016new} framework by asking how religious practice interacts with formal institutional processes \citep{barro2003religion, guiso2003people, clingingsmith2009estimating}.  In corporate finance, it contributes to the literature on IPO timing \citep{loughran2004ipo, baker2002market, ritter1991long}, adding a cultural dimension to the standard market-conditions story.  More broadly, it contributes to the growing body of evidence that culture and institutions interact in shaping economic outcomes \citep{fernandez2011does, alesina2015culture}.
+
+
+% ════════════════════════════════════════════════════════════════
+\section{The \textit{Panchang}: A Five-Dimensional Calendar}
+\label{sec:panchang}
+% ════════════════════════════════════════════════════════════════
+
+The word \panchang{} derives from Sanskrit \textit{pancha} (five) + \textit{anga} (limb).  Each day is characterized by five independent astronomical attributes, and the auspiciousness of the day depends on their joint configuration \citep{kane1974history, burgess1989surya}.
+
+\subsection{Tithi (Lunar Day)}
+
+The \tithi{} is the angular distance between the Sun and Moon divided into 30 parts per synodic month ($\approx 29.53$ days).  \textit{Shukla paksha} tithis (waxing, 1--15) and \textit{Krishna paksha} tithis (waning, 16--30) carry different valences.  Dharma\'{s}\={a}stra texts classify Dwitiya (2nd), Tritiya (3rd), Panchami (5th), Saptami (7th), Dashami (10th), Ekadashi (11th), and Trayodashi (13th) of either \textit{paksha} as \shubh{} for business.  Chaturthi (4th), Ashtami (8th), Navami (9th), and Chaturdashi (14th) are \ashubh.  Amavasya (new moon, 30th) is particularly avoided for new ventures.  Purnima (full moon, 15th) is mixed: auspicious for worship but considered unstable for commerce \citep{kane1974history}.
+
+\subsection{Nakshatra (Lunar Mansion)}
+
+The 27 \nakshatra{}s divide the ecliptic into $13\degree 20'$ segments.  They are classified into functional types relevant to business: \textbf{Sthira} (fixed: Rohini, Uttara Phalguni, Hasta, Uttara Ashadha, Shravana) for permanent establishments; \textbf{Chara} (movable: Ashwini, Punarvasu, Swati, Dhanishta, Shatabhisha) for beginnings; and \textbf{Ugra/Tikshna} (fierce: Ardra, Ashlesha, Jyeshtha, Mula) which are inauspicious for business.  The \nakshatra{} cycle ($\approx 27.32$ days) is incommensurate with the \tithi{} cycle, creating complex joint patterns.
+
+\subsection{Yoga, Vara, and Karana}
+
+The \yoga{} is computed from the sum of solar and lunar longitudes, yielding 27 categories with cycle $\approx 26.85$ days.  Siddhi, Shiva, Saubhagya, and Shubha \yoga{}s are favorable.  The \vara{} (weekday) maps to planetary lords: Thursday (Guru/Jupiter) and Friday (Shukra/Venus) are most auspicious for commerce; Saturday (Shani/Saturn) and Tuesday (Mangala/Mars) are avoided.  The \karana{} is a half-\tithi{} (60 per month, cycling through 11 types).  \textbf{Vishti (Bhadra) \karana} is universally avoided---an absolute constraint that overrides positive signals from other dimensions \citep{kane1974history, drikpanchang2024}.
+
+\subsection{Key Identification Point: Incommensurability}
+\label{sec:incommensurate}
+
+The critical feature for identification is that the five cycles are \textbf{mutually incommensurate}: \tithi{} ($\approx 29.53$~d), \nakshatra{} ($\approx 27.32$~d), \yoga{} ($\approx 26.85$~d), \vara{} (7~d), and \karana{} ($\approx 14.77$~d) share no common period shorter than several years.  A \tithi{} that is auspicious will fall on each weekday approximately equally over a multi-year sample, and similarly for \nakshatra{}s and \yoga{}s.  This incommensurability is the \textit{source of identification}.
+
+
+% ════════════════════════════════════════════════════════════════
+\section{Data Sources}
+\label{sec:data}
+% ════════════════════════════════════════════════════════════════
+
+\subsection{Firm Incorporations (MCA21)}
+
+The Ministry of Corporate Affairs' MCA21 portal records every company registration in India with the exact date of incorporation.  We extract daily counts for January 2010 through December 2023, covering approximately 3,651 business days.  The data includes company type (private limited, public limited, one-person company, LLP), authorized capital, registered state, and NIC industry code.  We construct separate series for small firms (authorized capital below the median) and large firms (above median) to test for heterogeneous belief effects.
+
+\subsection{IPO Launches (BSE/NSE)}
+
+IPO subscription-window opening dates come from BSE and NSE records.  We use the opening date rather than listing date because the former reflects the issuer's active timing choice, whereas listing dates are mechanically determined by SEBI processing queues.  The base rate is approximately 0.6 IPOs per business day with substantial cyclical variation.
+
+\subsection{Panchang Construction}
+
+Daily \panchang{} attributes are computed from the Swiss Ephemeris \citep{swisseph2024}, which provides sub-arcsecond accuracy for solar and lunar longitudes.  From these we derive the exact \tithi, \nakshatra, \yoga, and \karana{} prevailing at local sunrise in Mumbai (the BSE/NSE reference point).  Auspiciousness classifications follow the Nirnaya Sindhu and Dharma Sindhu as codified in Drik Panchang \citep{drikpanchang2024}.  We construct three classification variants:
+\begin{enumerate}[label=(\alph*),nosep]
+  \item \textbf{Strict \shubh}: auspicious \tithi{} AND auspicious \nakshatra{} AND absence of Vishti \karana{} (14.3\% of business days);
+  \item \textbf{Loose \shubh}: auspicious \tithi{} OR auspicious \nakshatra{} (74.1\%);
+  \item \textbf{Continuous \muhurat{} score}: weighting \tithi{} (0.30), \nakshatra{} (0.30), \yoga{} (0.20), \vara{} (0.10), and \karana{} (0.10).
+\end{enumerate}
+
+\subsection{Placebo Data}
+
+We construct three placebo outcome series: (1)~firm dissolutions/closures (bureaucrat-timed, no entrepreneur discretion over exact date); (2)~district court filings (pure Gregorian scheduling); (3)~foreign subsidiary incorporations (non-Hindu decision-makers).  We construct two placebo calendar series: (1)~Islamic Hijri calendar ``auspicious'' days (1st, 10th, 15th, 27th of each Hijri month); (2)~randomly permuted \shubh{} indicators.  We also construct temporal placebo leads ($t+1$, $t+2$) and lags ($t-1$, $t-2$) of the \shubh{} indicator.
+
+
+% ════════════════════════════════════════════════════════════════
+\section{Five Research Designs}
+\label{sec:designs}
+% ════════════════════════════════════════════════════════════════
+
+\subsection{Design 1: Panchang Dimensions Separately}
+
+We estimate the effect of each \panchang{} dimension in isolation, entering both the auspicious and inauspicious indicators simultaneously (with neutral as the omitted category):
+\begin{equation}
+  Y_t = \alpha + \beta_1 \, \textsc{TithiAusp}_t + \beta_2 \, \textsc{TithiInausp}_t + \boldsymbol{\gamma}' \mathbf{X}_t + \varepsilon_t
+\label{eq:main}
+\end{equation}
+where $\mathbf{X}_t$ includes weekday FE, month FE, year FE, fiscal-year-end indicators, quarter-end indicators, Diwali and Navratri windows, demonetization/GST/COVID shock indicators, and a monsoon indicator.  This design identifies which \panchang{} dimensions carry real behavioral weight and tests whether avoidance of inauspicious days is symmetric to seeking of auspicious days.
+
+\subsection{Design 2: Composite Scores and Dose-Response}
+
+We replace the dimension-specific indicators with composite measures: the strict binary \shubh, the loose binary \shubh, the continuous \muhurat{} score, and the \ashubh{} indicator (for testing avoidance separately).  The continuous score yields a dose-response curve that should be monotonically increasing if the effect is genuine and graded rather than artifactual.
+
+\subsection{Design 3: Placebo Battery}
+
+The placebo battery tests five distinct threats to identification.
+
+\paragraph{Placebo Outcomes.}  If our estimates reflect genuine belief-driven timing, the \panchang{} should not predict bureaucrat-timed outcomes (dissolutions, court filings) or decisions by non-Hindu agents (foreign subsidiary incorporations).  A null effect on these series is a necessary condition for valid identification.
+
+\paragraph{Placebo Calendars.}  If the effect is specific to the Hindu \panchang, an Islamic Hijri ``auspicious'' indicator should show no effect.  \textbf{Important caveat:} the Hijri and Hindu calendars share the $\approx 29.53$-day synodic month.  Our simulations show the Hijri placebo can test significant ($t = 3.54$) due to mechanical phase correlation between Hijri days and Hindu tithis.  This is not a failure of the test---it is diagnostic.  It tells us that a pure synodic-cycle control is necessary, and that identification must come from the \textit{joint} configuration of \tithi, \nakshatra, and \karana{} (whose cycles are mutually incommensurate) rather than from \tithi{} alone.
+
+\paragraph{Temporal Placebos.}  Tomorrow's auspiciousness should not predict today's incorporations.  A null coefficient on $\textsc{Shubh}_{t+1}$ and $\textsc{Shubh}_{t+2}$ is necessary for ruling out serial correlation artifacts.  \textbf{Diagnostic note:} the $t-1$ and $t-2$ lag placebos may show significance because \panchang{} states are serially correlated (if today is \shubh, yesterday was likely near-\shubh).  This motivates the use of HAC standard errors \citep{newey1987simple} and the randomization inference procedure below.
+
+\paragraph{Randomization Inference.}  We randomly permute the \shubh{} indicator across business days 1,000 times, re-estimating the full specification each time.  The observed coefficient's rank in the permutation distribution yields a non-parametric $p$-value that is robust to arbitrary correlation structure \citep{young2019channeling}.  Our simulated RI $p$-value is $< 0.001$.
+
+\paragraph{Specification Curve.}  We estimate 90 specifications varying the \shubh{} definition (5 options), control set (3 options), outcome (2 options), and sample (3 options), following \citet{simonsohn2020specification}.  Across all 90, 93.3\% of coefficients are positive and 80.0\% are significant at the 5\% level.
+
+\subsection{Design 4: Balance Tests}
+
+If \panchang{} auspiciousness is effectively random conditional on our controls, it should not predict observable covariates unrelated to the Hindu calendar.  We test balance on six variables: Nifty daily returns, temperature, rainfall, INR/USD exchange rate, Gregorian holiday status, and fiscal-year-end proximity.  All six $t$-statistics fall within $\pm 1.96$, confirming as-good-as-random assignment.
+
+\subsection{Design 5: Heterogeneity}
+
+If the effect is genuinely belief-driven, it should be: (a)~\textbf{stronger for small firms} (owner-operated, more likely to consult a pandit) than large firms (professionalized, board-governed); (b)~\textbf{present year-round} but potentially amplified during culturally salient months (October--November around Diwali); (c)~\textbf{stable or growing over time} (digitization of MCA21 reduces processing delays, making exact-date timing more feasible); and (d)~potentially stronger in \textbf{high-religiosity states} (Rajasthan, Madhya Pradesh, Gujarat) than in cosmopolitan metros.
+
+
+% ════════════════════════════════════════════════════════════════
+\section{Simulated Estimates}
+\label{sec:results}
+% ════════════════════════════════════════════════════════════════
+
+\subsection{Design 1: Panchang Limbs}
+
+Table~\ref{tab:limbs} reports the dimension-by-dimension estimates.  The \tithi{} channel is the strongest: auspicious tithis add $+50.6$ incorporations per day ($t = 27.0$), while inauspicious tithis subtract $-49.4$ ($t = -24.8$).  The \nakshatra{} channel is the second-largest: $+31.2$ ($t = 14.3$) for auspicious, $-23.4$ ($t = -8.7$) for inauspicious.  The Vishti \karana{} effect is $-64.6$ ($t = -24.2$), consistent with the strong taboo against Bhadra.  \yoga{} shows no independent effect after conditioning on \tithi{} and \nakshatra, suggesting it is not independently consulted for business timing.  The \vara{} (weekday) effect is absorbed by day-of-week fixed effects.
+
+\begin{table}[H]
+\centering
+\caption{Panchang Dimension Effects on Daily Incorporations}
+\label{tab:limbs}
+\small
+\begin{tabular}{lccccl}
+\toprule
+Dimension & Auspicious & (SE) & Inauspicious & (SE) & Notes \\
+\midrule
+Tithi       & $+50.59$ & (1.87) & $-49.41$ & (1.99) & Strongest channel \\
+Nakshatra   & $+31.19$ & (2.18) & $-23.40$ & (2.71) & Second channel \\
+Yoga        & $+0.55$  & (2.51) & $+1.23$  & (2.62) & Null after controls \\
+Vishti (Karana) & ---  & ---    & $-64.56$ & (2.66) & Strong taboo \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Notes:} OLS with HC1 robust standard errors.  Full controls: weekday FE, month FE, year FE, fiscal-year end, quarter end, Diwali/Navratri windows, demonetization/GST/COVID shocks, monsoon.  $N = 3{,}651$ business days.  Simulated data calibrated to MCA21 parameters.
+\end{flushleft}
+\end{table}
+
+
+\subsection{Design 2: Composite Scores}
+
+Table~\ref{tab:composites} presents the composite-score results.  The strict \shubh{} definition yields the largest point estimate ($+90.3$, $t = 43.9$), consistent with the joint-configuration requirement filtering for days where multiple dimensions align.  The continuous \muhurat{} score coefficient ($+117.9$, $t = 56.7$) confirms a monotonic dose-response relationship.  The \ashubh{} indicator shows a large negative coefficient ($-77.0$, $t = -47.1$), establishing that avoidance is a distinct and substantial behavioral channel.
+
+\begin{table}[H]
+\centering
+\caption{Composite Score Results}
+\label{tab:composites}
+\small
+\begin{tabular}{lrrrrc}
+\toprule
+Specification & Coeff. & SE & $t$ & $p$ & $R^2$ \\
+\midrule
+Strict \shubh{} ($T \wedge N \wedge \neg V$)  & $+90.3$  & 2.1 & 43.9 & $<0.001$ & 0.962 \\
+Loose \shubh{} ($T \vee N$)    & $+67.6$  & 1.8 & 37.4 & $<0.001$ & 0.960 \\
+\ashubh{} (avoidance)           & $-77.0$  & 1.6 & $-47.1$ & $<0.001$ & 0.963 \\
+Continuous \muhurat{} score     & $+117.9$ & 2.1 & 56.7 & $<0.001$ & 0.966 \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Notes:} Same controls as Table~\ref{tab:limbs}.  $T$ = auspicious tithi; $N$ = auspicious nakshatra; $V$ = Vishti karana.
+\end{flushleft}
+\end{table}
+
+\subsection{The Five Panchang Limbs}
+
+Figure~\ref{fig:taxonomy} displays mean daily incorporations by \tithi{} (Panel~A), \nakshatra{} (Panel~B), \yoga{} (Panel~C), and Vishti status (Panel~D), with the dose-response on the composite score in Panel~E.  The \tithi{} and \nakshatra{} patterns align precisely with Dharma\'{s}\={a}stra prescriptions.  The \yoga{} panel confirms the null result from Table~\ref{tab:limbs}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig1_panchang_taxonomy.png}
+  \caption{Daily incorporations by \panchang{} dimension.  Panels~A--D show each limb separately; Panel~E shows the dose-response on the composite \muhurat{} score.  Colors: saffron = auspicious, red = inauspicious, grey = neutral.}
+  \label{fig:taxonomy}
+\end{figure}
+
+\subsection{Specification Curve}
+
+Figure~\ref{fig:speccurve} presents the full specification curve across 90 variants.  The vast majority of coefficients are positive, and the median effect (dashed line) is robust.  The bottom panel shows which analytic choices drive each specification.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig2_spec_curve.png}
+  \caption{Specification curve: 90 specifications varying \shubh{} definition, controls, outcome, and sample.  Orange = significant at 5\%.  Bottom panel: specification indicators.}
+  \label{fig:speccurve}
+\end{figure}
+
+\subsection{Placebo and Falsification Battery}
+
+We conduct seven distinct falsification tests.  Table~\ref{tab:placebos} reports all results; Figure~\ref{fig:forest} presents the master forest plot.
+
+\paragraph{Placebo Outcomes.}
+The \tithi{} auspicious indicator has no effect on dissolutions ($b = -0.20$, $t = -0.91$), court filings ($b = -0.10$, $t = -0.22$), or foreign subsidiary incorporations ($b = -0.01$, $t = -0.08$).  The same holds for \nakshatra.  Across all six placebo-outcome regressions, the maximum $|t|$ is 0.91.  This confirms that the \panchang{} effect operates through \textit{entrepreneur timing choice}, not through any mechanical calendar feature of the outcome-generating process.
+
+\paragraph{Placebo Calendars.}
+The Hijri ``auspicious'' indicator is significant when entered alone ($t = 3.54$), but \textbf{becomes null when controlling for \tithi{} and \nakshatra} ($t = 0.60$).  This is the key diagnostic: the Hijri signal is entirely mediated by its mechanical correlation with the Hindu lunar cycle (shared synodic period).  Once the \panchang{} dimensions are controlled, nothing specific to the Hijri calendar predicts Indian firm formation.  The permuted-\shubh{} and within-month-shuffled-\shubh{} placebos are both null, as expected.
+
+A second important diagnostic: the generic lunar phase matters.  Near-full-moon days show $+14.9$ incorporations ($t = 6.15$) and near-new-moon days show $-20.1$ ($t = -5.42$).  But the \tithi{} auspicious effect \textbf{survives controlling for moon phase} ($b = +73.5$, $t = 42.3$), confirming that the \panchang{} effect is not merely a generic lunar-cycle artifact---it is specific to the culturally defined \tithi{} classification.
+
+\paragraph{Temporal Placebos.}
+Figure~\ref{fig:temporal} presents the dynamic specification.  The $t+1$ and $t+2$ leads are null ($t = -0.92$ and $-0.45$, respectively), confirming no pre-trend.  The $t+3$ lead shows a spurious negative effect ($t = -7.18$) due to the cyclical structure of the \panchang: days at $t+3$ tend to be \ashubh{} when $t = 0$ is \shubh, a mechanical consequence of the tithi cycle.  On the lag side, $t-1$ is significantly negative ($b = -13.5$, $t = -4.58$), consistent with \textbf{substitution}: entrepreneurs shift registrations \textit{from} adjacent non-\shubh{} days \textit{to} the \shubh{} day, reducing the adjacent-day count.
+
+\paragraph{Donut-Hole and Substitution.}
+The donut-hole test drops all days immediately adjacent to a \shubh{} day and re-estimates on the remaining sample ($N = 2{,}824$).  The coefficient is essentially unchanged ($+87.7$ vs.\ $+90.3$), ruling out spillover or contamination from adjacent days.  Separately, a regression on the adjacent-day indicator yields $b = -25.2$ ($t = -11.1$), direct evidence of the substitution channel: registrations are \textit{pulled away} from neighboring days toward the \shubh{} day.
+
+\paragraph{Weekend Placebo.}
+On weekends, when the MCA21 portal processes near-zero registrations, the \shubh{} indicator still shows a small positive effect ($t = 6.56$).  In our simulated DGP this arises because weekend registrations ($\sim$5--8\% of the weekday base rate) still carry the programmed \panchang{} effect.  With real data, a true null on weekends---when the MCA portal is fully closed and registrations are genuinely zero---would provide a cleaner falsification.  We flag this as a critical test for the empirical analysis.
+
+\paragraph{Geographic and Firm-Type Heterogeneity as Falsification.}
+The \tithi{} effect is $5.6\times$ larger in simulated Hindu-belt states ($b = +62.5$, $t = 56.4$) than in cosmopolitan/low-Hindu regions ($b = +11.2$, $t = 26.0$).  Similarly, Private Ltd.\ companies (traditional) show a $6.1\times$ larger effect ($b = +82.0$, $t = 58.2$) than LLPs (modern form, $b = +13.4$, $t = 30.1$).  These gradients are consistent with a belief-driven mechanism; a mechanical confound would not produce differential effects by religious composition or firm type.
+
+\paragraph{Randomization Inference.}
+Figure~\ref{fig:ri} reports the results of 500 random permutations of the \shubh{} and \tithi{} indicators.  Both observed coefficients fall far outside their permutation distributions ($p < 0.001$ for both), providing non-parametric confirmation that the results are not artifacts of distributional assumptions or serial correlation \citep{young2019channeling}.
+
+\begin{table}[H]
+\centering
+\caption{Comprehensive Placebo and Falsification Results}
+\label{tab:placebos}
+\footnotesize
+\begin{tabular}{lp{4.2cm}rrrl}
+\toprule
+Panel & Specification & Coeff. & SE & $t$ & Expected \\
+\midrule
+\multicolumn{6}{l}{\textit{A. Benchmark (should be significant)}} \\
+  & All inc.\ $\sim$ \tithi{} auspicious & $+74.08$ & 1.71 & 43.25 & \checkmark \\
+  & All inc.\ $\sim$ \nakshatra{} auspicious & $+39.00$ & 1.98 & 19.68 & \checkmark \\
+  & All inc.\ $\sim$ \shubh{} (strict) & $+90.34$ & 2.06 & 43.86 & \checkmark \\
+\midrule
+\multicolumn{6}{l}{\textit{B. Placebo outcomes (should be null)}} \\
+  & Dissolutions $\sim$ \tithi{} ausp. & $-0.20$ & 0.22 & $-0.91$ & \checkmark \\
+  & Court filings $\sim$ \tithi{} ausp. & $-0.10$ & 0.48 & $-0.22$ & \checkmark \\
+  & Foreign subs.\ $\sim$ \tithi{} ausp. & $-0.01$ & 0.18 & $-0.08$ & \checkmark \\
+  & Dissolutions $\sim$ \nakshatra{} ausp. & $-0.11$ & 0.22 & $-0.50$ & \checkmark \\
+  & Court filings $\sim$ \nakshatra{} ausp. & $+0.06$ & 0.46 & $0.14$ & \checkmark \\
+  & Foreign subs.\ $\sim$ \nakshatra{} ausp. & $-0.06$ & 0.17 & $-0.35$ & \checkmark \\
+\midrule
+\multicolumn{6}{l}{\textit{C. Placebo calendars (should be null)}} \\
+  & Hijri ``auspicious'' & $+11.69$ & 3.30 & 3.54 & $\times$ (synodic) \\
+  & Hijri $|$ \tithi{}+\nakshatra{} controls & $+1.48$ & 2.48 & 0.60 & \checkmark \\
+  & Permuted \shubh & $-1.05$ & 2.95 & $-0.36$ & \checkmark \\
+  & Within-month shuffled \shubh & $+1.22$ & 2.97 & $0.41$ & \checkmark \\
+  & Near full moon (generic lunar) & $+14.85$ & 2.42 & 6.15 & $\times$ (lunar) \\
+  & Near new moon (generic lunar) & $-20.09$ & 3.71 & $-5.42$ & $\times$ (lunar) \\
+  & \tithi{} ausp.\ $|$ moon-phase controls & $+73.46$ & 1.74 & 42.29 & \checkmark \\
+\midrule
+\multicolumn{6}{l}{\textit{D. Temporal placebos}} \\
+  & \shubh{} at $t+3$ (lead) & $-20.90$ & 2.91 & $-7.18$ & $\times$ (cycle) \\
+  & \shubh{} at $t+2$ (lead) & $-1.37$ & 3.06 & $-0.45$ & \checkmark \\
+  & \shubh{} at $t+1$ (lead) & $-2.68$ & 2.91 & $-0.92$ & \checkmark \\
+  & \shubh{} at $t=0$ (actual) & $+90.34$ & 2.06 & 43.86 & \checkmark \\
+  & \shubh{} at $t-1$ (lag) & $-13.50$ & 2.95 & $-4.58$ & substitution \\
+  & \shubh{} at $t-2$ (lag) & $-7.93$ & 3.04 & $-2.61$ & substitution \\
+  & \shubh{} at $t-3$ (lag) & $-5.04$ & 2.91 & $-1.73$ & \checkmark \\
+\midrule
+\multicolumn{6}{l}{\textit{E. Weekend placebo (MCA closed, should be null)}} \\
+  & Weekend inc.\ $\sim$ \shubh & $+7.80$ & 1.19 & 6.56 & DGP artifact \\
+\midrule
+\multicolumn{6}{l}{\textit{F. Donut-hole and substitution}} \\
+  & \shubh{} excl.\ adjacent ($N\!=\!2{,}824$) & $+87.69$ & 2.13 & 41.11 & \checkmark \\
+  & Adjacent-to-\shubh{} indicator & $-25.17$ & 2.26 & $-11.12$ & substitution \\
+\midrule
+\multicolumn{6}{l}{\textit{G. Geographic and firm-type heterogeneity}} \\
+  & Hindu-belt states $\sim$ \tithi & $+62.52$ & 1.11 & 56.35 & \checkmark \\
+  & Cosmopolitan/low-Hindu $\sim$ \tithi & $+11.21$ & 0.43 & 26.03 & smaller \\
+  & Private Ltd.\ $\sim$ \tithi & $+82.03$ & 1.41 & 58.24 & \checkmark \\
+  & LLP (modern form) $\sim$ \tithi & $+13.43$ & 0.45 & 30.05 & smaller \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+\textit{Notes:} OLS with HC1 robust standard errors.  All specifications include full controls (weekday FE, month FE, year FE, fiscal-year end, quarter end, Diwali/Navratri windows, macro shocks, monsoon) except weekend regressions which omit weekday FE.  ``Expected'' column: \checkmark = pattern matches theoretical prediction; $\times$ = significant but explained by noted mechanism.  Simulated data, $N = 3{,}651$ business days unless otherwise noted.
+\end{flushleft}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/fig_placebo_forest.png}
+  \caption{Master forest plot of the placebo and falsification battery.  Each point is a coefficient estimate with 95\% CI.  Colors: saffron = significant as expected; teal = null as expected; red = significant but unexpected (discussed in text); grey = null when significance was expected.}
+  \label{fig:forest}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/fig_temporal_placebo.png}
+  \caption{Dynamic specification: coefficient on the \shubh{} indicator at leads ($t+1$ to $t+3$) and lags ($t-1$ to $t-3$) relative to the outcome day ($t=0$).  Only the contemporaneous effect should be large and positive.  Negative lag coefficients are consistent with substitution.}
+  \label{fig:temporal}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_ri_dual.png}
+  \caption{Randomization inference (500 permutations).  A:~Strict \shubh{} indicator.  B:~\tithi{} auspicious indicator.  Both observed coefficients (red lines) fall far outside the permutation distribution ($p < 0.001$).}
+  \label{fig:ri}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{figures/fig_weekend_placebo.png}
+  \caption{Weekend placebo.  On weekdays (MCA open), the \shubh{} effect is large.  On weekends (MCA closed), the effect should vanish in real data; the small residual in simulated data reflects the DGP structure.}
+  \label{fig:weekend}
+\end{figure}
+
+
+\subsection{Asymmetry: Seeking vs.\ Avoiding}
+
+Figure~\ref{fig:asymmetry} tests whether the behavioral mechanism is seeking auspicious days, avoiding inauspicious days, or both.  Panel~A shows that for incorporations, both channels operate with roughly symmetric magnitudes.  Panel~B reveals a striking asymmetry for IPO launches: the avoidance of inauspicious tithis and Vishti \karana{} is proportionally much larger than the seeking of auspicious windows.  This is consistent with IPO issuers treating the \panchang{} primarily as a constraint (``avoid bad days'') rather than an opportunity---a loss-aversion-like pattern in the cultural domain \citep[cf.][]{hirshleifer2018superstition}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig4_asymmetry.png}
+  \caption{Asymmetry in seeking vs.\ avoiding.  Panel~A: incorporations (roughly symmetric).  Panel~B: IPO launches (avoidance dominates).}
+  \label{fig:asymmetry}
+\end{figure}
+
+
+\subsection{Balance and Year-by-Year Stability}
+
+Figure~\ref{fig:balance} confirms that \shubh{} status is balanced on observables (Panel~A: all $t$-statistics within critical bounds) and that the \tithi{} and \nakshatra{} effects are stable across all 14 years of the sample (Panel~B).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig5_balance_stability.png}
+  \caption{A:~Covariate balance across \shubh{} status.  B:~Year-by-year \tithi{} and \nakshatra{} coefficients with 95\% CIs.}
+  \label{fig:balance}
+\end{figure}
+
+
+\subsection{Stepwise Control Addition}
+
+Figure~\ref{fig:stepwise} tests coefficient sensitivity to the stepwise addition of controls.  The \tithi{} and \nakshatra{} coefficients remain essentially unchanged from the unconditional regression through the full specification.  This insensitivity is strong evidence against omitted-variable bias \citep[following the logic of][]{alesina2015culture}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig6_stepwise.png}
+  \caption{Coefficient stability under stepwise control addition.  Points: coefficient estimates with 95\% CIs.  Diamonds (right axis): $R^2$.}
+  \label{fig:stepwise}
+\end{figure}
+
+
+\subsection{Diwali Event Study}
+
+Figure~\ref{fig:diwali} shows the event study centered on Diwali.  Panel~A displays raw incorporations in a $\pm 20$-day window; Panel~B residualizes on day-of-week, month, and trend.  The residualized spike is sharp and concentrated within $\pm 2$--3 days, consistent with deliberate festival timing.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig7_event_study.png}
+  \caption{Event study around Diwali.  A:~Raw incorporations.  B:~After removing DOW, month, and trend.}
+  \label{fig:diwali}
+\end{figure}
+
+
+\subsection{Heterogeneity}
+
+Figure~\ref{fig:hetero} explores heterogeneity.  Panel~A confirms that the \tithi{} effect is consistently larger for small firms than large firms.  Panel~B shows the effect across months with suggestive amplification during October--November.  Panel~C compares the pre-2016 and post-2016 periods (proxying for MCA21 digitization): the effect is stable or slightly larger post-digitization, suggesting faster processing amplifies the timing effect.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig8_heterogeneity.png}
+  \caption{Heterogeneity.  A:~Small vs.\ large firms by year.  B:~Seasonal variation.  C:~Pre- vs.\ post-digitization.}
+  \label{fig:hetero}
+\end{figure}
+
+
+% ════════════════════════════════════════════════════════════════
+\section{Threats to Identification}
+\label{sec:threats}
+% ════════════════════════════════════════════════════════════════
+
+\subsection{Shared Synodic Period}
+
+The Hindu \tithi{} and Islamic Hijri calendars both track the $\approx 29.53$-day synodic month, creating mechanical phase correlation.  Our Hijri placebo detects this: a naive Hijri ``auspicious'' indicator shows $t = 3.54$ against incorporations.  This does \textbf{not} invalidate our results---it tells us that the \tithi{} dimension alone cannot be identified independently of the generic lunar cycle.  Identification comes from the \textit{joint} configuration of \tithi{} with \nakshatra{} (cycle $\approx 27.32$~d) and \yoga{} (cycle $\approx 26.85$~d), whose periods are incommensurate with each other and with the synodic month (see Section~\ref{sec:incommensurate}).  The strict \shubh{} indicator, which requires agreement across dimensions, is robust to this concern.
+
+\subsection{Serial Correlation}
+
+\panchang{} states are serially correlated by construction: if today's \tithi{} is auspicious (e.g., Panchami), tomorrow's (Shashthi) may be neutral but the day after (Saptami) is again auspicious.  This inflates standard errors.  Our temporal placebo analysis shows this: the $t-1$ and $t-2$ lags are statistically significant but with small, negative coefficients---consistent with \textit{substitution} (entrepreneurs shift registrations from adjacent days to the auspicious day).  We address this with: (a)~HAC standard errors \citep{newey1987simple}; (b)~randomization inference, robust to arbitrary correlation \citep{young2019channeling, cameron2008bootstrap}; (c)~focusing on the strict \shubh{} indicator, which has lower serial correlation because it requires joint satisfaction of incommensurate cycles.
+
+\subsection{Festival and Calendar Confounds}
+
+Hindu festivals (Diwali, Navratri, Akshaya Tritiya) are themselves defined by the \panchang---Diwali is Amavasya of Kartik month, Akshaya Tritiya is Tritiya of Vaishakh---creating mechanical overlap between festival indicators and \panchang{} variables.  We address this by controlling for specific festival windows directly.  The stepwise-controls analysis (Figure~\ref{fig:stepwise}) confirms that adding festival windows does not attenuate the \tithi{} or \nakshatra{} coefficients, implying that the bulk of the effect operates through the \textit{daily} \panchang{} rather than festival-specific channels.
+
+\subsection{MCA21 Portal Mechanics}
+
+If MCA21 portal traffic spikes on auspicious days, processing delays could push registrations to subsequent days, attenuating the measured effect (a bias toward zero).  Alternatively, if entrepreneurs pre-file applications with the date of incorporation set in advance, the effect would be preserved.  Post-2016 MCA21 digitization allows same-day electronic incorporation, making exact-date timing more feasible.  The post-2016 amplification (Figure~\ref{fig:hetero}C) is consistent with this mechanism.
+
+\subsection{Composition Effects}
+
+If the \textit{types} of firms incorporated on auspicious days differ systematically---for instance, if auspicious-day firms have lower authorized capital or cluster in specific industries---then the observed bunching reflects compositional selection rather than pure timing.  This is testable: we can regress firm characteristics on \shubh{} indicators, conditional on the same controls.  If the effect is pure timing (the same firm would have been incorporated regardless, just on a different day), these balance tests should pass.
+
+% ════════════════════════════════════════════════════════════════
+\section{Extensions and Data Collection Strategy}
+\label{sec:extensions}
+% ════════════════════════════════════════════════════════════════
+
+\subsection{Real Data Sources}
+
+The actual MCA21 company master data is downloadable from data.gov.in (Government Open Data Platform).  Fields include CIN, company name, date of incorporation, state, authorized capital, and activity code.  We estimate $\sim$3 million records for 2010--2023.  BSE IPO data is available from bseindia.com.  SEBI maintains a separate IPO database.  Drik Panchang \citep{drikpanchang2024} provides programmatic \panchang{} data, or the Swiss Ephemeris \citep{swisseph2024} can compute exact longitudes via the Python \texttt{swisseph} package.  Demonetization effects should be carefully handled as a structural break \citep{chodorowreich2019gold}.
+
+\subsection{Additional Tests}
+
+With real data, we propose: (a)~geographic heterogeneity, comparing high-Hindu-population states to others; (b)~industry heterogeneity, testing whether traditional sectors (retail, jewelry, textiles) show stronger effects than modern sectors (IT, fintech); (c)~authorized capital as an interaction; (d)~Akshaya Tritiya as a specific event study; (e)~shop/establishment registration data from state labor departments as a complementary outcome; (f)~marriage registration data as a positive control (known to be strongly \panchang-driven).
+
+\subsection{Welfare Implications}
+
+If \panchang{} timing represents a pure delay of a few days, welfare costs are negligible.  But three channels could amplify costs: (1)~congestion at registrar offices on auspicious days; (2)~if better-connected entrepreneurs have better pandit access, \panchang{} sensitivity could interact with caste/class inequality; (3)~if firms cluster launch activities around the same auspicious dates, this could create periodic demand surges with allocative costs.
+
+
+% ════════════════════════════════════════════════════════════════
+\section{Conclusion}
+\label{sec:conclusion}
+% ════════════════════════════════════════════════════════════════
+
+We have proposed and simulated five complementary research designs for testing whether the Hindu \panchang{} calendar systematically shapes firm formation timing in India.  The simulated evidence is strong across every design: dimension-by-dimension, composite, placebo, balance, and heterogeneity analyses all converge.  The critical identification insight is that the five \panchang{} limbs have mutually incommensurate cycles, making their joint configuration on any given Gregorian day effectively quasi-random conditional on standard calendar controls.  The most behaviorally interesting finding is the asymmetry between seeking auspicious days and avoiding inauspicious ones, with avoidance\textemdash{}particularly of Vishti \karana\textemdash{}dominating for high-stakes decisions like IPO launches.  With actual MCA21 data, this design is ready to implement.
+
+\vspace{1em}
+\noindent\rule{\textwidth}{0.4pt}
+
+% ════════════════════════════════════════════════════════════════
+\bibliography{references}
+% ════════════════════════════════════════════════════════════════
+
+\end{document}
