@@ -5,7 +5,7 @@ source("scripts/00_setup.R")
 
 companies <- read_parquet(file.path(PATH_DATA, "companies_clean.parquet"))
 panchang <- read_csv(CONFIG$panchang_path, show_col_types = FALSE)
-holidays <- read_csv(file.path(PATH_DATA, "holidays.csv"), show_col_types = FALSE)
+holidays <- read_csv(file.path(PATH_DATA, "holidays_official.csv"), show_col_types = FALSE)
 
 n_no_roc <- sum(is.na(companies$roc))
 message("Companies without a registrar, dropped: ", n_no_roc)
@@ -39,18 +39,28 @@ message("Weekday+Saturday registrations kept: ", sum(panel$n_all),
         sum(wday(companies$date, week_start = 1) == 7))
 
 # --- Closures -----------------------------------------------------------------
-# Two independent sources. Listed: the jurisdiction's public holidays (state calendar before
-# the CRC, central after). Detected: a registrar that normally approves at least ten a day
-# approving fewer than a tenth of its weekly median, or the whole country doing so.
+# Which days were holidays comes from DoPT's annual memoranda (scripts/build_holidays.py):
+# 14 compulsory holidays for every central office, Delhi's 3 further choices, and the 12
+# optional occasions from which each state's coordination committee picked 3 (not published
+# centrally). Whether a registrar actually stopped approving comes from the registry: under a
+# tenth of its weekly median, for registrars averaging at least ten a day, or the whole
+# country under a tenth of its weekly median. The central registry (from March 2016) often
+# approved on gazetted holidays, so a holiday on the list is not by itself a closure.
+#
+# Excluded registrar-weekdays:
+#   - holiday, closed: a listed holiday (or the day next to a movable one: Islamic holidays
+#     by moon sighting, Deepavali on Naraka Chaturdasi) on which the registrar shut;
+#   - holiday, undetectable: a listed holiday at a registrar too small to show a shut-down;
+#   - national shut-down: the whole country shut on a day not on the list (portal outages);
+#   - unexplained shut-down: one registrar shut on a day not on the list (listed in
+#     data/closures_unexplained.csv).
+# Listed holidays on which the registrar worked are kept, with an indicator.
 panel <- panel %>%
+  filter(date >= OFFICIAL_CALENDAR_START) %>%
   mutate(
     week = floor_date(date, "week", week_start = 1),
-    post_crc = date >= CRC_DATE,
-    cal = if_else(post_crc, "NATIONAL", roc)
-  ) %>%
-  left_join(holidays %>% distinct(roc, date, .keep_all = TRUE) %>%
-              rename(cal = roc), by = c("cal", "date")) %>%
-  mutate(holiday_listed = !is.na(holiday))
+    post_crc = date >= CRC_DATE
+  )
 
 weekdays_only <- filter(panel, weekday <= 5)
 national <- weekdays_only %>%
@@ -60,17 +70,41 @@ national <- weekdays_only %>%
   mutate(nat_rel = n_nat / median(n_nat)) %>%
   ungroup()
 
+compulsory <- filter(holidays, kind == "compulsory")
+navratri_first <- panchang %>%
+  mutate(date = as.Date(date)) %>%
+  filter(navratri == 1, lag(navratri, default = 0) == 0) %>%
+  transmute(date, holiday = "1st Navratra", kind = "optional", group = "vishu group",
+            movable = FALSE)
+listed <- bind_rows(holidays, navratri_first)
+movable <- compulsory %>% filter(movable) %>% pull(date)
+
 panel <- panel %>%
   group_by(roc, week) %>%
   mutate(roc_med = median(n_all[weekday <= 5])) %>%
   ungroup() %>%
   left_join(select(national, date, nat_rel), by = "date") %>%
   mutate(
-    closed_national = weekday <= 5 & nat_rel < 0.1,
-    closed_roc = weekday <= 5 & !post_crc & roc_med >= 10 & n_all < 0.1 * roc_med,
-    closure_detected = closed_national | closed_roc,
-    closed = holiday_listed | closure_detected
+    detectable = weekday <= 5 & (post_crc | roc_med >= 10),
+    shut_national = weekday <= 5 & nat_rel < 0.1,
+    shut = shut_national | (weekday <= 5 & !post_crc & roc_med >= 10 & n_all < 0.1 * roc_med),
+    holiday_listed = date %in% listed$date |
+      ((date + 1) %in% movable | (date - 1) %in% movable),
+    closure_type = case_when(
+      weekday > 5 ~ "saturday",
+      holiday_listed & shut ~ "holiday, closed",
+      holiday_listed & !detectable ~ "holiday, undetectable",
+      holiday_listed ~ "holiday, open",
+      shut_national ~ "national shut-down",
+      shut ~ "unexplained shut-down",
+      TRUE ~ "ordinary day"
+    ),
+    closed = closure_type %in% c("holiday, closed", "holiday, undetectable",
+                                 "national shut-down", "unexplained shut-down"),
+    holiday_open = closure_type == "holiday, open",
+    closure_detected = shut
   )
+print(count(filter(panel, weekday <= 5), closure_type))
 
 # Disrupted weeks: whole weeks far below trend, from regime changes (Companies Act 2013 forms
 # in April 2014, the CRC take-over in March 2016) and portal outages. A within-week median
@@ -115,38 +149,36 @@ write_parquet(panel, file.path(PATH_DATA, "roc_panel.parquet"))
 message("Saved roc_panel.parquet: ", nrow(panel), " ROC-days, ",
         n_distinct(panel$roc), " registrars")
 
-# --- Agreement between the two closure sources --------------------------------
-# Only where a closure is detectable: weekdays at registrars averaging ten or more a day,
-# or any weekday for national closures.
-detectable <- panel %>%
-  filter(weekday <= 5, post_crc | roc_med >= 10)
-agree <- detectable %>%
-  count(holiday_listed, closure_detected) %>%
-  mutate(share = n / sum(n))
-print(agree)
-detected_unlisted <- detectable %>%
-  filter(closure_detected, !holiday_listed) %>%
-  distinct(date, .keep_all = TRUE)
-listed_open <- detectable %>%
-  filter(holiday_listed, !closure_detected) %>%
-  count(holiday, sort = TRUE)
-write_csv(detected_unlisted %>% select(roc, date, n_all, roc_med, nat_rel),
-          file.path(PATH_DATA, "closures_detected_unlisted.csv"))
-write_csv(listed_open, file.path(PATH_DATA, "holidays_listed_but_open.csv"))
+# --- How well the official calendar explains the shut-downs ------------------------
+det <- filter(panel, detectable)
+compulsory_days <- det$date %in% compulsory$date
+pre <- !det$post_crc
+compulsory_shut_pre <- mean(det$shut[compulsory_days & pre])
+compulsory_shut_post <- mean(det$shut[compulsory_days & !pre])
+shut_listed <- with(det, mean(holiday_listed[shut & !shut_national]))
+unexplained <- panel %>%
+  filter(closure_type == "unexplained shut-down") %>%
+  select(roc, date, n_all, roc_med, nat_rel)
+write_csv(unexplained, file.path(PATH_DATA, "closures_unexplained.csv"))
+message("Compulsory holidays shut where detectable, before / after CRC: ",
+        round(100 * compulsory_shut_pre, 1), "% / ", round(100 * compulsory_shut_post, 1), "%")
+message("Registrar shut-downs (not national) on a listed holiday: ", round(100 * shut_listed, 1),
+        "%")
 
-closure_tab <- agree %>%
-  mutate(
-    holiday_listed = if_else(holiday_listed, "Listed holiday", "Not listed"),
-    closure_detected = if_else(closure_detected, "Closed", "Open")
-  )
+types <- count(filter(panel, weekday <= 5), closure_type)
+type_n <- function(x) fmt_int(sum(types$n[types$closure_type == x]))
 write_numbers(c(
   NCompanies = fmt_int(nrow(companies) + n_no_roc),
   NNoRoc = fmt_int(n_no_roc),
   NRocs = n_distinct(panel$roc),
   NBusinessDays = fmt_int(n_distinct(panel$date[panel$weekday <= 5])),
   NDisruptedWeeks = sum(disrupted$disrupted_week),
-  ShareClosedListedAgree = fmt_pct(
-    with(detectable, mean(holiday_listed[closure_detected])), 0),
-  ShareListedClosed = fmt_pct(
-    with(detectable, mean(closure_detected[holiday_listed])), 0)
+  ShareCompulsoryShutPre = fmt_pct(compulsory_shut_pre, 0),
+  ShareCompulsoryShutPost = fmt_pct(compulsory_shut_post, 0),
+  ShareShutListed = fmt_pct(shut_listed, 0),
+  NHolidayClosed = type_n("holiday, closed"),
+  NHolidayUndetectable = type_n("holiday, undetectable"),
+  NHolidayOpen = type_n("holiday, open"),
+  NNationalShut = type_n("national shut-down"),
+  NUnexplainedShut = type_n("unexplained shut-down")
 ), "numbers_panel.tex")

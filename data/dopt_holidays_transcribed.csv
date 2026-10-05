@@ -1,0 +1,659 @@
+year,annexure,row,holiday,date,weekday_printed
+2008,I,1,Muharram,2008-01-19,Saturday
+2008,I,2,Republic Day,2008-01-26,Saturday
+2008,I,3,Maha Shivaratri,2008-03-06,Thursday
+2008,I,4,Milad-Un-Nabi,2008-03-21,Friday
+2008,I,5,Good Friday,2008-03-21,Friday
+2008,I,6,Holi,2008-03-22,Saturday
+2008,I,7,Ram Navami,2008-04-14,Monday
+2008,I,8,Mahavir Jayanti,2008-04-18,Friday
+2008,I,9,Buddha Purnima,2008-05-20,Tuesday
+2008,I,10,Independence Day,2008-08-15,Friday
+2008,I,11,Mahatma Gandhi's Birthday,2008-10-02,Thursday
+2008,I,12,Idu'l Fitr,2008-10-02,Thursday
+2008,I,13,Dussehra (Vijaya Dashami),2008-10-09,Thursday
+2008,I,14,Diwali (Deepavali),2008-10-28,Tuesday
+2008,I,15,Guru Nanak's Birthday,2008-11-13,Thursday
+2008,I,16,Idu'l Zuha (Bakrid),2008-12-09,Tuesday
+2008,I,17,Christmas Day,2008-12-25,Thursday
+2008,II,1,New Year Day,2008-01-01,Tuesday
+2008,II,2,Guru Govind Singh's Birthday,2008-01-05,Saturday
+2008,II,3,Makar Sankranti (N. India),2008-01-14,Monday
+2008,II,4,Makar Sankranti (Bengal),2008-01-15,Tuesday
+2008,II,5,Pongal,2008-01-15,Tuesday
+2008,II,6,Basanta Panchami / Sri Panchami,2008-02-11,Monday
+2008,II,7,Shivaji Jayanti,2008-02-19,Tuesday
+2008,II,8,Guru Ravidas' Birthday,2008-02-21,Thursday
+2008,II,9,Swami Dayanand Saraswati Jayanti,2008-03-02,Sunday
+2008,II,10,Holika Dahan,2008-03-21,Friday
+2008,II,11,Easter Sunday,2008-03-23,Sunday
+2008,II,12,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2008-04-07,Monday
+2008,II,13,Vaisakhi,2008-04-13,Sunday
+2008,II,14,Vishu,2008-04-13,Sunday
+2008,II,15,Mesadi,2008-04-14,Monday
+2008,II,16,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2008-04-14,Monday
+2008,II,17,Rabindranath's Birthday,2008-05-08,Thursday
+2008,II,18,Rath Yatra,2008-07-04,Friday
+2008,II,19,Hazarat Ali's Birthday,2008-07-07,Thursday
+2008,II,20,Raksha Bandhan,2008-08-16,Saturday
+2008,II,21,Parsi New Year,2008-08-19,Tuesday
+2008,II,22,Janmashtami,2008-08-24,Sunday
+2008,II,23,Ganesh Chaturthi / Vinayaka Chaturthi,2008-09-03,Wednesday
+2008,II,24,Onam,2008-09-12,Friday
+2008,II,25,Jamat-Ul-Vida,2008-09-26,Friday
+2008,II,26,Dussehra (Maha Saptami) (Additional),2008-10-06,Monday
+2008,II,27,Dussehra (Maha Ashtami) (Additional),2008-10-07,Tuesday
+2008,II,28,Dussehra (Maha Navami),2008-10-08,Wednesday
+2008,II,29,Maharishi Valmiki's Birthday,2008-10-14,Tuesday
+2008,II,30,Deepavali (South India),2008-10-27,Monday
+2008,II,31,Naraka Chaturdasi,2008-10-27,Monday
+2008,II,32,Govardhan Puja,2008-10-29,Wednesday
+2008,II,33,Bhai Duj,2008-10-30,Thursday
+2008,II,34,Guru Teg Bahadur's Martyrdom Day,2008-11-24,Monday
+2008,II,35,Christmas Eve,2008-12-24,Wednesday
+2009,I,1,Muharram,2009-01-08,Thursday
+2009,I,2,Republic Day,2009-01-26,Monday
+2009,I,3,Milad-Un-Nabi,2009-03-10,Tuesday
+2009,I,4,Holi,2009-03-11,Wednesday
+2009,I,5,Ram Navami,2009-04-03,Friday
+2009,I,6,Mahavir Jayanti,2009-04-07,Tuesday
+2009,I,7,Good Friday,2009-04-10,Friday
+2009,I,8,Buddha Purnima,2009-05-09,Saturday
+2009,I,9,Janmashtami,2009-08-14,Friday
+2009,I,10,Independence Day,2009-08-15,Saturday
+2009,I,11,Idu'l Fitr,2009-09-21,Monday
+2009,I,12,Dussehra (Vijaya Dashami),2009-09-28,Monday
+2009,I,13,Mahatma Gandhi's Birthday,2009-10-02,Friday
+2009,I,14,Diwali (Deepavali),2009-10-17,Saturday
+2009,I,15,Guru Nanak's Birthday,2009-11-02,Monday
+2009,I,16,Idu'l Zuha (Bakrid),2009-11-28,Saturday
+2009,I,17,Christmas Day,2009-12-25,Friday
+2009,I,18,Muharram,2009-12-28,Monday
+2009,II,1,New Year Day,2009-01-01,Thursday
+2009,II,2,Guru Govind Singh's Birthday,2009-01-05,Monday
+2009,II,3,Makar Sankranti (N. India),2009-01-13,Tuesday
+2009,II,4,Makar Sankranti (Bengal),2009-01-14,Wednesday
+2009,II,5,Pongal,2009-01-14,Wednesday
+2009,II,6,Basanta Panchami / Sri Panchami,2009-01-31,Saturday
+2009,II,7,Guru Ravidas' Birthday,2009-02-09,Monday
+2009,II,8,Shivaji Jayanti,2009-02-19,Thursday
+2009,II,9,Swami Dayanand Saraswati Jayanti,2009-02-19,Thursday
+2009,II,10,Maha Shivaratri,2009-02-23,Monday
+2009,II,11,Holika Dahan,2009-03-10,Tuesday
+2009,II,12,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2009-03-27,Friday
+2009,II,13,Easter Sunday,2009-04-12,Sunday
+2009,II,14,Vaisakhi,2009-04-13,Monday
+2009,II,15,Vishu,2009-04-13,Monday
+2009,II,16,Mesadi,2009-04-14,Tuesday
+2009,II,17,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2009-04-15,Wednesday
+2009,II,18,Rabindranath's Birthday,2009-05-09,Saturday
+2009,II,19,Rath Yatra,2009-06-24,Wednesday
+2009,II,20,Hazarat Ali's Birthday,2009-07-07,Tuesday
+2009,II,21,Raksha Bandhan,2009-08-05,Wednesday
+2009,II,22,Parsi New Year,2009-08-19,Wednesday
+2009,II,23,Ganesh Chaturthi / Vinayaka Chaturthi,2009-08-23,Sunday
+2009,II,24,Onam,2009-09-02,Wednesday
+2009,II,25,Jamat-Ul-Vida,2009-09-18,Friday
+2009,II,26,Dussehra (Maha Saptami) (Additional),2009-09-25,Friday
+2009,II,27,Dussehra (Maha Ashtami) (Additional),2009-09-26,Saturday
+2009,II,28,Dussehra (Maha Navami),2009-09-27,Sunday
+2009,II,29,Maharishi Valmiki's Birthday,2009-10-04,Sunday
+2009,II,30,Deepavali (South India),2009-10-17,Saturday
+2009,II,31,Naraka Chaturdasi,2009-10-17,Saturday
+2009,II,32,Govardhan Puja,2009-10-18,Sunday
+2009,II,33,Bhai Duj,2009-10-19,Monday
+2009,II,34,Guru Teg Bahadur's Martyrdom Day,2009-11-24,Tuesday
+2009,II,35,Christmas Eve,2009-12-24,Thursday
+2010,I,1,Republic Day,2010-01-26,Tuesday
+2010,I,2,Milad-Un-Nabi,2010-02-27,Saturday
+2010,I,3,Holi,2010-03-01,Monday
+2010,I,4,Ram Navami,2010-03-24,Wednesday
+2010,I,5,Mahavir Jayanti,2010-03-28,Sunday
+2010,I,6,Good Friday,2010-04-02,Friday
+2010,I,7,Buddha Purnima,2010-05-27,Thursday
+2010,I,8,Independence Day,2010-08-15,Sunday
+2010,I,9,Janmashtami,2010-09-02,Thursday
+2010,I,10,Idu'l Fitr,2010-09-11,Saturday
+2010,I,11,Mahatma Gandhi's Birthday,2010-10-02,Saturday
+2010,I,12,Dussehra (Vijaya Dashami),2010-10-17,Sunday
+2010,I,13,Diwali (Deepavali),2010-11-05,Friday
+2010,I,14,Idu'l Zuha (Bakrid),2010-11-17,Wednesday
+2010,I,15,Guru Nanak's Birthday,2010-11-21,Sunday
+2010,I,16,Muharram,2010-12-17,Friday
+2010,I,17,Christmas Day,2010-12-25,Saturday
+2010,II,1,New Year Day,2010-01-01,Friday
+2010,II,2,Guru Govind Singh's Birthday,2010-01-05,Tuesday
+2010,II,3,Makar Sankranti,2010-01-14,Thursday
+2010,II,4,Pongal,2010-01-14,Thursday
+2010,II,5,Basanta Panchami / Sri Panchami,2010-01-20,Wednesday
+2010,II,6,Guru Ravidas' Birthday,2010-01-30,Saturday
+2010,II,7,Swami Dayanand Saraswati Jayanti,2010-02-08,Monday
+2010,II,8,Maha Shivaratri,2010-02-12,Friday
+2010,II,9,Shivaji Jayanti,2010-02-19,Friday
+2010,II,10,Holika Dahan,2010-02-28,Sunday
+2010,II,11,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2010-03-16,Tuesday
+2010,II,12,Easter Sunday,2010-04-04,Sunday
+2010,II,13,Vaisakhi,2010-04-14,Wednesday
+2010,II,14,Vishu,2010-04-14,Wednesday
+2010,II,15,Mesadi,2010-04-14,Wednesday
+2010,II,16,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2010-04-15,Thursday
+2010,II,17,Rabindranath's Birthday,2010-05-09,Sunday
+2010,II,18,Hazarat Ali's Birthday,2010-06-26,Saturday
+2010,II,19,Rath Yatra,2010-07-13,Tuesday
+2010,II,20,Parsi New Year,2010-08-19,Thursday
+2010,II,21,Onam,2010-08-23,Monday
+2010,II,22,Raksha Bandhan,2010-08-24,Tuesday
+2010,II,23,Jamat-Ul-Vida,2010-09-10,Friday
+2010,II,24,Ganesh Chaturthi / Vinayaka Chaturthi,2010-09-11,Saturday
+2010,II,25,Dussehra (Maha Saptami) (Additional),2010-10-14,Thursday
+2010,II,26,Dussehra (Maha Ashtami) (Additional),2010-10-15,Friday
+2010,II,27,Dussehra (Maha Navami),2010-10-16,Saturday
+2010,II,28,Maharishi Valmiki's Birthday,2010-10-22,Friday
+2010,II,29,Deepavali (South India),2010-11-05,Friday
+2010,II,30,Naraka Chaturdasi,2010-11-05,Friday
+2010,II,31,Govardhan Puja,2010-11-06,Saturday
+2010,II,32,Bhai Duj,2010-11-07,Sunday
+2010,II,33,Guru Teg Bahadur's Martyrdom Day,2010-11-24,Wednesday
+2010,II,34,Christmas Eve,2010-12-24,Friday
+2011,I,1,Republic Day,2011-01-26,Wednesday
+2011,I,2,Milad-Un-Nabi,2011-02-16,Wednesday
+2011,I,3,Maha Shivaratri,2011-03-02,Wednesday
+2011,I,4,Ram Navami,2011-04-12,Tuesday
+2011,I,5,Mahavir Jayanti,2011-04-16,Saturday
+2011,I,6,Good Friday,2011-04-22,Friday
+2011,I,7,Buddha Purnima,2011-05-17,Tuesday
+2011,I,8,Independence Day,2011-08-15,Monday
+2011,I,9,Janmashtami,2011-08-22,Monday
+2011,I,10,Idu'l Fitr,2011-08-31,Wednesday
+2011,I,11,Mahatma Gandhi's Birthday,2011-10-02,Sunday
+2011,I,12,Dussehra (Vijaya Dashami),2011-10-06,Thursday
+2011,I,13,Diwali (Deepavali),2011-10-26,Wednesday
+2011,I,14,Idu'l Zuha (Bakrid),2011-11-07,Monday
+2011,I,15,Guru Nanak's Birthday,2011-11-10,Thursday
+2011,I,16,Muharram,2011-12-06,Tuesday
+2011,I,17,Christmas Day,2011-12-25,Sunday
+2011,II,1,New Year Day,2011-01-01,Saturday
+2011,II,2,Guru Govind Singh's Birthday,2011-01-05,Wednesday
+2011,II,3,Makar Sankranti,2011-01-14,Friday
+2011,II,4,Pongal,2011-01-15,Saturday
+2011,II,5,Basanta Panchami / Sri Panchami,2011-02-08,Tuesday
+2011,II,6,Guru Ravidas' Birthday,2011-02-18,Friday
+2011,II,7,Shivaji Jayanti,2011-02-19,Saturday
+2011,II,8,Swami Dayanand Saraswati Jayanti,2011-02-27,Sunday
+2011,II,9,Holika Dahan,2011-03-19,Saturday
+2011,II,10,Holi,2011-03-20,Sunday
+2011,II,11,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2011-04-04,Monday
+2011,II,12,Vaisakhi,2011-04-14,Thursday
+2011,II,13,Vishu,2011-04-14,Thursday
+2011,II,14,Mesadi,2011-04-14,Thursday
+2011,II,15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2011-04-15,Friday
+2011,II,16,Easter Sunday,2011-04-24,Sunday
+2011,II,17,Rabindranath's Birthday,2011-05-09,Monday
+2011,II,18,Hazarat Ali's Birthday,2011-06-16,Thursday
+2011,II,19,Rath Yatra,2011-07-03,Sunday
+2011,II,20,Raksha Bandhan,2011-08-13,Saturday
+2011,II,21,Parsi New Year,2011-08-19,Friday
+2011,II,22,Jamat-Ul-Vida,2011-08-26,Friday
+2011,II,23,Ganesh Chaturthi / Vinayaka Chaturthi,2011-09-01,Thursday
+2011,II,24,Onam,2011-09-09,Friday
+2011,II,25,Dussehra (Maha Saptami) (Additional),2011-10-03,Monday
+2011,II,26,Dussehra (Maha Ashtami) (Additional),2011-10-04,Tuesday
+2011,II,27,Dussehra (Maha Navami),2011-10-05,Wednesday
+2011,II,28,Maharishi Valmiki's Birthday,2011-10-11,Tuesday
+2011,II,29,Deepavali (South India),2011-10-26,Wednesday
+2011,II,30,Naraka Chaturdasi,2011-10-26,Wednesday
+2011,II,31,Govardhan Puja,2011-10-27,Thursday
+2011,II,32,Bhai Duj,2011-10-28,Friday
+2011,II,33,Chhath Puja,2011-11-01,Tuesday
+2011,II,34,Guru Teg Bahadur's Martyrdom Day,2011-11-24,Thursday
+2011,II,35,Christmas Eve,2011-12-24,Saturday
+2012,I,1,Republic Day,2012-01-26,Thursday
+2012,I,2,Milad-Un-Nabi,2012-02-05,Sunday
+2012,I,3,Maha Shivaratri,2012-02-20,Monday
+2012,I,4,Holi,2012-03-08,Thursday
+2012,I,5,Mahavir Jayanti,2012-04-05,Thursday
+2012,I,6,Good Friday,2012-04-06,Friday
+2012,I,7,Buddha Purnima,2012-05-06,Sunday
+2012,I,8,Janmashtami,2012-08-10,Friday
+2012,I,9,Independence Day,2012-08-15,Wednesday
+2012,I,10,Idu'l Fitr,2012-08-20,Monday
+2012,I,11,Mahatma Gandhi's Birthday,2012-10-02,Tuesday
+2012,I,12,Dussehra (Vijaya Dashami),2012-10-24,Wednesday
+2012,I,13,Idu'l Zuha (Bakrid),2012-10-27,Saturday
+2012,I,14,Diwali (Deepavali),2012-11-13,Tuesday
+2012,I,15,Muharram,2012-11-25,Sunday
+2012,I,16,Guru Nanak's Birthday,2012-11-28,Wednesday
+2012,I,17,Christmas Day,2012-12-25,Tuesday
+2012,II,1,New Year Day,2012-01-01,Sunday
+2012,II,2,Makar Sankranti,2012-01-14,Saturday
+2012,II,3,Pongal,2012-01-15,Sunday
+2012,II,4,Basanta Panchami / Sri Panchami,2012-01-28,Saturday
+2012,II,5,Guru Ravidas' Birthday,2012-02-07,Tuesday
+2012,II,6,Swami Dayanand Saraswati Jayanti,2012-02-16,Thursday
+2012,II,7,Shivaji Jayanti,2012-02-19,Sunday
+2012,II,8,Holika Dahan,2012-03-07,Wednesday
+2012,II,9,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2012-03-23,Friday
+2012,II,10,Ram Navami,2012-04-01,Sunday
+2012,II,11,Easter Sunday,2012-04-08,Sunday
+2012,II,12,Vaisakhi,2012-04-13,Friday
+2012,II,13,Vishu,2012-04-13,Friday
+2012,II,14,Mesadi,2012-04-14,Saturday
+2012,II,15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2012-04-14,Saturday
+2012,II,16,Rabindranath's Birthday,2012-05-08,Tuesday
+2012,II,17,Hazarat Ali's Birthday,2012-06-04,Monday
+2012,II,18,Rath Yatra,2012-06-21,Thursday
+2012,II,19,Raksha Bandhan,2012-08-02,Thursday
+2012,II,20,Jamat-Ul-Vida,2012-08-17,Friday
+2012,II,21,Parsi New Year,2012-08-18,Saturday
+2012,II,22,Vinayaka Chaturthi,2012-08-21,Tuesday
+2012,II,23,Onam,2012-08-29,Wednesday
+2012,II,24,Ganesh Chaturthi,2012-09-19,Wednesday
+2012,II,25,Dussehra (Maha Saptami) (Additional),2012-10-21,Sunday
+2012,II,26,Dussehra (Maha Ashtami) (Additional),2012-10-22,Monday
+2012,II,27,Dussehra (Maha Navami),2012-10-23,Tuesday
+2012,II,28,Maharishi Valmiki's Birthday,2012-10-29,Monday
+2012,II,29,Karva Chauth,2012-11-02,Friday
+2012,II,30,Naraka Chaturdasi,2012-11-12,Monday
+2012,II,31,Deepavali (South India),2012-11-13,Tuesday
+2012,II,32,Govardhan Puja,2012-11-14,Wednesday
+2012,II,33,Bhai Duj,2012-11-15,Thursday
+2012,II,34,Chhath Puja,2012-11-19,Monday
+2012,II,35,Guru Teg Bahadur's Martyrdom Day,2012-11-24,Saturday
+2012,II,36,Christmas Eve,2012-12-24,Monday
+2013,I,1,Milad-Un-Nabi,2013-01-25,Friday
+2013,I,2,Republic Day,2013-01-26,Saturday
+2013,I,3,Holi,2013-03-27,Wednesday
+2013,I,4,Good Friday,2013-03-29,Friday
+2013,I,5,Ram Navami,2013-04-19,Friday
+2013,I,6,Mahavir Jayanti,2013-04-24,Wednesday
+2013,I,7,Buddha Purnima,2013-05-25,Saturday
+2013,I,8,Idu'l Fitr,2013-08-09,Friday
+2013,I,9,Independence Day,2013-08-15,Thursday
+2013,I,10,Janmashtami,2013-08-28,Wednesday
+2013,I,11,Mahatma Gandhi's Birthday,2013-10-02,Wednesday
+2013,I,12,Dussehra (Vijaya Dashami),2013-10-13,Sunday
+2013,I,13,Idu'l Zuha (Bakrid),2013-10-16,Wednesday
+2013,I,14,Diwali (Deepavali),2013-11-03,Sunday
+2013,I,15,Muharram,2013-11-14,Thursday
+2013,I,16,Guru Nanak's Birthday,2013-11-17,Sunday
+2013,I,17,Christmas Day,2013-12-25,Wednesday
+2013,II,1,New Year Day,2013-01-01,Tuesday
+2013,II,2,Makar Sankranti,2013-01-13,Sunday
+2013,II,3,Pongal,2013-01-14,Monday
+2013,II,4,Guru Govind Singh's Birthday,2013-01-18,Friday
+2013,II,5,Sri Panchami,2013-02-14,Thursday
+2013,II,6,Basanta Panchami,2013-02-15,Friday
+2013,II,7,Shivaji Jayanti,2013-02-19,Tuesday
+2013,II,8,Guru Ravidas' Birthday,2013-02-25,Monday
+2013,II,9,Swami Dayanand Saraswati Jayanti,2013-03-07,Thursday
+2013,II,10,Maha Shivaratri,2013-03-10,Sunday
+2013,II,11,Holika Dahan,2013-03-26,Tuesday
+2013,II,12,Easter Sunday,2013-03-31,Sunday
+2013,II,13,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2013-04-11,Thursday
+2013,II,14,Vaisakhi,2013-04-13,Saturday
+2013,II,15,Vishu,2013-04-13,Saturday
+2013,II,16,Mesadi,2013-04-14,Sunday
+2013,II,17,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2013-04-15,Monday
+2013,II,18,Rabindranath's Birthday,2013-05-09,Thursday
+2013,II,19,Hazarat Ali's Birthday,2013-05-24,Friday
+2013,II,20,Rath Yatra,2013-07-10,Wednesday
+2013,II,21,Jamat-Ul-Vida,2013-08-02,Friday
+2013,II,22,Parsi New Year,2013-08-18,Sunday
+2013,II,23,Raksha Bandhan,2013-08-20,Tuesday
+2013,II,24,Ganesh Chaturthi / Vinayaka Chaturthi,2013-09-09,Monday
+2013,II,25,Onam,2013-09-16,Monday
+2013,II,26,Dussehra (Maha Saptami) (Additional),2013-10-11,Friday
+2013,II,27,Dussehra (Maha Ashtami) (Additional),2013-10-12,Saturday
+2013,II,28,Dussehra (Maha Navami),2013-10-13,Sunday
+2013,II,29,Maharishi Valmiki's Birthday,2013-10-18,Friday
+2013,II,30,Karva Chauth,2013-10-22,Tuesday
+2013,II,31,Deepavali (South India),2013-11-02,Saturday
+2013,II,32,Naraka Chaturdasi,2013-11-02,Saturday
+2013,II,33,Govardhan Puja,2013-11-03,Sunday
+2013,II,34,Bhai Duj,2013-11-05,Tuesday
+2013,II,35,Chhath Puja,2013-11-08,Friday
+2013,II,36,Guru Teg Bahadur's Martyrdom Day,2013-11-24,Sunday
+2013,II,37,Christmas Eve,2013-12-24,Tuesday
+2014,I,1,Milad-Un-Nabi,2014-01-14,Tuesday
+2014,I,2,Republic Day,2014-01-26,Sunday
+2014,I,3,Holi,2014-03-17,Monday
+2014,I,4,Ram Navami,2014-04-08,Tuesday
+2014,I,5,Mahavir Jayanti,2014-04-13,Sunday
+2014,I,6,Good Friday,2014-04-18,Friday
+2014,I,7,Buddha Purnima,2014-05-14,Wednesday
+2014,I,8,Idu'l Fitr,2014-07-29,Tuesday
+2014,I,9,Independence Day,2014-08-15,Friday
+2014,I,10,Janmashtami,2014-08-18,Monday
+2014,I,11,Mahatma Gandhi's Birthday,2014-10-02,Thursday
+2014,I,12,Dussehra (Vijaya Dashami),2014-10-03,Friday
+2014,I,13,Idu'l Zuha (Bakrid),2014-10-06,Monday
+2014,I,14,Diwali (Deepavali),2014-10-23,Thursday
+2014,I,15,Muharram,2014-11-04,Tuesday
+2014,I,16,Guru Nanak's Birthday,2014-11-06,Thursday
+2014,I,17,Christmas Day,2014-12-25,Thursday
+2014,II,1,New Year Day,2014-01-01,Wednesday
+2014,II,2,Guru Govind Singh's Birthday,2014-01-07,Tuesday
+2014,II,3,Makar Sankranti,2014-01-14,Tuesday
+2014,II,4,Pongal,2014-01-14,Tuesday
+2014,II,5,Basanta Panchami / Sri Panchami,2014-02-04,Tuesday
+2014,II,6,Guru Ravidas' Birthday,2014-02-14,Friday
+2014,II,7,Shivaji Jayanti,2014-02-19,Wednesday
+2014,II,8,Swami Dayanand Saraswati Jayanti,2014-02-24,Monday
+2014,II,9,Maha Shivaratri,2014-02-27,Thursday
+2014,II,10,Holika Dahan,2014-03-16,Sunday
+2014,II,11,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2014-03-31,Monday
+2014,II,12,Vaisakhi / Vishu / Mesadi,2014-04-14,Monday
+2014,II,13,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2014-04-15,Tuesday
+2014,II,14,Easter Sunday,2014-04-20,Sunday
+2014,II,15,Rabindranath's Birthday,2014-05-09,Friday
+2014,II,16,Hazarat Ali's Birthday,2014-05-13,Tuesday
+2014,II,17,Rath Yatra,2014-06-29,Sunday
+2014,II,18,Jamat-Ul-Vida,2014-07-25,Friday
+2014,II,19,Raksha Bandhan,2014-08-10,Sunday
+2014,II,20,Parsi New Year,2014-08-18,Monday
+2014,II,21,Ganesh Chaturthi / Vinayaka Chaturthi,2014-08-29,Friday
+2014,II,22,Onam,2014-09-07,Sunday
+2014,II,23,Dussehra (Maha Saptami) (Additional),2014-10-01,Wednesday
+2014,II,24,Dussehra (Maha Ashtami) (Additional),2014-10-02,Thursday
+2014,II,25,Dussehra (Maha Navami),2014-10-03,Friday
+2014,II,26,Maharishi Valmiki's Birthday,2014-10-08,Wednesday
+2014,II,27,Karva Chauth,2014-10-11,Saturday
+2014,II,28,Deepavali (South India),2014-10-22,Wednesday
+2014,II,29,Naraka Chaturdasi,2014-10-22,Wednesday
+2014,II,30,Govardhan Puja,2014-10-24,Friday
+2014,II,31,Bhai Duj,2014-10-25,Saturday
+2014,II,32,Chhath Puja,2014-10-29,Wednesday
+2014,II,33,Guru Teg Bahadur's Martyrdom Day,2014-11-24,Monday
+2014,II,34,Christmas Eve,2014-12-24,Wednesday
+2015,I,1,Milad-Un-Nabi,2015-01-04,Sunday
+2015,I,2,Republic Day,2015-01-26,Monday
+2015,I,3,Holi,2015-03-06,Friday
+2015,I,4,Ram Navami,2015-03-28,Saturday
+2015,I,5,Mahavir Jayanti,2015-04-02,Thursday
+2015,I,6,Good Friday,2015-04-03,Friday
+2015,I,7,Buddha Purnima,2015-05-04,Monday
+2015,I,8,Idu'l Fitr,2015-07-18,Saturday
+2015,I,9,Independence Day,2015-08-15,Saturday
+2015,I,10,Janmashtami,2015-09-05,Saturday
+2015,I,11,Idu'l Zuha (Bakrid),2015-09-25,Friday
+2015,I,12,Mahatma Gandhi's Birthday,2015-10-02,Friday
+2015,I,13,Dussehra (Vijaya Dashami),2015-10-22,Thursday
+2015,I,14,Muharram,2015-10-24,Saturday
+2015,I,15,Diwali (Deepavali),2015-11-11,Wednesday
+2015,I,16,Guru Nanak's Birthday,2015-11-25,Wednesday
+2015,I,17,Milad-Un-Nabi,2015-12-24,Thursday
+2015,I,18,Christmas Day,2015-12-25,Friday
+2015,II,1,New Year Day,2015-01-01,Thursday
+2015,II,2,Makar Sankranti,2015-01-14,Wednesday
+2015,II,3,Pongal,2015-01-15,Thursday
+2015,II,4,Basanta Panchami / Sri Panchami,2015-01-24,Saturday
+2015,II,5,Guru Ravidas' Birthday,2015-02-03,Tuesday
+2015,II,6,Swami Dayanand Saraswati Jayanti,2015-02-14,Saturday
+2015,II,7,Shivaji Jayanti,2015-02-19,Thursday
+2015,II,8,Holika Dahan,2015-03-05,Thursday
+2015,II,9,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2015-03-21,Saturday
+2015,II,10,Easter Sunday,2015-04-05,Sunday
+2015,II,11,Vaisakhi / Vishu / Mesadi,2015-04-14,Tuesday
+2015,II,12,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2015-04-15,Wednesday
+2015,II,13,Hazarat Ali's Birthday,2015-05-03,Sunday
+2015,II,14,Rabindranath's Birthday,2015-05-09,Saturday
+2015,II,15,Jamat-Ul-Vida,2015-07-17,Friday
+2015,II,16,Rath Yatra,2015-07-18,Saturday
+2015,II,17,Parsi New Year,2015-08-18,Tuesday
+2015,II,18,Onam,2015-08-28,Friday
+2015,II,19,Raksha Bandhan,2015-08-29,Saturday
+2015,II,20,Ganesh Chaturthi / Vinayaka Chaturthi,2015-09-17,Thursday
+2015,II,21,Dussehra (Maha Saptami) (Additional),2015-10-20,Tuesday
+2015,II,22,Dussehra (Maha Ashtami) (Additional),2015-10-21,Wednesday
+2015,II,23,Dussehra (Maha Navami),2015-10-22,Thursday
+2015,II,24,Maharishi Valmiki's Birthday,2015-10-27,Tuesday
+2015,II,25,Karva Chauth,2015-10-30,Friday
+2015,II,26,Deepavali (South India),2015-11-10,Tuesday
+2015,II,27,Naraka Chaturdasi,2015-11-10,Tuesday
+2015,II,28,Govardhan Puja,2015-11-12,Thursday
+2015,II,29,Bhai Duj,2015-11-13,Friday
+2015,II,30,Chhath Puja,2015-11-17,Tuesday
+2015,II,31,Guru Teg Bahadur's Martyrdom Day,2015-11-24,Tuesday
+2015,II,32,Christmas Eve,2015-12-24,Thursday
+2016,I,1,Republic Day,2016-01-26,Tuesday
+2016,I,2,Holi,2016-03-24,Thursday
+2016,I,3,Good Friday,2016-03-25,Friday
+2016,I,4,Ram Navami,2016-04-15,Friday
+2016,I,5,Mahavir Jayanti,2016-04-20,Wednesday
+2016,I,6,Buddha Purnima,2016-05-21,Saturday
+2016,I,7,Idu'l Fitr,2016-07-06,Wednesday
+2016,I,8,Independence Day,2016-08-15,Monday
+2016,I,9,Janmashtami,2016-08-25,Thursday
+2016,I,10,Idu'l Zuha (Bakrid),2016-09-12,Monday
+2016,I,11,Mahatma Gandhi's Birthday,2016-10-02,Sunday
+2016,I,12,Dussehra (Vijaya Dashami),2016-10-11,Tuesday
+2016,I,13,Muharram,2016-10-12,Wednesday
+2016,I,14,Diwali (Deepavali),2016-10-30,Sunday
+2016,I,15,Guru Nanak's Birthday,2016-11-14,Monday
+2016,I,16,Milad-Un-Nabi,2016-12-13,Tuesday
+2016,I,17,Christmas Day,2016-12-25,Sunday
+2016,II,1,New Year Day,2016-01-01,Friday
+2016,II,2,Makar Sankranti,2016-01-14,Thursday
+2016,II,3,Pongal,2016-01-15,Friday
+2016,II,4,Guru Govind Singh's Birthday,2016-01-16,Saturday
+2016,II,5,Basanta Panchami / Sri Panchami,2016-02-12,Friday
+2016,II,6,Shivaji Jayanti,2016-02-19,Friday
+2016,II,7,Guru Ravidas' Birthday,2016-02-22,Monday
+2016,II,8,Swami Dayanand Saraswati Jayanti,2016-03-04,Friday
+2016,II,9,Maha Shivaratri,2016-03-07,Monday
+2016,II,10,Holika Dahan,2016-03-23,Wednesday
+2016,II,11,Easter Sunday,2016-03-27,Sunday
+2016,II,12,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2016-04-08,Friday
+2016,II,13,Vaisakhi / Vishu,2016-04-13,Wednesday
+2016,II,14,Mesadi / Vaisakhadi / Bahag Bihu,2016-04-14,Thursday
+2016,II,15,Hazarat Ali's Birthday,2016-04-21,Thursday
+2016,II,16,Rabindranath's Birthday,2016-05-08,Sunday
+2016,II,17,Jamat-Ul-Vida,2016-07-01,Friday
+2016,II,18,Rath Yatra,2016-07-06,Wednesday
+2016,II,19,Parsi New Year,2016-08-17,Wednesday
+2016,II,20,Raksha Bandhan,2016-08-18,Thursday
+2016,II,21,Ganesh Chaturthi / Vinayaka Chaturthi,2016-09-05,Monday
+2016,II,22,Onam,2016-09-14,Wednesday
+2016,II,23,Dussehra (Maha Saptami) (Additional),2016-10-08,Saturday
+2016,II,24,Dussehra (Maha Ashtami) (Additional),2016-10-09,Sunday
+2016,II,25,Dussehra (Maha Navami),2016-10-10,Monday
+2016,II,26,Maharishi Valmiki's Birthday,2016-10-16,Sunday
+2016,II,27,Karva Chauth,2016-10-19,Wednesday
+2016,II,28,Deepavali (South India),2016-10-29,Saturday
+2016,II,29,Naraka Chaturdasi,2016-10-29,Saturday
+2016,II,30,Govardhan Puja,2016-10-31,Monday
+2016,II,31,Bhai Duj,2016-11-01,Tuesday
+2016,II,32,Chhath Puja,2016-11-06,Sunday
+2016,II,33,Guru Teg Bahadur's Martyrdom Day,2016-11-24,Thursday
+2016,II,34,Christmas Eve,2016-12-24,Saturday
+2017,I,1,Republic Day,2017-01-26,Thursday
+2017,I,2,Maha Shivaratri,2017-02-24,Friday
+2017,I,3,Holi,2017-03-13,Monday
+2017,I,4,Ram Navami,2017-04-04,Tuesday
+2017,I,5,Mahavir Jayanti,2017-04-09,Sunday
+2017,I,6,Good Friday,2017-04-14,Friday
+2017,I,7,Buddha Purnima,2017-05-10,Wednesday
+2017,I,8,Idu'l Fitr,2017-06-26,Monday
+2017,I,9,Independence Day,2017-08-15,Tuesday
+2017,I,10,Idu'l Zuha (Bakrid),2017-09-02,Saturday
+2017,I,11,Dussehra (Vijaya Dashami),2017-09-30,Saturday
+2017,I,12,Muharram,2017-10-01,Sunday
+2017,I,13,Mahatma Gandhi's Birthday,2017-10-02,Monday
+2017,I,14,Diwali (Deepavali),2017-10-19,Thursday
+2017,I,15,Guru Nanak's Birthday,2017-11-04,Saturday
+2017,I,16,Milad-Un-Nabi,2017-12-02,Saturday
+2017,I,17,Christmas Day,2017-12-25,Monday
+2017,II,1,New Year Day,2017-01-01,Sunday
+2017,II,2,Guru Govind Singh's Birthday,2017-01-05,Thursday
+2017,II,3,Makar Sankranti,2017-01-14,Saturday
+2017,II,4,Pongal,2017-01-14,Saturday
+2017,II,5,Basanta Panchami / Sri Panchami,2017-02-01,Wednesday
+2017,II,6,Guru Ravidas' Birthday,2017-02-10,Friday
+2017,II,7,Shivaji Jayanti,2017-02-19,Sunday
+2017,II,8,Swami Dayanand Saraswati Jayanti,2017-02-21,Tuesday
+2017,II,9,Holika Dahan,2017-03-12,Sunday
+2017,II,10,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2017-03-28,Tuesday
+2017,II,11,Hazarat Ali's Birthday,2017-04-11,Tuesday
+2017,II,12,Vaisakhi / Vishu,2017-04-13,Thursday
+2017,II,13,Mesadi,2017-04-14,Friday
+2017,II,14,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2017-04-15,Saturday
+2017,II,15,Easter Sunday,2017-04-16,Sunday
+2017,II,16,Rabindranath's Birthday,2017-05-09,Tuesday
+2017,II,17,Jamat-Ul-Vida,2017-06-23,Friday
+2017,II,18,Rath Yatra,2017-06-25,Sunday
+2017,II,19,Raksha Bandhan,2017-08-07,Monday
+2017,II,20,Janmashtami,2017-08-15,Tuesday
+2017,II,21,Parsi New Year,2017-08-17,Thursday
+2017,II,22,Ganesh Chaturthi / Vinayaka Chaturthi,2017-08-25,Friday
+2017,II,23,Onam,2017-09-04,Monday
+2017,II,24,Dussehra (Maha Saptami) (Additional),2017-09-27,Wednesday
+2017,II,25,Dussehra (Maha Ashtami) (Additional),2017-09-28,Thursday
+2017,II,26,Dussehra (Maha Navami),2017-09-29,Friday
+2017,II,27,Maharishi Valmiki's Birthday,2017-10-05,Thursday
+2017,II,28,Karva Chauth,2017-10-08,Sunday
+2017,II,29,Deepavali (South India),2017-10-18,Wednesday
+2017,II,30,Naraka Chaturdasi,2017-10-18,Wednesday
+2017,II,31,Govardhan Puja,2017-10-20,Friday
+2017,II,32,Bhai Duj,2017-10-21,Saturday
+2017,II,33,Chhath Puja,2017-10-26,Thursday
+2017,II,34,Guru Teg Bahadur's Martyrdom Day,2017-11-24,Friday
+2017,II,35,Christmas Eve,2017-12-24,Sunday
+2018,I,1,Republic Day,2018-01-26,Friday
+2018,I,2,Maha Shivaratri,2018-02-14,Wednesday
+2018,I,3,Holi,2018-03-02,Friday
+2018,I,4,Mahavir Jayanti,2018-03-29,Thursday
+2018,I,5,Good Friday,2018-03-30,Friday
+2018,I,6,Buddha Purnima,2018-04-30,Monday
+2018,I,7,Idu'l Fitr,2018-06-16,Saturday
+2018,I,8,Independence Day,2018-08-15,Wednesday
+2018,I,9,Idu'l Zuha (Bakrid),2018-08-22,Wednesday
+2018,I,10,Janmashtami,2018-09-03,Monday
+2018,I,11,Muharram,2018-09-21,Friday
+2018,I,12,Mahatma Gandhi's Birthday,2018-10-02,Tuesday
+2018,I,13,Dussehra (Vijaya Dashami),2018-10-19,Friday
+2018,I,14,Diwali (Deepavali),2018-11-07,Wednesday
+2018,I,15,Milad-Un-Nabi,2018-11-21,Wednesday
+2018,I,16,Guru Nanak's Birthday,2018-11-23,Friday
+2018,I,17,Christmas Day,2018-12-25,Tuesday
+2018,II,1,New Year Day,2018-01-01,Monday
+2018,II,3,Makar Sankranti,2018-01-14,Sunday
+2018,II,4,Pongal,2018-01-14,Sunday
+2018,II,5,Basanta Panchami / Sri Panchami,2018-01-22,Monday
+2018,II,6,Guru Ravidas' Birthday,2018-01-31,Wednesday
+2018,II,7,Swami Dayanand Saraswati Jayanti,2018-02-10,Saturday
+2018,II,8,Shivaji Jayanti,2018-02-19,Monday
+2018,II,9,Holika Dahan,2018-03-01,Thursday
+2018,II,10,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2018-03-18,Sunday
+2018,II,11,Ram Navami,2018-03-25,Sunday
+2018,II,12,Easter Sunday,2018-04-01,Sunday
+2018,II,13,Hazarat Ali's Birthday,2018-04-01,Sunday
+2018,II,14,Vaisakhi / Vishu / Mesadi,2018-04-14,Saturday
+2018,II,15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2018-04-15,Sunday
+2018,II,16,Rabindranath's Birthday,2018-05-09,Wednesday
+2018,II,17,Jamat-Ul-Vida,2018-06-15,Friday
+2018,II,18,Rath Yatra,2018-07-14,Saturday
+2018,II,19,Parsi New Year,2018-08-17,Friday
+2018,II,20,Onam,2018-08-25,Saturday
+2018,II,21,Raksha Bandhan,2018-08-26,Sunday
+2018,II,22,Ganesh Chaturthi / Vinayaka Chaturthi,2018-09-13,Thursday
+2018,II,23,Dussehra (Maha Saptami) (Additional),2018-10-16,Tuesday
+2018,II,24,Dussehra (Maha Ashtami) (Additional),2018-10-17,Wednesday
+2018,II,25,Dussehra (Maha Navami),2018-10-18,Thursday
+2018,II,26,Maharishi Valmiki's Birthday,2018-10-24,Wednesday
+2018,II,27,Karva Chauth,2018-10-27,Saturday
+2018,II,28,Deepavali (South India),2018-11-06,Tuesday
+2018,II,29,Naraka Chaturdasi,2018-11-06,Tuesday
+2018,II,30,Govardhan Puja,2018-11-08,Thursday
+2018,II,31,Bhai Duj,2018-11-09,Friday
+2018,II,32,Chhath Puja,2018-11-13,Tuesday
+2018,II,33,Guru Teg Bahadur's Martyrdom Day,2018-11-24,Saturday
+2018,II,34,Christmas Eve,2018-12-24,Monday
+2019,I,1,Republic Day,2019-01-26,Saturday
+2019,I,2,Maha Shivaratri,2019-03-04,Monday
+2019,I,3,Holi,2019-03-21,Thursday
+2019,I,4,Mahavir Jayanti,2019-04-17,Wednesday
+2019,I,5,Good Friday,2019-04-19,Friday
+2019,I,6,Buddha Purnima,2019-05-18,Saturday
+2019,I,7,Idu'l Fitr,2019-06-05,Wednesday
+2019,I,8,Idu'l Zuha (Bakrid),2019-08-12,Monday
+2019,I,9,Independence Day,2019-08-15,Thursday
+2019,I,10,Janmashtami,2019-08-24,Saturday
+2019,I,11,Muharram,2019-09-10,Tuesday
+2019,I,12,Mahatma Gandhi's Birthday,2019-10-02,Wednesday
+2019,I,13,Dussehra (Vijaya Dashami),2019-10-08,Tuesday
+2019,I,14,Diwali (Deepavali),2019-10-27,Sunday
+2019,I,15,Milad-Un-Nabi,2019-11-10,Sunday
+2019,I,16,Guru Nanak's Birthday,2019-11-12,Tuesday
+2019,I,17,Christmas Day,2019-12-25,Wednesday
+2019,II,1,New Year Day,2019-01-01,Tuesday
+2019,II,2,Lohri,2019-01-13,Sunday
+2019,II,3,Makar Sankranti,2019-01-14,Monday
+2019,II,4,Pongal,2019-01-15,Tuesday
+2019,II,5,Basanta Panchami / Sri Panchami,2019-02-10,Sunday
+2019,II,6,Guru Ravidas' Birthday,2019-02-19,Tuesday
+2019,II,7,Shivaji Jayanti,2019-02-19,Tuesday
+2019,II,8,Swami Dayanand Saraswati Jayanti,2019-03-01,Thursday
+2019,II,9,Holika Dahan,2019-03-20,Wednesday
+2019,II,10,Dolyatra,2019-03-21,Thursday
+2019,II,11,Hazarat Ali's Birthday,2019-03-21,Thursday
+2019,II,12,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2019-04-06,Saturday
+2019,II,13,Ram Navami,2019-04-13,Saturday
+2019,II,14,Vaisakhi / Vishu / Mesadi,2019-04-14,Sunday
+2019,II,15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2019-04-15,Monday
+2019,II,16,Easter Sunday,2019-04-21,Sunday
+2019,II,17,Rabindranath's Birthday,2019-05-09,Thursday
+2019,II,18,Jamat-Ul-Vida,2019-05-31,Friday
+2019,II,19,Rath Yatra,2019-07-04,Thursday
+2019,II,20,Raksha Bandhan,2019-08-15,Thursday
+2019,II,21,Parsi New Year,2019-08-17,Saturday
+2019,II,22,Ganesh Chaturthi / Vinayaka Chaturthi,2019-09-02,Monday
+2019,II,23,Onam,2019-09-11,Wednesday
+2019,II,24,Dussehra (Maha Saptami) (Additional),2019-10-05,Saturday
+2019,II,25,Dussehra (Maha Ashtami) (Additional),2019-10-06,Sunday
+2019,II,26,Dussehra (Maha Navami),2019-10-07,Monday
+2019,II,27,Maharishi Valmiki's Birthday,2019-10-13,Sunday
+2019,II,28,Karva Chauth,2019-10-17,Thursday
+2019,II,29,Naraka Chaturdasi,2019-10-27,Sunday
+2019,II,30,Govardhan Puja,2019-10-28,Monday
+2019,II,31,Bhai Duj,2019-10-29,Tuesday
+2019,II,32,Chhath Puja,2019-11-02,Saturday
+2019,II,33,Guru Teg Bahadur's Martyrdom Day,2019-11-24,Sunday
+2019,II,34,Christmas Eve,2019-12-24,Tuesday
+2020,I,1,Republic Day,2020-01-26,Sunday
+2020,I,2,Holi,2020-03-10,Tuesday
+2020,I,3,Ram Navami,2020-04-02,Thursday
+2020,I,4,Mahavir Jayanti,2020-04-06,Monday
+2020,I,5,Good Friday,2020-04-10,Friday
+2020,I,6,Buddha Purnima,2020-05-07,Thursday
+2020,I,7,Idu'l Fitr,2020-05-25,Monday
+2020,I,8,Idu'l Zuha (Bakrid),2020-08-01,Saturday
+2020,I,9,Janmashtami,2020-08-12,Wednesday
+2020,I,10,Independence Day,2020-08-15,Saturday
+2020,I,11,Muharram,2020-08-30,Sunday
+2020,I,12,Mahatma Gandhi's Birthday,2020-10-02,Friday
+2020,I,13,Dussehra (Vijaya Dashami),2020-10-25,Sunday
+2020,I,14,Milad-Un-Nabi,2020-10-30,Friday
+2020,I,15,Diwali (Deepavali),2020-11-14,Saturday
+2020,I,16,Guru Nanak's Birthday,2020-11-30,Monday
+2020,I,17,Christmas Day,2020-12-25,Friday
+2020,II,1,New Year Day,2020-01-01,Wednesday
+2020,II,2,Guru Govind Singh's Birthday,2020-01-02,Thursday
+2020,II,3,Lohri,2020-01-13,Monday
+2020,II,4,Makar Sankranti / Pongal,2020-01-15,Wednesday
+2020,II,5,Basanta Panchami / Sri Panchami,2020-01-30,Thursday
+2020,II,6,Guru Ravidas' Birthday,2020-02-09,Sunday
+2020,II,7,Swami Dayanand Saraswati Jayanti,2020-02-18,Tuesday
+2020,II,8,Shivaji Jayanti,2020-02-19,Wednesday
+2020,II,9,Maha Shivaratri,2020-02-21,Friday
+2020,II,10,Holika Dahan,2020-03-09,Monday
+2020,II,11,Hazarat Ali's Birthday,2020-03-09,Monday
+2020,II,12,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2020-03-25,Wednesday
+2020,II,13,Easter Sunday,2020-04-12,Sunday
+2020,II,14,Vaisakhi / Vishu,2020-04-13,Monday
+2020,II,15,Mesadi / Vaisakhadi / Bahag Bihu,2020-04-14,Tuesday
+2020,II,16,Rabindranath's Birthday,2020-05-08,Friday
+2020,II,17,Jamat-Ul-Vida,2020-05-22,Friday
+2020,II,18,Rath Yatra,2020-06-23,Tuesday
+2020,II,19,Raksha Bandhan,2020-08-03,Monday
+2020,II,20,Janmashtami (Smarta),2020-08-11,Tuesday
+2020,II,21,Parsi New Year,2020-08-16,Sunday

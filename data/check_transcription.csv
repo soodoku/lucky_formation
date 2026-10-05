@@ -1,0 +1,398 @@
+year,holiday,date,in_text_copy
+2013,Milad-Un-Nabi,2013-01-25,True
+2013,Republic Day,2013-01-26,True
+2013,Holi,2013-03-27,True
+2013,Good Friday,2013-03-29,True
+2013,Ram Navami,2013-04-19,True
+2013,Mahavir Jayanti,2013-04-24,True
+2013,Buddha Purnima,2013-05-25,True
+2013,Idu'l Fitr,2013-08-09,True
+2013,Independence Day,2013-08-15,True
+2013,Janmashtami,2013-08-28,True
+2013,Mahatma Gandhi's Birthday,2013-10-02,True
+2013,Dussehra (Vijaya Dashami),2013-10-13,True
+2013,Idu'l Zuha (Bakrid),2013-10-16,True
+2013,Diwali (Deepavali),2013-11-03,True
+2013,Muharram,2013-11-14,True
+2013,Guru Nanak's Birthday,2013-11-17,True
+2013,Christmas Day,2013-12-25,True
+2013,New Year Day,2013-01-01,True
+2013,Makar Sankranti,2013-01-13,True
+2013,Pongal,2013-01-14,True
+2013,Guru Govind Singh's Birthday,2013-01-18,True
+2013,Sri Panchami,2013-02-14,True
+2013,Basanta Panchami,2013-02-15,True
+2013,Shivaji Jayanti,2013-02-19,True
+2013,Guru Ravidas' Birthday,2013-02-25,True
+2013,Swami Dayanand Saraswati Jayanti,2013-03-07,True
+2013,Maha Shivaratri,2013-03-10,True
+2013,Holika Dahan,2013-03-26,True
+2013,Easter Sunday,2013-03-31,True
+2013,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2013-04-11,True
+2013,Vaisakhi,2013-04-13,True
+2013,Vishu,2013-04-13,True
+2013,Mesadi,2013-04-14,True
+2013,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2013-04-15,True
+2013,Rabindranath's Birthday,2013-05-09,True
+2013,Hazarat Ali's Birthday,2013-05-24,True
+2013,Rath Yatra,2013-07-10,True
+2013,Jamat-Ul-Vida,2013-08-02,True
+2013,Parsi New Year,2013-08-18,True
+2013,Raksha Bandhan,2013-08-20,True
+2013,Ganesh Chaturthi / Vinayaka Chaturthi,2013-09-09,True
+2013,Onam,2013-09-16,True
+2013,Dussehra (Maha Saptami) (Additional),2013-10-11,True
+2013,Dussehra (Maha Ashtami) (Additional),2013-10-12,True
+2013,Dussehra (Maha Navami),2013-10-13,True
+2013,Maharishi Valmiki's Birthday,2013-10-18,True
+2013,Karva Chauth,2013-10-22,True
+2013,Deepavali (South India),2013-11-02,True
+2013,Naraka Chaturdasi,2013-11-02,True
+2013,Govardhan Puja,2013-11-03,True
+2013,Bhai Duj,2013-11-05,True
+2013,Chhath Puja,2013-11-08,True
+2013,Guru Teg Bahadur's Martyrdom Day,2013-11-24,True
+2013,Christmas Eve,2013-12-24,True
+2014,Milad-Un-Nabi,2014-01-14,True
+2014,Republic Day,2014-01-26,True
+2014,Holi,2014-03-17,True
+2014,Ram Navami,2014-04-08,True
+2014,Mahavir Jayanti,2014-04-13,True
+2014,Good Friday,2014-04-18,True
+2014,Buddha Purnima,2014-05-14,True
+2014,Idu'l Fitr,2014-07-29,True
+2014,Independence Day,2014-08-15,True
+2014,Janmashtami,2014-08-18,True
+2014,Mahatma Gandhi's Birthday,2014-10-02,True
+2014,Dussehra (Vijaya Dashami),2014-10-03,True
+2014,Idu'l Zuha (Bakrid),2014-10-06,True
+2014,Diwali (Deepavali),2014-10-23,True
+2014,Muharram,2014-11-04,True
+2014,Guru Nanak's Birthday,2014-11-06,True
+2014,Christmas Day,2014-12-25,True
+2014,New Year Day,2014-01-01,True
+2014,Guru Govind Singh's Birthday,2014-01-07,True
+2014,Makar Sankranti,2014-01-14,True
+2014,Pongal,2014-01-14,True
+2014,Basanta Panchami / Sri Panchami,2014-02-04,True
+2014,Guru Ravidas' Birthday,2014-02-14,True
+2014,Shivaji Jayanti,2014-02-19,True
+2014,Swami Dayanand Saraswati Jayanti,2014-02-24,True
+2014,Maha Shivaratri,2014-02-27,True
+2014,Holika Dahan,2014-03-16,True
+2014,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2014-03-31,True
+2014,Vaisakhi / Vishu / Mesadi,2014-04-14,True
+2014,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2014-04-15,True
+2014,Easter Sunday,2014-04-20,True
+2014,Rabindranath's Birthday,2014-05-09,True
+2014,Hazarat Ali's Birthday,2014-05-13,True
+2014,Rath Yatra,2014-06-29,True
+2014,Jamat-Ul-Vida,2014-07-25,True
+2014,Raksha Bandhan,2014-08-10,True
+2014,Parsi New Year,2014-08-18,True
+2014,Ganesh Chaturthi / Vinayaka Chaturthi,2014-08-29,True
+2014,Onam,2014-09-07,True
+2014,Dussehra (Maha Saptami) (Additional),2014-10-01,True
+2014,Dussehra (Maha Ashtami) (Additional),2014-10-02,True
+2014,Dussehra (Maha Navami),2014-10-03,True
+2014,Maharishi Valmiki's Birthday,2014-10-08,True
+2014,Karva Chauth,2014-10-11,True
+2014,Deepavali (South India),2014-10-22,True
+2014,Naraka Chaturdasi,2014-10-22,True
+2014,Govardhan Puja,2014-10-24,True
+2014,Bhai Duj,2014-10-25,True
+2014,Chhath Puja,2014-10-29,True
+2014,Guru Teg Bahadur's Martyrdom Day,2014-11-24,True
+2014,Christmas Eve,2014-12-24,True
+2015,Milad-Un-Nabi,2015-01-04,True
+2015,Republic Day,2015-01-26,True
+2015,Holi,2015-03-06,True
+2015,Ram Navami,2015-03-28,True
+2015,Mahavir Jayanti,2015-04-02,True
+2015,Good Friday,2015-04-03,True
+2015,Buddha Purnima,2015-05-04,True
+2015,Idu'l Fitr,2015-07-18,True
+2015,Independence Day,2015-08-15,True
+2015,Janmashtami,2015-09-05,True
+2015,Idu'l Zuha (Bakrid),2015-09-25,True
+2015,Mahatma Gandhi's Birthday,2015-10-02,True
+2015,Dussehra (Vijaya Dashami),2015-10-22,True
+2015,Muharram,2015-10-24,True
+2015,Diwali (Deepavali),2015-11-11,True
+2015,Guru Nanak's Birthday,2015-11-25,True
+2015,Milad-Un-Nabi,2015-12-24,True
+2015,Christmas Day,2015-12-25,True
+2015,New Year Day,2015-01-01,True
+2015,Makar Sankranti,2015-01-14,True
+2015,Pongal,2015-01-15,True
+2015,Basanta Panchami / Sri Panchami,2015-01-24,True
+2015,Guru Ravidas' Birthday,2015-02-03,True
+2015,Swami Dayanand Saraswati Jayanti,2015-02-14,True
+2015,Shivaji Jayanti,2015-02-19,True
+2015,Holika Dahan,2015-03-05,True
+2015,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2015-03-21,True
+2015,Easter Sunday,2015-04-05,True
+2015,Vaisakhi / Vishu / Mesadi,2015-04-14,True
+2015,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2015-04-15,True
+2015,Hazarat Ali's Birthday,2015-05-03,True
+2015,Rabindranath's Birthday,2015-05-09,True
+2015,Jamat-Ul-Vida,2015-07-17,True
+2015,Rath Yatra,2015-07-18,True
+2015,Parsi New Year,2015-08-18,True
+2015,Onam,2015-08-28,True
+2015,Raksha Bandhan,2015-08-29,True
+2015,Ganesh Chaturthi / Vinayaka Chaturthi,2015-09-17,True
+2015,Dussehra (Maha Saptami) (Additional),2015-10-20,True
+2015,Dussehra (Maha Ashtami) (Additional),2015-10-21,True
+2015,Dussehra (Maha Navami),2015-10-22,True
+2015,Maharishi Valmiki's Birthday,2015-10-27,True
+2015,Karva Chauth,2015-10-30,True
+2015,Deepavali (South India),2015-11-10,True
+2015,Naraka Chaturdasi,2015-11-10,True
+2015,Govardhan Puja,2015-11-12,True
+2015,Bhai Duj,2015-11-13,True
+2015,Chhath Puja,2015-11-17,True
+2015,Guru Teg Bahadur's Martyrdom Day,2015-11-24,True
+2015,Christmas Eve,2015-12-24,True
+2016,Republic Day,2016-01-26,True
+2016,Holi,2016-03-24,True
+2016,Good Friday,2016-03-25,True
+2016,Ram Navami,2016-04-15,True
+2016,Mahavir Jayanti,2016-04-20,True
+2016,Buddha Purnima,2016-05-21,True
+2016,Idu'l Fitr,2016-07-06,True
+2016,Independence Day,2016-08-15,True
+2016,Janmashtami,2016-08-25,True
+2016,Idu'l Zuha (Bakrid),2016-09-12,True
+2016,Mahatma Gandhi's Birthday,2016-10-02,True
+2016,Dussehra (Vijaya Dashami),2016-10-11,True
+2016,Muharram,2016-10-12,True
+2016,Diwali (Deepavali),2016-10-30,True
+2016,Guru Nanak's Birthday,2016-11-14,True
+2016,Milad-Un-Nabi,2016-12-13,True
+2016,Christmas Day,2016-12-25,True
+2016,New Year Day,2016-01-01,True
+2016,Makar Sankranti,2016-01-14,True
+2016,Pongal,2016-01-15,True
+2016,Guru Govind Singh's Birthday,2016-01-16,True
+2016,Basanta Panchami / Sri Panchami,2016-02-12,True
+2016,Shivaji Jayanti,2016-02-19,True
+2016,Guru Ravidas' Birthday,2016-02-22,True
+2016,Swami Dayanand Saraswati Jayanti,2016-03-04,True
+2016,Maha Shivaratri,2016-03-07,True
+2016,Holika Dahan,2016-03-23,True
+2016,Easter Sunday,2016-03-27,True
+2016,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2016-04-08,True
+2016,Vaisakhi / Vishu,2016-04-13,True
+2016,Mesadi / Vaisakhadi / Bahag Bihu,2016-04-14,True
+2016,Hazarat Ali's Birthday,2016-04-21,True
+2016,Rabindranath's Birthday,2016-05-08,True
+2016,Jamat-Ul-Vida,2016-07-01,True
+2016,Rath Yatra,2016-07-06,True
+2016,Parsi New Year,2016-08-17,True
+2016,Raksha Bandhan,2016-08-18,True
+2016,Ganesh Chaturthi / Vinayaka Chaturthi,2016-09-05,True
+2016,Onam,2016-09-14,True
+2016,Dussehra (Maha Saptami) (Additional),2016-10-08,True
+2016,Dussehra (Maha Ashtami) (Additional),2016-10-09,True
+2016,Dussehra (Maha Navami),2016-10-10,True
+2016,Maharishi Valmiki's Birthday,2016-10-16,True
+2016,Karva Chauth,2016-10-19,True
+2016,Deepavali (South India),2016-10-29,True
+2016,Naraka Chaturdasi,2016-10-29,True
+2016,Govardhan Puja,2016-10-31,True
+2016,Bhai Duj,2016-11-01,True
+2016,Chhath Puja,2016-11-06,True
+2016,Guru Teg Bahadur's Martyrdom Day,2016-11-24,True
+2016,Christmas Eve,2016-12-24,True
+2017,Republic Day,2017-01-26,True
+2017,Maha Shivaratri,2017-02-24,True
+2017,Holi,2017-03-13,True
+2017,Ram Navami,2017-04-04,True
+2017,Mahavir Jayanti,2017-04-09,True
+2017,Good Friday,2017-04-14,True
+2017,Buddha Purnima,2017-05-10,True
+2017,Idu'l Fitr,2017-06-26,True
+2017,Independence Day,2017-08-15,True
+2017,Idu'l Zuha (Bakrid),2017-09-02,True
+2017,Dussehra (Vijaya Dashami),2017-09-30,True
+2017,Muharram,2017-10-01,True
+2017,Mahatma Gandhi's Birthday,2017-10-02,True
+2017,Diwali (Deepavali),2017-10-19,True
+2017,Guru Nanak's Birthday,2017-11-04,True
+2017,Milad-Un-Nabi,2017-12-02,True
+2017,Christmas Day,2017-12-25,True
+2017,New Year Day,2017-01-01,True
+2017,Guru Govind Singh's Birthday,2017-01-05,True
+2017,Makar Sankranti,2017-01-14,True
+2017,Pongal,2017-01-14,True
+2017,Basanta Panchami / Sri Panchami,2017-02-01,True
+2017,Guru Ravidas' Birthday,2017-02-10,True
+2017,Shivaji Jayanti,2017-02-19,True
+2017,Swami Dayanand Saraswati Jayanti,2017-02-21,True
+2017,Holika Dahan,2017-03-12,True
+2017,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2017-03-28,True
+2017,Hazarat Ali's Birthday,2017-04-11,True
+2017,Vaisakhi / Vishu,2017-04-13,True
+2017,Mesadi,2017-04-14,True
+2017,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2017-04-15,True
+2017,Easter Sunday,2017-04-16,True
+2017,Rabindranath's Birthday,2017-05-09,True
+2017,Jamat-Ul-Vida,2017-06-23,True
+2017,Rath Yatra,2017-06-25,True
+2017,Raksha Bandhan,2017-08-07,True
+2017,Janmashtami,2017-08-15,True
+2017,Parsi New Year,2017-08-17,True
+2017,Ganesh Chaturthi / Vinayaka Chaturthi,2017-08-25,True
+2017,Onam,2017-09-04,True
+2017,Dussehra (Maha Saptami) (Additional),2017-09-27,True
+2017,Dussehra (Maha Ashtami) (Additional),2017-09-28,True
+2017,Dussehra (Maha Navami),2017-09-29,True
+2017,Maharishi Valmiki's Birthday,2017-10-05,True
+2017,Karva Chauth,2017-10-08,True
+2017,Deepavali (South India),2017-10-18,True
+2017,Naraka Chaturdasi,2017-10-18,True
+2017,Govardhan Puja,2017-10-20,True
+2017,Bhai Duj,2017-10-21,True
+2017,Chhath Puja,2017-10-26,True
+2017,Guru Teg Bahadur's Martyrdom Day,2017-11-24,True
+2017,Christmas Eve,2017-12-24,True
+2018,Republic Day,2018-01-26,True
+2018,Maha Shivaratri,2018-02-14,True
+2018,Holi,2018-03-02,True
+2018,Mahavir Jayanti,2018-03-29,True
+2018,Good Friday,2018-03-30,True
+2018,Buddha Purnima,2018-04-30,True
+2018,Idu'l Fitr,2018-06-16,True
+2018,Independence Day,2018-08-15,True
+2018,Idu'l Zuha (Bakrid),2018-08-22,True
+2018,Janmashtami,2018-09-03,True
+2018,Muharram,2018-09-21,True
+2018,Mahatma Gandhi's Birthday,2018-10-02,True
+2018,Dussehra (Vijaya Dashami),2018-10-19,True
+2018,Diwali (Deepavali),2018-11-07,True
+2018,Milad-Un-Nabi,2018-11-21,True
+2018,Guru Nanak's Birthday,2018-11-23,True
+2018,Christmas Day,2018-12-25,True
+2018,New Year Day,2018-01-01,True
+2018,Makar Sankranti,2018-01-14,True
+2018,Pongal,2018-01-14,True
+2018,Basanta Panchami / Sri Panchami,2018-01-22,True
+2018,Guru Ravidas' Birthday,2018-01-31,True
+2018,Swami Dayanand Saraswati Jayanti,2018-02-10,True
+2018,Shivaji Jayanti,2018-02-19,True
+2018,Holika Dahan,2018-03-01,True
+2018,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2018-03-18,True
+2018,Ram Navami,2018-03-25,True
+2018,Easter Sunday,2018-04-01,True
+2018,Hazarat Ali's Birthday,2018-04-01,True
+2018,Vaisakhi / Vishu / Mesadi,2018-04-14,True
+2018,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2018-04-15,True
+2018,Rabindranath's Birthday,2018-05-09,True
+2018,Jamat-Ul-Vida,2018-06-15,True
+2018,Rath Yatra,2018-07-14,True
+2018,Parsi New Year,2018-08-17,True
+2018,Onam,2018-08-25,True
+2018,Raksha Bandhan,2018-08-26,True
+2018,Ganesh Chaturthi / Vinayaka Chaturthi,2018-09-13,True
+2018,Dussehra (Maha Saptami) (Additional),2018-10-16,True
+2018,Dussehra (Maha Ashtami) (Additional),2018-10-17,True
+2018,Dussehra (Maha Navami),2018-10-18,True
+2018,Maharishi Valmiki's Birthday,2018-10-24,True
+2018,Karva Chauth,2018-10-27,True
+2018,Deepavali (South India),2018-11-06,True
+2018,Naraka Chaturdasi,2018-11-06,True
+2018,Govardhan Puja,2018-11-08,True
+2018,Bhai Duj,2018-11-09,True
+2018,Chhath Puja,2018-11-13,True
+2018,Guru Teg Bahadur's Martyrdom Day,2018-11-24,True
+2018,Christmas Eve,2018-12-24,True
+2019,Republic Day,2019-01-26,True
+2019,Maha Shivaratri,2019-03-04,True
+2019,Holi,2019-03-21,True
+2019,Mahavir Jayanti,2019-04-17,True
+2019,Good Friday,2019-04-19,True
+2019,Buddha Purnima,2019-05-18,True
+2019,Idu'l Fitr,2019-06-05,True
+2019,Idu'l Zuha (Bakrid),2019-08-12,True
+2019,Independence Day,2019-08-15,True
+2019,Janmashtami,2019-08-24,True
+2019,Muharram,2019-09-10,True
+2019,Mahatma Gandhi's Birthday,2019-10-02,True
+2019,Dussehra (Vijaya Dashami),2019-10-08,True
+2019,Diwali (Deepavali),2019-10-27,True
+2019,Milad-Un-Nabi,2019-11-10,True
+2019,Guru Nanak's Birthday,2019-11-12,True
+2019,Christmas Day,2019-12-25,True
+2019,New Year Day,2019-01-01,True
+2019,Lohri,2019-01-13,True
+2019,Makar Sankranti,2019-01-14,True
+2019,Pongal,2019-01-15,True
+2019,Basanta Panchami / Sri Panchami,2019-02-10,True
+2019,Guru Ravidas' Birthday,2019-02-19,True
+2019,Shivaji Jayanti,2019-02-19,True
+2019,Swami Dayanand Saraswati Jayanti,2019-03-01,True
+2019,Holika Dahan,2019-03-20,True
+2019,Dolyatra,2019-03-21,True
+2019,Hazarat Ali's Birthday,2019-03-21,True
+2019,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2019-04-06,True
+2019,Ram Navami,2019-04-13,True
+2019,Vaisakhi / Vishu / Mesadi,2019-04-14,True
+2019,Vaisakhadi (Bengal) / Bahag Bihu (Assam),2019-04-15,True
+2019,Easter Sunday,2019-04-21,True
+2019,Rabindranath's Birthday,2019-05-09,True
+2019,Jamat-Ul-Vida,2019-05-31,True
+2019,Rath Yatra,2019-07-04,True
+2019,Raksha Bandhan,2019-08-15,True
+2019,Parsi New Year,2019-08-17,True
+2019,Ganesh Chaturthi / Vinayaka Chaturthi,2019-09-02,True
+2019,Onam,2019-09-11,True
+2019,Dussehra (Maha Saptami) (Additional),2019-10-05,True
+2019,Dussehra (Maha Ashtami) (Additional),2019-10-06,True
+2019,Dussehra (Maha Navami),2019-10-07,True
+2019,Maharishi Valmiki's Birthday,2019-10-13,True
+2019,Karva Chauth,2019-10-17,True
+2019,Naraka Chaturdasi,2019-10-27,True
+2019,Govardhan Puja,2019-10-28,True
+2019,Bhai Duj,2019-10-29,True
+2019,Chhath Puja,2019-11-02,True
+2019,Guru Teg Bahadur's Martyrdom Day,2019-11-24,True
+2019,Christmas Eve,2019-12-24,True
+2020,Republic Day,2020-01-26,True
+2020,Holi,2020-03-10,True
+2020,Ram Navami,2020-04-02,True
+2020,Mahavir Jayanti,2020-04-06,True
+2020,Good Friday,2020-04-10,True
+2020,Buddha Purnima,2020-05-07,True
+2020,Idu'l Fitr,2020-05-25,True
+2020,Idu'l Zuha (Bakrid),2020-08-01,True
+2020,Janmashtami,2020-08-12,True
+2020,Independence Day,2020-08-15,True
+2020,Muharram,2020-08-30,True
+2020,Mahatma Gandhi's Birthday,2020-10-02,True
+2020,Dussehra (Vijaya Dashami),2020-10-25,True
+2020,Milad-Un-Nabi,2020-10-30,True
+2020,Diwali (Deepavali),2020-11-14,True
+2020,Guru Nanak's Birthday,2020-11-30,True
+2020,Christmas Day,2020-12-25,True
+2020,New Year Day,2020-01-01,True
+2020,Guru Govind Singh's Birthday,2020-01-02,True
+2020,Lohri,2020-01-13,True
+2020,Makar Sankranti / Pongal,2020-01-15,True
+2020,Basanta Panchami / Sri Panchami,2020-01-30,True
+2020,Guru Ravidas' Birthday,2020-02-09,True
+2020,Swami Dayanand Saraswati Jayanti,2020-02-18,True
+2020,Shivaji Jayanti,2020-02-19,True
+2020,Maha Shivaratri,2020-02-21,True
+2020,Holika Dahan,2020-03-09,True
+2020,Hazarat Ali's Birthday,2020-03-09,True
+2020,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,2020-03-25,True
+2020,Easter Sunday,2020-04-12,True
+2020,Vaisakhi / Vishu,2020-04-13,True
+2020,Mesadi / Vaisakhadi / Bahag Bihu,2020-04-14,True
+2020,Rabindranath's Birthday,2020-05-08,True
+2020,Jamat-Ul-Vida,2020-05-22,True
+2020,Rath Yatra,2020-06-23,True
+2020,Raksha Bandhan,2020-08-03,True
+2020,Janmashtami (Smarta),2020-08-11,True
+2020,Parsi New Year,2020-08-16,True

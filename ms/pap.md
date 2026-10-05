@@ -139,3 +139,30 @@ inauspicious tithis) is detectable.
   sample.
 - CIN serial-number gaps dropped as a survivorship check: serials are shared across entity
   types and cumulative within a state, so a gap does not identify a missing company.
+
+## Data revision, 5 October 2026 (after the first estimates)
+
+The first estimates (commit `2f02771`) rested on two data sources that were not good enough:
+festival dates from my reimplementation of almanac rules, and holidays from the `holidays`
+Python package. Both were replaced before re-estimation. Neither change touches the models, the
+hypotheses or the inference, but the first results had been seen, so these are deviations.
+
+- **Festival dates and spans** (named days, Pitru Paksha, Navratri) are now taken from the
+  published almanac (Drik Panchang, New Delhi) for every year 2005–2021, not computed.
+  Almanacs follow contested conventions when a festival's lunar day straddles two civil days
+  (Diwali 2024 divided them), so a reimplementation can match one almanac in-sample and miss
+  out of sample. The rule-based dates are kept for comparison. Daily tithi and nakshatra stay
+  computed from the ephemeris and are checked against the almanac on random days in every year.
+- **Holidays** now come from DoPT's annual office memoranda on holidays in central government
+  offices, 2008–2020, transcribed from the scanned documents (`data/sources/dopt/`) with the
+  printed weekday as a checksum. Registrars of Companies are central offices: they observe 14
+  compulsory holidays and 3 of 12 optional occasions chosen by each state's coordination
+  committee, whose choices were not published centrally. A listed holiday is excluded where the
+  registrar visibly shut. The central registry approved companies on many gazetted holidays
+  after March 2016, so a listed holiday on which the registrar worked is kept, with an
+  indicator added to the controls.
+- **Sample start** moves from October 2006 to January 2008, the first year for which the
+  memoranda could be obtained.
+- **Robustness**: the two closure-source variants ("listed holidays only", "detected only")
+  are replaced by "all listed holidays excluded, worked or not" and "unexplained single-registrar
+  shut-downs kept as open days".

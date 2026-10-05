@@ -43,7 +43,8 @@ valid_shifts <- function() {
   k[abs(k / SYNODIC - round(k / SYNODIC)) * SYNODIC > 2]
 }
 
-CONTROLS <- "after_closure + before_closure + month_end + quarter_end"
+# holiday_open: a listed holiday on which the registrar still approved companies.
+CONTROLS <- "after_closure + before_closure + holiday_open + month_end + quarter_end"
 
 # P3: tithi index (+1 auspicious, -1 inauspicious, 0 neutral), days compared within the
 # same registrar-week.

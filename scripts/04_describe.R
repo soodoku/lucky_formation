@@ -26,28 +26,23 @@ fig1 <- ggplot(weekly, aes(week, n)) +
 save_fig(fig1, "fig_weekly_series.pdf", width = 7, height = 3.2)
 
 # --- Figure 2: what a closure looks like --------------------------------------------
-# Each registrar-weekday's count relative to its weekly median, for registrars large
-# enough that a closure is distinguishable from a slow day.
+# Each registrar-weekday's count relative to its weekly median (national after the CRC), for
+# registrars large enough that a shut-down is distinguishable from a slow day.
+type_cols <- c("ordinary day" = "gray75", "holiday, closed" = COL_MAIN,
+               "holiday, open" = "#E3A87E", "national shut-down" = "gray40",
+               "unexplained shut-down" = "black")
 rel <- panel %>%
-  filter(weekday <= 5, post_crc | roc_med >= 10) %>%
-  mutate(
-    ratio = if_else(post_crc, nat_rel, n_all / pmax(roc_med, 1)),
-    source = case_when(
-      holiday_listed & closure_detected ~ "Listed holiday, closed",
-      holiday_listed ~ "Listed holiday, open",
-      closure_detected ~ "Unlisted closure",
-      TRUE ~ "Ordinary day"
-    )
-  ) %>%
+  filter(weekday <= 5, detectable) %>%
+  mutate(ratio = if_else(post_crc, nat_rel, n_all / pmax(roc_med, 1)),
+         closure_type = factor(closure_type, names(type_cols))) %>%
   distinct(date, roc = if_else(post_crc, "CRC", roc), .keep_all = TRUE)
 
-fig2 <- ggplot(rel, aes(pmin(ratio, 2), fill = source)) +
+fig2 <- ggplot(rel, aes(pmin(ratio, 2), fill = closure_type)) +
   geom_histogram(binwidth = 0.05, boundary = 0) +
   geom_vline(xintercept = 0.1, linetype = "dashed") +
-  scale_fill_manual(values = c("Ordinary day" = "gray75", "Listed holiday, closed" = COL_MAIN,
-                               "Listed holiday, open" = "#E3A87E", "Unlisted closure" = "gray25")) +
+  scale_fill_manual(values = type_cols, drop = FALSE) +
   scale_y_sqrt() +
-  labs(x = "Registrations relative to the registrar's weekly median (capped at 2)",
+  labs(x = "Registrations relative to the weekly median (capped at 2)",
        y = "Registrar-days (square-root scale)", fill = NULL)
 save_fig(fig2, "fig_closures.pdf", width = 7, height = 3.5)
 
@@ -91,40 +86,41 @@ tab <- c(
 save_tex_table(tab, "tab_sample.tex")
 
 # --- Validation table ---------------------------------------------------------------
-# Drik Panchang for the sample years (rules tuned there); the holidays package, never used
-# for tuning, for the sample years and 2020-2025.
+# Festival dates in the data are the almanac's; the table shows how often the classical rules
+# in 00_generate_panchang.py reproduce them, and how the computed daily values compare.
 labels <- c(
   gudi_padwa = "Gudi Padwa / Ugadi", akshaya_tritiya = "Akshaya Tritiya",
   vijayadashami = "Vijayadashami", dhanteras = "Dhanteras", diwali = "Lakshmi Puja (Diwali)",
-  pitru_paksha_first = "Pitru Paksha, first day", pitru_paksha_last = "Pitru Paksha, last day"
+  pitru_paksha_first = "Pitru Paksha, first day", pitru_paksha_last = "Pitru Paksha, last day",
+  navratri_first = "Navratri, first day", navratri_last = "Navratri, last day"
 )
-fest <- read_csv(file.path(PATH_DATA, "validation_festivals.csv"), show_col_types = FALSE)
+fest <- read_csv(file.path(PATH_DATA, "festivals_drik.csv"), show_col_types = FALSE) %>%
+  mutate(in_sample = year >= year(OFFICIAL_CALENDAR_START) & year <= year(SAMPLE_END))
 days <- read_csv(file.path(PATH_DATA, "validation_days.csv"), show_col_types = FALSE)
-pkg <- read_csv(file.path(PATH_DATA, "validation_holidays_pkg.csv"), show_col_types = FALSE) %>%
-  mutate(late = year(as.Date(package)) >= 2020)
-cell <- function(m, n) if (n == 0) "" else sprintf("%d / %d", m, n)
-v_drik <- fest %>%
+cell <- function(m, n) sprintf("%d / %d", m, n)
+v_fest <- fest %>%
   group_by(event) %>%
-  summarise(drik = cell(sum(drik_offset_days %in% 0), n()))
-v_pkg <- pkg %>%
-  group_by(event) %>%
-  summarise(pkg_in = cell(sum(match[!late]), sum(!late)),
-            pkg_out = cell(sum(match[late]), sum(late)))
-val <- full_join(v_drik, v_pkg, by = "event") %>%
-  mutate(across(everything(), ~ replace_na(.x, "")), event = labels[event]) %>%
-  bind_rows(tibble(event = c("Sunrise tithi, random days", "Sunrise nakshatra, random days"),
-                   drik = c(cell(sum(days$tithi_ok), nrow(days)),
-                            cell(sum(days$nak_ok), nrow(days))),
-                   pkg_in = "", pkg_out = ""))
+  summarise(
+    sample = cell(sum((rule_date == drik_date)[in_sample]), sum(in_sample)),
+    all = cell(sum(rule_date == drik_date), n())
+  ) %>%
+  mutate(event = factor(labels[event], labels)) %>%
+  arrange(event)
 tab_val <- c(
-  "\\begin{tabular}{lccc}", "\\toprule",
-  " & Drik Panchang & \\multicolumn{2}{c}{\\texttt{holidays} package} \\\\",
-  " & 2006--2019 & 2006--2019 & 2020--2025 \\\\", "\\midrule",
-  sprintf("%s & %s & %s & %s \\\\", val$event, val$drik, val$pkg_in, val$pkg_out),
+  "\\begin{tabular}{lcc}", "\\toprule",
+  " & 2008--2020 & 2005--2021 \\\\", "\\midrule",
+  "\\multicolumn{3}{l}{\\textit{Festival dates: classical rules reproduce the almanac}} \\\\",
+  sprintf("\\quad %s & %s & %s \\\\", v_fest$event, v_fest$sample, v_fest$all),
+  "\\multicolumn{3}{l}{\\textit{Daily values at sunrise, random days}} \\\\",
+  sprintf("\\quad Tithi & %s & %s \\\\",
+          with(filter(days, between(year(date), 2008, 2020)), cell(sum(tithi_ok), length(tithi_ok))),
+          cell(sum(days$tithi_ok), nrow(days))),
+  sprintf("\\quad Nakshatra & %s & %s \\\\",
+          with(filter(days, between(year(date), 2008, 2020)), cell(sum(nak_ok), length(nak_ok))),
+          cell(sum(days$nak_ok), nrow(days))),
   "\\bottomrule", "\\end{tabular}"
 )
 save_tex_table(tab_val, "tab_validation.tex")
-pkg_miss <- filter(pkg, !match)
 
 write_numbers(c(
   NRegistered = fmt_int(sum(panel$n_all)),
@@ -134,7 +130,6 @@ write_numbers(c(
   NRocDays = fmt_int(nrow(prim)),
   NRocDaysClosed = fmt_int(sum(prim$closed)),
   MeanPerRocDay = sprintf("%.1f", mean(prim$n_dom[!prim$closed])),
-  ValFestIn = sum(fest$drik_offset_days %in% 0), ValFestInN = nrow(fest),
-  ValPkgOut = sum(pkg$match[pkg$late]), ValPkgOutN = sum(pkg$late),
-  ValPkgIn = sum(pkg$match[!pkg$late]), ValPkgInN = sum(!pkg$late)
+  RuleAgree = sum(fest$rule_date == fest$drik_date), RuleAgreeN = nrow(fest),
+  NValDays = nrow(days), ValTithi = sum(days$tithi_ok), ValNak = sum(days$nak_ok)
 ), "numbers_describe.tex")

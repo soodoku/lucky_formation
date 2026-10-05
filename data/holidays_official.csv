@@ -1,0 +1,425 @@
+date,holiday,kind,group,movable
+2008-01-14,Makar Sankranti (N. India),optional,makar sankranti,False
+2008-01-15,Makar Sankranti (Bengal),optional,makar sankranti,False
+2008-01-15,Pongal,optional,pongal,False
+2008-01-19,Muharram,compulsory,muharram,True
+2008-01-26,Republic Day,compulsory,republic day,False
+2008-02-11,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2008-03-06,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2008-03-21,Milad-Un-Nabi,compulsory,milad un nabi,True
+2008-03-21,Good Friday,compulsory,good friday,False
+2008-03-22,Holi,delhi_choice,holi,False
+2008-04-07,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2008-04-13,Vaisakhi,optional,vishu group,False
+2008-04-14,Ram Navami,delhi_choice,ram navami,False
+2008-04-14,Mesadi,optional,vishu group,False
+2008-04-18,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2008-05-20,Buddha Purnima,compulsory,buddha purnima,False
+2008-07-04,Rath Yatra,optional,rath yatra,False
+2008-08-15,Independence Day,compulsory,independence day,False
+2008-08-19,Parsi New Year,optional,vishu group,False
+2008-08-24,Janmashtami,optional,janmashtami,False
+2008-09-03,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2008-09-12,Onam,optional,onam,False
+2008-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2008-10-02,Idu'l Fitr,compulsory,id ul fitr,True
+2008-10-06,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2008-10-07,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2008-10-08,Dussehra (Maha Navami),optional,dussehra additional day,False
+2008-10-09,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2008-10-28,Diwali (Deepavali),compulsory,diwali,True
+2008-11-13,Guru Nanak's Birthday,compulsory,guru nanak,False
+2008-12-09,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2008-12-25,Christmas Day,compulsory,christmas,False
+2009-01-08,Muharram,compulsory,muharram,True
+2009-01-13,Makar Sankranti (N. India),optional,makar sankranti,False
+2009-01-14,Makar Sankranti (Bengal),optional,makar sankranti,False
+2009-01-14,Pongal,optional,pongal,False
+2009-01-26,Republic Day,compulsory,republic day,False
+2009-01-31,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2009-02-23,Maha Shivaratri,optional,maha shivaratri,False
+2009-03-10,Milad-Un-Nabi,compulsory,milad un nabi,True
+2009-03-11,Holi,delhi_choice,holi,False
+2009-03-27,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2009-04-03,Ram Navami,delhi_choice,ram navami,False
+2009-04-07,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2009-04-10,Good Friday,compulsory,good friday,False
+2009-04-13,Vaisakhi,optional,vishu group,False
+2009-04-14,Mesadi,optional,vishu group,False
+2009-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2009-05-09,Buddha Purnima,compulsory,buddha purnima,False
+2009-06-24,Rath Yatra,optional,rath yatra,False
+2009-08-14,Janmashtami,delhi_choice,janmashtami,False
+2009-08-15,Independence Day,compulsory,independence day,False
+2009-08-19,Parsi New Year,optional,vishu group,False
+2009-08-23,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2009-09-02,Onam,optional,onam,False
+2009-09-21,Idu'l Fitr,compulsory,id ul fitr,True
+2009-09-25,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2009-09-26,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2009-09-27,Dussehra (Maha Navami),optional,dussehra additional day,False
+2009-09-28,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2009-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2009-10-17,Diwali (Deepavali),compulsory,diwali,True
+2009-11-02,Guru Nanak's Birthday,compulsory,guru nanak,False
+2009-11-28,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2009-12-25,Christmas Day,compulsory,christmas,False
+2009-12-28,Muharram,compulsory,muharram,True
+2010-01-14,Makar Sankranti,optional,makar sankranti,False
+2010-01-14,Pongal,optional,pongal,False
+2010-01-20,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2010-01-26,Republic Day,compulsory,republic day,False
+2010-02-12,Maha Shivaratri,optional,maha shivaratri,False
+2010-02-27,Milad-Un-Nabi,compulsory,milad un nabi,True
+2010-03-01,Holi,delhi_choice,holi,False
+2010-03-16,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2010-03-24,Ram Navami,delhi_choice,ram navami,False
+2010-03-28,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2010-04-02,Good Friday,compulsory,good friday,False
+2010-04-14,Vaisakhi,optional,vishu group,False
+2010-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2010-05-27,Buddha Purnima,compulsory,buddha purnima,False
+2010-07-13,Rath Yatra,optional,rath yatra,False
+2010-08-15,Independence Day,compulsory,independence day,False
+2010-08-19,Parsi New Year,optional,vishu group,False
+2010-08-23,Onam,optional,onam,False
+2010-09-02,Janmashtami,delhi_choice,janmashtami,False
+2010-09-11,Idu'l Fitr,compulsory,id ul fitr,True
+2010-09-11,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2010-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2010-10-14,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2010-10-15,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2010-10-16,Dussehra (Maha Navami),optional,dussehra additional day,False
+2010-10-17,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2010-11-05,Diwali (Deepavali),compulsory,diwali,True
+2010-11-17,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2010-11-21,Guru Nanak's Birthday,compulsory,guru nanak,False
+2010-12-17,Muharram,compulsory,muharram,True
+2010-12-25,Christmas Day,compulsory,christmas,False
+2011-01-14,Makar Sankranti,optional,makar sankranti,False
+2011-01-15,Pongal,optional,pongal,False
+2011-01-26,Republic Day,compulsory,republic day,False
+2011-02-08,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2011-02-16,Milad-Un-Nabi,compulsory,milad un nabi,True
+2011-03-02,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2011-03-20,Holi,optional,holi,False
+2011-04-04,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2011-04-12,Ram Navami,delhi_choice,ram navami,False
+2011-04-14,Vaisakhi,optional,vishu group,False
+2011-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2011-04-16,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2011-04-22,Good Friday,compulsory,good friday,False
+2011-05-17,Buddha Purnima,compulsory,buddha purnima,False
+2011-07-03,Rath Yatra,optional,rath yatra,False
+2011-08-15,Independence Day,compulsory,independence day,False
+2011-08-19,Parsi New Year,optional,vishu group,False
+2011-08-22,Janmashtami,delhi_choice,janmashtami,False
+2011-08-31,Idu'l Fitr,compulsory,id ul fitr,True
+2011-09-01,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2011-09-09,Onam,optional,onam,False
+2011-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2011-10-03,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2011-10-04,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2011-10-05,Dussehra (Maha Navami),optional,dussehra additional day,False
+2011-10-06,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2011-10-26,Diwali (Deepavali),compulsory,diwali,True
+2011-11-01,Chhath Puja,optional,vishu group,False
+2011-11-07,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2011-11-10,Guru Nanak's Birthday,compulsory,guru nanak,False
+2011-12-06,Muharram,compulsory,muharram,True
+2011-12-25,Christmas Day,compulsory,christmas,False
+2012-01-14,Makar Sankranti,optional,makar sankranti,False
+2012-01-15,Pongal,optional,pongal,False
+2012-01-26,Republic Day,compulsory,republic day,False
+2012-01-28,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2012-02-05,Milad-Un-Nabi,compulsory,milad un nabi,True
+2012-02-20,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2012-03-08,Holi,delhi_choice,holi,False
+2012-03-23,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2012-04-01,Ram Navami,optional,ram navami,False
+2012-04-05,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2012-04-06,Good Friday,compulsory,good friday,False
+2012-04-13,Vaisakhi,optional,vishu group,False
+2012-04-14,Mesadi,optional,vishu group,False
+2012-05-06,Buddha Purnima,compulsory,buddha purnima,False
+2012-06-21,Rath Yatra,optional,rath yatra,False
+2012-08-10,Janmashtami,delhi_choice,janmashtami,False
+2012-08-15,Independence Day,compulsory,independence day,False
+2012-08-18,Parsi New Year,optional,vishu group,False
+2012-08-20,Idu'l Fitr,compulsory,id ul fitr,True
+2012-08-21,Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2012-08-29,Onam,optional,onam,False
+2012-09-19,Ganesh Chaturthi,optional,ganesh chaturthi,False
+2012-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2012-10-21,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2012-10-22,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2012-10-23,Dussehra (Maha Navami),optional,dussehra additional day,False
+2012-10-24,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2012-10-27,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2012-11-02,Karva Chauth,optional,vishu group,False
+2012-11-13,Diwali (Deepavali),compulsory,diwali,True
+2012-11-19,Chhath Puja,optional,vishu group,False
+2012-11-25,Muharram,compulsory,muharram,True
+2012-11-28,Guru Nanak's Birthday,compulsory,guru nanak,False
+2012-12-25,Christmas Day,compulsory,christmas,False
+2013-01-13,Makar Sankranti,optional,makar sankranti,False
+2013-01-14,Pongal,optional,pongal,False
+2013-01-25,Milad-Un-Nabi,compulsory,milad un nabi,True
+2013-01-26,Republic Day,compulsory,republic day,False
+2013-02-14,Sri Panchami,optional,sri panchami,False
+2013-02-15,Basanta Panchami,optional,sri panchami,False
+2013-03-10,Maha Shivaratri,optional,maha shivaratri,False
+2013-03-27,Holi,delhi_choice,holi,False
+2013-03-29,Good Friday,compulsory,good friday,False
+2013-04-11,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2013-04-13,Vaisakhi,optional,vishu group,False
+2013-04-14,Mesadi,optional,vishu group,False
+2013-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2013-04-19,Ram Navami,delhi_choice,ram navami,False
+2013-04-24,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2013-05-25,Buddha Purnima,compulsory,buddha purnima,False
+2013-07-10,Rath Yatra,optional,rath yatra,False
+2013-08-09,Idu'l Fitr,compulsory,id ul fitr,True
+2013-08-15,Independence Day,compulsory,independence day,False
+2013-08-18,Parsi New Year,optional,vishu group,False
+2013-08-28,Janmashtami,delhi_choice,janmashtami,False
+2013-09-09,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2013-09-16,Onam,optional,onam,False
+2013-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2013-10-11,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2013-10-12,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2013-10-13,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2013-10-13,Dussehra (Maha Navami),optional,dussehra additional day,False
+2013-10-16,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2013-10-22,Karva Chauth,optional,vishu group,False
+2013-11-03,Diwali (Deepavali),compulsory,diwali,True
+2013-11-08,Chhath Puja,optional,vishu group,False
+2013-11-14,Muharram,compulsory,muharram,True
+2013-11-17,Guru Nanak's Birthday,compulsory,guru nanak,False
+2013-12-25,Christmas Day,compulsory,christmas,False
+2014-01-14,Milad-Un-Nabi,compulsory,milad un nabi,True
+2014-01-14,Makar Sankranti,optional,makar sankranti,False
+2014-01-14,Pongal,optional,pongal,False
+2014-01-26,Republic Day,compulsory,republic day,False
+2014-02-04,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2014-02-27,Maha Shivaratri,optional,maha shivaratri,False
+2014-03-17,Holi,delhi_choice,holi,False
+2014-03-31,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2014-04-08,Ram Navami,delhi_choice,ram navami,False
+2014-04-13,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2014-04-14,Vaisakhi / Vishu / Mesadi,optional,vishu group,False
+2014-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2014-04-18,Good Friday,compulsory,good friday,False
+2014-05-14,Buddha Purnima,compulsory,buddha purnima,False
+2014-06-29,Rath Yatra,optional,rath yatra,False
+2014-07-29,Idu'l Fitr,compulsory,id ul fitr,True
+2014-08-15,Independence Day,compulsory,independence day,False
+2014-08-18,Janmashtami,delhi_choice,janmashtami,False
+2014-08-18,Parsi New Year,optional,vishu group,False
+2014-08-29,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2014-09-07,Onam,optional,onam,False
+2014-10-01,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2014-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2014-10-02,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2014-10-03,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2014-10-03,Dussehra (Maha Navami),optional,dussehra additional day,False
+2014-10-06,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2014-10-11,Karva Chauth,optional,vishu group,False
+2014-10-23,Diwali (Deepavali),compulsory,diwali,True
+2014-10-29,Chhath Puja,optional,vishu group,False
+2014-11-04,Muharram,compulsory,muharram,True
+2014-11-06,Guru Nanak's Birthday,compulsory,guru nanak,False
+2014-12-25,Christmas Day,compulsory,christmas,False
+2015-01-04,Milad-Un-Nabi,compulsory,milad un nabi,True
+2015-01-14,Makar Sankranti,optional,makar sankranti,False
+2015-01-15,Pongal,optional,pongal,False
+2015-01-24,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2015-01-26,Republic Day,compulsory,republic day,False
+2015-03-06,Holi,delhi_choice,holi,False
+2015-03-21,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2015-03-28,Ram Navami,delhi_choice,ram navami,False
+2015-04-02,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2015-04-03,Good Friday,compulsory,good friday,False
+2015-04-14,Vaisakhi / Vishu / Mesadi,optional,vishu group,False
+2015-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2015-05-04,Buddha Purnima,compulsory,buddha purnima,False
+2015-07-18,Idu'l Fitr,compulsory,id ul fitr,True
+2015-07-18,Rath Yatra,optional,rath yatra,False
+2015-08-15,Independence Day,compulsory,independence day,False
+2015-08-18,Parsi New Year,optional,vishu group,False
+2015-08-28,Onam,optional,onam,False
+2015-09-05,Janmashtami,delhi_choice,janmashtami,False
+2015-09-17,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2015-09-25,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2015-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2015-10-20,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2015-10-21,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2015-10-22,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2015-10-22,Dussehra (Maha Navami),optional,dussehra additional day,False
+2015-10-24,Muharram,compulsory,muharram,True
+2015-10-30,Karva Chauth,optional,vishu group,False
+2015-11-11,Diwali (Deepavali),compulsory,diwali,True
+2015-11-17,Chhath Puja,optional,vishu group,False
+2015-11-25,Guru Nanak's Birthday,compulsory,guru nanak,False
+2015-12-24,Milad-Un-Nabi,compulsory,milad un nabi,True
+2015-12-25,Christmas Day,compulsory,christmas,False
+2016-01-14,Makar Sankranti,optional,makar sankranti,False
+2016-01-15,Pongal,optional,pongal,False
+2016-01-26,Republic Day,compulsory,republic day,False
+2016-02-12,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2016-03-07,Maha Shivaratri,optional,maha shivaratri,False
+2016-03-24,Holi,delhi_choice,holi,False
+2016-03-25,Good Friday,compulsory,good friday,False
+2016-04-08,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2016-04-13,Vaisakhi / Vishu,optional,vishu group,False
+2016-04-14,Mesadi / Vaisakhadi / Bahag Bihu,optional,vishu group,False
+2016-04-15,Ram Navami,delhi_choice,ram navami,False
+2016-04-20,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2016-05-21,Buddha Purnima,compulsory,buddha purnima,False
+2016-07-06,Idu'l Fitr,compulsory,id ul fitr,True
+2016-07-06,Rath Yatra,optional,rath yatra,False
+2016-08-15,Independence Day,compulsory,independence day,False
+2016-08-17,Parsi New Year,optional,vishu group,False
+2016-08-25,Janmashtami,delhi_choice,janmashtami,False
+2016-09-05,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2016-09-12,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2016-09-14,Onam,optional,onam,False
+2016-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2016-10-08,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2016-10-09,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2016-10-10,Dussehra (Maha Navami),optional,dussehra additional day,False
+2016-10-11,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2016-10-12,Muharram,compulsory,muharram,True
+2016-10-19,Karva Chauth,optional,vishu group,False
+2016-10-30,Diwali (Deepavali),compulsory,diwali,True
+2016-11-06,Chhath Puja,optional,vishu group,False
+2016-11-14,Guru Nanak's Birthday,compulsory,guru nanak,False
+2016-12-13,Milad-Un-Nabi,compulsory,milad un nabi,True
+2016-12-25,Christmas Day,compulsory,christmas,False
+2017-01-14,Makar Sankranti,optional,makar sankranti,False
+2017-01-14,Pongal,optional,pongal,False
+2017-01-26,Republic Day,compulsory,republic day,False
+2017-02-01,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2017-02-24,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2017-03-13,Holi,delhi_choice,holi,False
+2017-03-28,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2017-04-04,Ram Navami,delhi_choice,ram navami,False
+2017-04-09,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2017-04-13,Vaisakhi / Vishu,optional,vishu group,False
+2017-04-14,Good Friday,compulsory,good friday,False
+2017-04-14,Mesadi,optional,vishu group,False
+2017-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2017-05-10,Buddha Purnima,compulsory,buddha purnima,False
+2017-06-25,Rath Yatra,optional,rath yatra,False
+2017-06-26,Idu'l Fitr,compulsory,id ul fitr,True
+2017-08-15,Independence Day,compulsory,independence day,False
+2017-08-15,Janmashtami,optional,janmashtami,False
+2017-08-17,Parsi New Year,optional,vishu group,False
+2017-08-25,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2017-09-02,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2017-09-04,Onam,optional,onam,False
+2017-09-27,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2017-09-28,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2017-09-29,Dussehra (Maha Navami),optional,dussehra additional day,False
+2017-09-30,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2017-10-01,Muharram,compulsory,muharram,True
+2017-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2017-10-08,Karva Chauth,optional,vishu group,False
+2017-10-19,Diwali (Deepavali),compulsory,diwali,True
+2017-10-26,Chhath Puja,optional,vishu group,False
+2017-11-04,Guru Nanak's Birthday,compulsory,guru nanak,False
+2017-12-02,Milad-Un-Nabi,compulsory,milad un nabi,True
+2017-12-25,Christmas Day,compulsory,christmas,False
+2018-01-14,Makar Sankranti,optional,makar sankranti,False
+2018-01-14,Pongal,optional,pongal,False
+2018-01-22,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2018-01-26,Republic Day,compulsory,republic day,False
+2018-02-14,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2018-03-02,Holi,delhi_choice,holi,False
+2018-03-18,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2018-03-25,Ram Navami,optional,ram navami,False
+2018-03-29,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2018-03-30,Good Friday,compulsory,good friday,False
+2018-04-14,Vaisakhi / Vishu / Mesadi,optional,vishu group,False
+2018-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2018-04-30,Buddha Purnima,compulsory,buddha purnima,False
+2018-06-16,Idu'l Fitr,compulsory,id ul fitr,True
+2018-07-14,Rath Yatra,optional,rath yatra,False
+2018-08-15,Independence Day,compulsory,independence day,False
+2018-08-17,Parsi New Year,optional,vishu group,False
+2018-08-22,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2018-08-25,Onam,optional,onam,False
+2018-09-03,Janmashtami,delhi_choice,janmashtami,False
+2018-09-13,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2018-09-21,Muharram,compulsory,muharram,True
+2018-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2018-10-16,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2018-10-17,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2018-10-18,Dussehra (Maha Navami),optional,dussehra additional day,False
+2018-10-19,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2018-10-27,Karva Chauth,optional,vishu group,False
+2018-11-07,Diwali (Deepavali),compulsory,diwali,True
+2018-11-13,Chhath Puja,optional,vishu group,False
+2018-11-21,Milad-Un-Nabi,compulsory,milad un nabi,True
+2018-11-23,Guru Nanak's Birthday,compulsory,guru nanak,False
+2018-12-25,Christmas Day,compulsory,christmas,False
+2019-01-14,Makar Sankranti,optional,makar sankranti,False
+2019-01-15,Pongal,optional,pongal,False
+2019-01-26,Republic Day,compulsory,republic day,False
+2019-02-10,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2019-03-04,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2019-03-21,Holi,delhi_choice,holi,False
+2019-03-21,Dolyatra,optional,holi,False
+2019-04-06,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2019-04-13,Ram Navami,optional,ram navami,False
+2019-04-14,Vaisakhi / Vishu / Mesadi,optional,vishu group,False
+2019-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2019-04-17,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2019-04-19,Good Friday,compulsory,good friday,False
+2019-05-18,Buddha Purnima,compulsory,buddha purnima,False
+2019-06-05,Idu'l Fitr,compulsory,id ul fitr,True
+2019-07-04,Rath Yatra,optional,rath yatra,False
+2019-08-12,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2019-08-15,Independence Day,compulsory,independence day,False
+2019-08-17,Parsi New Year,optional,vishu group,False
+2019-08-24,Janmashtami,delhi_choice,janmashtami,False
+2019-09-02,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2019-09-10,Muharram,compulsory,muharram,True
+2019-09-11,Onam,optional,onam,False
+2019-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2019-10-05,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2019-10-06,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2019-10-07,Dussehra (Maha Navami),optional,dussehra additional day,False
+2019-10-08,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2019-10-17,Karva Chauth,optional,vishu group,False
+2019-10-27,Diwali (Deepavali),compulsory,diwali,True
+2019-11-02,Chhath Puja,optional,vishu group,False
+2019-11-10,Milad-Un-Nabi,compulsory,milad un nabi,True
+2019-11-12,Guru Nanak's Birthday,compulsory,guru nanak,False
+2019-12-25,Christmas Day,compulsory,christmas,False
+2020-01-15,Makar Sankranti / Pongal,optional,makar sankranti,False
+2020-01-26,Republic Day,compulsory,republic day,False
+2020-01-30,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2020-02-21,Maha Shivaratri,optional,maha shivaratri,False
+2020-03-10,Holi,delhi_choice,holi,False
+2020-03-25,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2020-04-02,Ram Navami,delhi_choice,ram navami,False
+2020-04-06,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2020-04-10,Good Friday,compulsory,good friday,False
+2020-04-13,Vaisakhi / Vishu,optional,vishu group,False
+2020-04-14,Mesadi / Vaisakhadi / Bahag Bihu,optional,vishu group,False
+2020-05-07,Buddha Purnima,compulsory,buddha purnima,False
+2020-05-25,Idu'l Fitr,compulsory,id ul fitr,True
+2020-06-23,Rath Yatra,optional,rath yatra,False
+2020-08-01,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2020-08-11,Janmashtami (Smarta),optional,janmashtami,False
+2020-08-12,Janmashtami,delhi_choice,janmashtami,False
+2020-08-15,Independence Day,compulsory,independence day,False
+2020-08-16,Parsi New Year,optional,vishu group,False
+2020-08-30,Muharram,compulsory,muharram,True
+2020-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2020-10-25,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2020-10-30,Milad-Un-Nabi,compulsory,milad un nabi,True
+2020-11-14,Diwali (Deepavali),compulsory,diwali,True
+2020-11-30,Guru Nanak's Birthday,compulsory,guru nanak,False
+2020-12-25,Christmas Day,compulsory,christmas,False

@@ -70,10 +70,14 @@ num <- function(h, col, fmt = "%.1f") sprintf(fmt, results[[col]][results$hypoth
 write_numbers(c(
   POnePct = num("P1", "pct"), POneLo = num("P1", "pct_lo"), POneHi = num("P1", "pct_hi"),
   POneP = fmt_p(results$p_shift[1]), POneHolm = fmt_p(results$p_holm[1]),
+  POneLoAbs = sprintf("%.0f", abs(results$pct_lo[1])),
   PTwoPct = num("P2", "pct"), PTwoLo = num("P2", "pct_lo"), PTwoHi = num("P2", "pct_hi"),
   PTwoP = fmt_p(results$p_shift[2]), PTwoHolm = fmt_p(results$p_holm[2]),
   PThreePct = num("P3", "pct", "%.2f"), PThreeLo = num("P3", "pct_lo", "%.2f"),
   PThreeHi = num("P3", "pct_hi", "%.2f"),
   PThreeP = fmt_p(results$p_shift[3]), PThreeHolm = fmt_p(results$p_holm[3]),
-  NPrimary = fmt_int(results$n_obs[3])
+  NPrimary = fmt_int(results$n_obs[3]),
+  # Auspicious vs inauspicious tithi: two steps of the index.
+  PThreeGapLo = sprintf("%.1f", 100 * (exp(2 * (results$estimate[3] - 1.96 * results$se_dk[3])) - 1)),
+  PThreeGapHi = sprintf("%.1f", 100 * (exp(2 * (results$estimate[3] + 1.96 * results$se_dk[3])) - 1))
 ), "numbers_primary.tex")

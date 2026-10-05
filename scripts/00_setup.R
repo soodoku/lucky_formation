@@ -22,6 +22,8 @@ CONFIG <- list(
 # Electronic filing became mandatory on 2006-09-16; the snapshot ends in January 2020.
 SAMPLE_START <- as.Date("2006-10-01")
 SAMPLE_END <- as.Date("2020-01-31")
+# DoPT's holiday memoranda, which define registrar closures, are available from 2008.
+OFFICIAL_CALENDAR_START <- as.Date("2008-01-01")
 # CRC Phase 2: incorporations nationwide approved centrally, typically within a day.
 CRC_DATE <- as.Date("2016-03-23")
 

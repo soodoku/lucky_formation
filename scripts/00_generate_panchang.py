@@ -6,8 +6,9 @@ sunrise (udaya convention), sidereal longitudes with Lahiri ayanamsa. Lunar mont
 are amanta (new moon to new moon), named by the solar sign the Sun enters during
 the month; a month with no solar ingress is adhik (intercalary).
 
-Festival days follow the rules in FESTIVALS. They are validated against published
-dates in scripts/validate_panchang.py, which shares no code with this file.
+Festival days in the output are the published almanac's (Drik Panchang, New Delhi), because
+almanacs follow contested conventions when a festival's lunar day straddles two civil days.
+The rules in FESTIVALS reproduce those dates where they can and are kept as `<column>_rule`.
 """
 
 import argparse
@@ -260,14 +261,47 @@ def generate(start: date, end: date) -> pd.DataFrame:
     return df.drop(columns=[c for c in df.columns if c.startswith("_")])
 
 
+def apply_almanac(df: pd.DataFrame, path: str) -> pd.DataFrame:
+    """Replace the rule-based festival dates with the published almanac's.
+
+    Almanacs disagree on festivals whose lunar day straddles two civil days, so the dates
+    used are Drik Panchang's (scripts/scrape_drik_festivals.py). The rule-based dates stay in
+    `<column>_rule` for comparison.
+    """
+    drik = pd.read_csv(path)
+    years = set(df["date"].str[:4].astype(int))
+    missing = drik[drik["year"].isin(years) & drik["drik_date"].isna()]
+    if len(missing) or not years <= set(drik["year"]):
+        raise SystemExit(f"Almanac dates missing:\n{missing}")
+    dates = drik.set_index(["event", "year"])["drik_date"]
+    for col in list(FESTIVALS) + list(SPANS):
+        df[f"{col}_rule"] = df[col]
+        df[col] = 0
+    for (event, _), d in dates.items():
+        if event in FESTIVALS:
+            df.loc[df["date"] == d, event] = 1
+    for span in SPANS:
+        for year in years:
+            first, last = dates[(f"{span}_first", year)], dates[(f"{span}_last", year)]
+            df.loc[(df["date"] >= first) & (df["date"] <= last), span] = 1
+    return df
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--start", default="2005-01-01")
-    parser.add_argument("--end", default="2026-12-31")
+    parser.add_argument("--end", default="2021-12-31")
     parser.add_argument("--output", default="data/panchang.csv")
+    parser.add_argument(
+        "--almanac",
+        default="data/festivals_drik.csv",
+        help="published festival dates; 'none' keeps the rule-based dates",
+    )
     args = parser.parse_args()
 
     df = generate(date.fromisoformat(args.start), date.fromisoformat(args.end))
+    if args.almanac != "none":
+        df = apply_almanac(df, args.almanac)
     df.to_csv(args.output, index=False)
     print(f"Wrote {len(df):,} days to {args.output}")
 

@@ -113,11 +113,20 @@ write_numbers(c(
   DhanterasBoth = g(ex_both, "dhanteras"), GudiBoth = g(ex_both, "gudi_padwa"),
   DhanterasNearClosure = fmt_pct(x$exposure$share_closure_within_3[
     x$exposure$day == "Dhanteras"], 0),
+  AheadLo = sprintf("%.1f", min(filter(ex_both, grepl("closure_ahead", term))$lo)),
+  AheadHi = sprintf("%.1f", max(filter(ex_both, grepl("closure_ahead", term))$hi)),
+  RobPOneMax = sprintf("%.0f", ceiling(max(abs(c(s$robust$lo, s$robust$hi)[
+    rep(s$robust$hypothesis == "P1", 2)])))),
+  RobPThreeMax = sprintf("%.0f", ceiling(max(abs(c(s$robust$lo, s$robust$hi)[
+    rep(s$robust$hypothesis == "P3", 2)])))),
   NDhanterasDates = x$exposure$dates[x$exposure$day == "Dhanteras"],
   NGudiDates = x$exposure$dates[x$exposure$day == "Gudi Padwa"],
   GudiNearFy = fmt_pct(x$exposure$share_fy_last_10[x$exposure$day == "Gudi Padwa"], 0),
   RobSatPTwo = sprintf("%.1f", s$robust$pct[s$robust$variant == "Saturdays included" &
                                                s$robust$hypothesis == "P2"]),
   RobOlsPTwo = sprintf("%.1f", s$robust$pct[s$robust$variant == "OLS, log(1 + count)" &
-                                               s$robust$hypothesis == "P2"])
+                                               s$robust$hypothesis == "P2"]),
+  RobAllHolPTwo = sprintf("%.1f", s$robust$pct[s$robust$variant ==
+                                                  "All listed holidays excluded" &
+                                                  s$robust$hypothesis == "P2"])
 ), "numbers_secondary.tex")

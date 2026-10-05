@@ -135,20 +135,23 @@ placebo <- map_dfr(c("n_foreign", "n_govt"), function(y) {
 })
 
 # --- 6. Robustness -------------------------------------------------------------------------
+with_md <- function(data) {
+  mutate(data, muhurat_day = pmax(gudi_padwa, akshaya_tritiya, vijayadashami, dhanteras),
+         t = as.integer(date - SAMPLE_START))
+}
 variants <- list(
   "Saturdays included" = panel %>%
-    filter(!closed | weekday == 6, !disrupted_week) %>%
-    mutate(muhurat_day = pmax(gudi_padwa, akshaya_tritiya, vijayadashami, dhanteras),
-           t = as.integer(date - SAMPLE_START)),
+    filter(!closed, !disrupted_week) %>%
+    with_md(),
   "2010--2020 only" = filter(d, date >= as.Date("2010-01-01")),
-  "Closures: listed holidays only" = panel %>%
-    filter(weekday <= 5, !holiday_listed, !disrupted_week) %>%
-    mutate(muhurat_day = pmax(gudi_padwa, akshaya_tritiya, vijayadashami, dhanteras),
-           t = as.integer(date - SAMPLE_START)),
-  "Closures: detected only" = panel %>%
-    filter(weekday <= 5, !closure_detected, !disrupted_week) %>%
-    mutate(muhurat_day = pmax(gudi_padwa, akshaya_tritiya, vijayadashami, dhanteras),
-           t = as.integer(date - SAMPLE_START))
+  # Every listed holiday out, worked or not; shut-downs off the list stay out too.
+  "All listed holidays excluded" = panel %>%
+    filter(weekday <= 5, !closed, !holiday_listed, !disrupted_week) %>%
+    with_md(),
+  # Single-registrar shut-downs on days no official calendar lists, treated as open.
+  "Unexplained shut-downs kept" = panel %>%
+    filter(weekday <= 5, !closed | closure_type == "unexplained shut-down", !disrupted_week) %>%
+    with_md()
 )
 robust <- imap_dfr(variants, function(data, nm) {
   map_dfr(names(PRIMARY_RHS), function(h) {

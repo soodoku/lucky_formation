@@ -2,14 +2,15 @@
 R := Rscript
 PY := uv run python
 
-.PHONY: all data analysis paper validate lint clean
+.PHONY: all data analysis paper sources validate lint clean
 
 all: data analysis paper
 
+# Built from committed sources: the ephemeris, data/festivals_drik.csv (almanac dates) and
+# data/dopt_holidays_transcribed.csv (from the memoranda in data/sources/dopt/).
 data:
 	$(PY) scripts/00_generate_panchang.py
 	$(PY) scripts/build_holidays.py
-	$(PY) scripts/validate_holidays_pkg.py
 	$(R) scripts/01_clean_companies.R
 	$(R) scripts/02_build_panel.R
 
@@ -24,7 +25,12 @@ analysis:
 paper:
 	cd ms && latexmk -pdf -interaction=nonstopmode -quiet main.tex
 
-# Fetches Drik Panchang pages (slow, rate-limited); not part of `all`.
+# Network steps (slow, rate-limited by Drik Panchang); their outputs are committed.
+sources:
+	$(PY) scripts/00_generate_panchang.py --almanac none
+	$(PY) scripts/scrape_drik_festivals.py
+	$(PY) scripts/00_generate_panchang.py
+
 validate:
 	$(PY) scripts/validate_panchang.py
 
