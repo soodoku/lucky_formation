@@ -23,6 +23,7 @@ analysis:
 	$(R) scripts/08_tables.R
 
 paper:
+	$(PY) scripts/update_readme.py
 	cd ms && latexmk -pdf -interaction=nonstopmode -quiet main.tex
 
 # Network steps (slow, rate-limited by Drik Panchang); their outputs are committed.
