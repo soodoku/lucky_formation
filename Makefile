@@ -1,4 +1,4 @@
-# Full pipeline: make all. The registry snapshot must be at data/registered_companies.csv.zip.
+# Full pipeline: make all. Everything it needs is committed (see data/README.md).
 R := Rscript
 PY := uv run python
 

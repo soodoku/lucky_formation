@@ -3,11 +3,10 @@
 
 source("scripts/00_setup.R")
 
-raw <- read_csv(
-  pipe(paste("unzip -p", shQuote(CONFIG$companies_path))),
-  col_types = cols(.default = col_character()),
-  na = c("", "NA", "NULL")
-)
+# Strings exactly as in the snapshot (scripts/00_slim_registry.R); the same missing-value codes
+# the CSV reader used are applied here.
+raw <- read_parquet(CONFIG$companies_path) %>%
+  mutate(across(everything(), ~ if_else(.x %in% c("", "NA", "NULL"), NA_character_, .x)))
 message("Raw rows: ", nrow(raw))
 
 companies <- raw %>%

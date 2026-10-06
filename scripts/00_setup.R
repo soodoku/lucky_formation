@@ -16,7 +16,8 @@ dir.create(PATH_FIGS, showWarnings = FALSE)
 
 CONFIG <- list(
   panchang_path = Sys.getenv("LUCKY_PANCHANG_PATH", "data/panchang.csv"),
-  companies_path = Sys.getenv("LUCKY_COMPANIES_PATH", "data/registered_companies.csv.zip")
+  companies_path = Sys.getenv("LUCKY_COMPANIES_PATH",
+                              "data/sources/mca_company_master_2020-12.parquet")
 )
 
 # Electronic filing became mandatory on 2006-09-16; the snapshot ends in January 2020.
