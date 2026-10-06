@@ -1,404 +1,309 @@
 #!/usr/bin/env python3
-"""
-Generate panchang data from astronomical first principles using Swiss Ephemeris.
+"""Daily panchang at sunrise in New Delhi, computed from the Swiss Ephemeris.
 
-Uses Lahiri Ayanamsa (Indian Government standard) for sidereal calculations.
+Each civil day takes the tithi, nakshatra, yoga and karana prevailing at local
+sunrise (udaya convention), sidereal longitudes with Lahiri ayanamsa. Lunar months
+are amanta (new moon to new moon), named by the solar sign the Sun enters during
+the month; a month with no solar ingress is adhik (intercalary).
+
+Festival days in the output are the published almanac's (Drik Panchang, New Delhi), because
+almanacs follow contested conventions when a festival's lunar day straddles two civil days.
+The rules in FESTIVALS reproduce those dates where they can and are kept as `<column>_rule`.
 """
 
 import argparse
-from datetime import datetime, timedelta
-from typing import Tuple
+from datetime import date, timedelta
 
 import pandas as pd
 import swisseph as swe
 
-# Initialize Swiss Ephemeris with Lahiri ayanamsa
+# Moshier's analytic ephemeris needs no data files; its lunar error (~1 arcsec) moves
+# a tithi boundary by seconds, far below the hour-scale gap to sunrise that matters here.
+FLAGS = swe.FLG_MOSEPH | swe.FLG_SIDEREAL
 swe.set_sid_mode(swe.SIDM_LAHIRI)
 
-# Location: Delhi (default for Indian panchang)
-DELHI_LAT = 28.6139
-DELHI_LON = 77.2090
+# CRC Manesar and ROC Delhi, the largest registrar, are both in the Delhi region.
+DELHI = (77.2090, 28.6139, 216.0)
+IST_OFFSET_DAYS = 5.5 / 24
 
-# Tithi names (1-30)
 TITHI_NAMES = [
-    "Pratipada", "Dwitiya", "Tritiya", "Chaturthi", "Panchami",
-    "Shashthi", "Saptami", "Ashtami", "Navami", "Dashami",
-    "Ekadashi", "Dwadashi", "Trayodashi", "Chaturdashi", "Purnima",
-    "Pratipada", "Dwitiya", "Tritiya", "Chaturthi", "Panchami",
-    "Shashthi", "Saptami", "Ashtami", "Navami", "Dashami",
-    "Ekadashi", "Dwadashi", "Trayodashi", "Chaturdashi", "Amavasya"
-]
-
-# Nakshatra names (1-27)
+    "Pratipada", "Dwitiya", "Tritiya", "Chaturthi", "Panchami", "Shashthi", "Saptami",
+    "Ashtami", "Navami", "Dashami", "Ekadashi", "Dwadashi", "Trayodashi", "Chaturdashi",
+    "Purnima",
+    "Pratipada", "Dwitiya", "Tritiya", "Chaturthi", "Panchami", "Shashthi", "Saptami",
+    "Ashtami", "Navami", "Dashami", "Ekadashi", "Dwadashi", "Trayodashi", "Chaturdashi",
+    "Amavasya",
+]  # fmt: skip
 NAKSHATRA_NAMES = [
-    "Ashwini", "Bharani", "Krittika", "Rohini", "Mrigashira",
-    "Ardra", "Punarvasu", "Pushya", "Ashlesha", "Magha",
-    "Purva Phalguni", "Uttara Phalguni", "Hasta", "Chitra", "Swati",
-    "Vishakha", "Anuradha", "Jyeshtha", "Mula", "Purva Ashadha",
-    "Uttara Ashadha", "Shravana", "Dhanishta", "Shatabhisha", "Purva Bhadrapada",
-    "Uttara Bhadrapada", "Revati"
-]
-
-# Yoga names (1-27)
+    "Ashwini", "Bharani", "Krittika", "Rohini", "Mrigashira", "Ardra", "Punarvasu",
+    "Pushya", "Ashlesha", "Magha", "Purva Phalguni", "Uttara Phalguni", "Hasta", "Chitra",
+    "Swati", "Vishakha", "Anuradha", "Jyeshtha", "Mula", "Purva Ashadha", "Uttara Ashadha",
+    "Shravana", "Dhanishta", "Shatabhisha", "Purva Bhadrapada", "Uttara Bhadrapada", "Revati",
+]  # fmt: skip
 YOGA_NAMES = [
-    "Vishkumbha", "Priti", "Ayushman", "Saubhagya", "Shobhana",
-    "Atiganda", "Sukarma", "Dhriti", "Shula", "Ganda",
-    "Vriddhi", "Dhruva", "Vyaghata", "Harshana", "Vajra",
-    "Siddhi", "Vyatipata", "Variyan", "Parigha", "Shiva",
-    "Siddha", "Sadhya", "Shubha", "Shukla", "Brahma",
-    "Indra", "Vaidhriti"
-]
+    "Vishkumbha", "Priti", "Ayushman", "Saubhagya", "Shobhana", "Atiganda", "Sukarma",
+    "Dhriti", "Shula", "Ganda", "Vriddhi", "Dhruva", "Vyaghata", "Harshana", "Vajra",
+    "Siddhi", "Vyatipata", "Variyan", "Parigha", "Shiva", "Siddha", "Sadhya", "Shubha",
+    "Shukla", "Brahma", "Indra", "Vaidhriti",
+]  # fmt: skip
+MOVABLE_KARANAS = ["Bava", "Balava", "Kaulava", "Taitila", "Garaja", "Vanija", "Vishti"]
+MONTH_NAMES = [
+    "Chaitra", "Vaishakha", "Jyeshtha", "Ashadha", "Shravana", "Bhadrapada", "Ashvin",
+    "Kartika", "Margashirsha", "Pausha", "Magha", "Phalguna",
+]  # fmt: skip
 
-# Karana names (11 types, cycle through 60 karanas per lunar month)
-KARANA_NAMES = [
-    "Bava", "Balava", "Kaulava", "Taitila", "Garaja", "Vanija", "Vishti",
-    "Shakuni", "Chatushpada", "Naga", "Kimstughna"
-]
-
-# Weekday names
-WEEKDAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
-# Auspiciousness classifications based on Muhurta Chintamani & Brihat Samhita
-
-# Auspicious tithis (1-indexed): 2,3,5,7,10,11,13 in Shukla; 17,18,20,22,25,26 in Krishna
+# Classifications for business beginnings (Muhurta Chintamani), fixed before estimation.
+# Tithis are numbered 1-30 across the month; 16-30 are the waning (Krishna) half.
 TITHI_AUSPICIOUS = {2, 3, 5, 7, 10, 11, 13, 17, 18, 20, 22, 25, 26}
 TITHI_INAUSPICIOUS = {4, 8, 9, 14, 19, 23, 24, 29, 30}
+NAKSHATRA_AUSPICIOUS = {4, 5, 8, 13, 14, 15, 17, 21, 22, 23, 26, 27}
+NAKSHATRA_INAUSPICIOUS = {2, 3, 6, 9, 10, 11, 18, 19, 20, 25}
+YOGA_AUSPICIOUS = {2, 3, 4, 7, 8, 11, 12, 14, 16, 18, 20, 21, 22, 23, 24, 25, 26}
+YOGA_INAUSPICIOUS = {1, 6, 9, 10, 13, 15, 17, 19, 27}
 
-# Auspicious nakshatras (1-indexed)
-NAKSHATRA_AUSPICIOUS = {
-    4,   # Rohini
-    5,   # Mrigashira
-    8,   # Pushya
-    13,  # Hasta
-    14,  # Chitra
-    15,  # Swati
-    17,  # Anuradha
-    21,  # Uttara Ashadha
-    22,  # Shravana
-    23,  # Dhanishta
-    26,  # Uttara Bhadrapada
-    27,  # Revati
+# Named days as (lunar month, tithi 1-30, time of day). Almanacs place each festival on the
+# day its tithi prevails at a prescribed time (kala), not always at sunrise: evening
+# (pradosh) for Lakshmi Puja and Dhanteras, afternoon (aparahna) for Vijayadashami and the
+# ancestral rites of Pitru Paksha, forenoon (purvahna) for Akshaya Tritiya.
+FESTIVALS = {
+    "gudi_padwa": ("Chaitra", 1, "sunrise"),
+    "akshaya_tritiya": ("Vaishakha", 3, "purvahna"),
+    "vijayadashami": ("Ashvin", 10, "aparahna"),
+    "dhanteras": ("Ashvin", 28, "pradosh"),
+    "diwali": ("Ashvin", 30, "pradosh"),
 }
-NAKSHATRA_INAUSPICIOUS = {
-    2,   # Bharani
-    3,   # Krittika
-    6,   # Ardra
-    9,   # Ashlesha
-    10,  # Magha
-    11,  # Purva Phalguni
-    18,  # Jyeshtha
-    19,  # Mula
-    20,  # Purva Ashadha
-    25,  # Purva Bhadrapada
+SPANS = {
+    "pitru_paksha": ("Bhadrapada", range(16, 31), "aparahna"),
+    "navratri": ("Ashvin", range(1, 10), "sunrise"),
 }
-
-# Auspicious yogas (1-indexed)
-YOGA_AUSPICIOUS = {
-    2,   # Priti
-    3,   # Ayushman
-    4,   # Saubhagya
-    7,   # Sukarma
-    8,   # Dhriti
-    11,  # Vriddhi
-    12,  # Dhruva
-    14,  # Harshana
-    16,  # Siddhi
-    18,  # Variyan
-    20,  # Shiva
-    21,  # Siddha
-    22,  # Sadhya
-    23,  # Shubha
-    24,  # Shukla
-    25,  # Brahma
-    26,  # Indra
-}
-YOGA_INAUSPICIOUS = {
-    1,   # Vishkumbha
-    6,   # Atiganda
-    9,   # Shula
-    10,  # Ganda
-    13,  # Vyaghata
-    15,  # Vajra
-    17,  # Vyatipata
-    19,  # Parigha
-    27,  # Vaidhriti
-}
-
-# Auspicious karanas: Bava, Balava, Kaulava, Taitila, Garaja, Vanija
-KARANA_AUSPICIOUS = {"Bava", "Balava", "Kaulava", "Taitila", "Garaja", "Vanija"}
-# Inauspicious: Vishti (Bhadra)
-KARANA_INAUSPICIOUS = {"Vishti"}
-
-# Auspicious weekdays (0=Monday): Monday, Wednesday, Thursday, Friday
-VARA_AUSPICIOUS = {0, 2, 3, 4}  # Mon, Wed, Thu, Fri
-VARA_INAUSPICIOUS = {1, 5}  # Tuesday, Saturday
+# Daytime split in fifths: purvahna is the second fifth, aparahna the fourth. Pradosh is the
+# 2h24m after sunset. A named day falls on the day whose window the tithi touches; the days
+# of a span are those whose window midpoint lies in it (how both match published dates).
+KALAS = ("sunrise", "purvahna", "aparahna", "pradosh")
 
 
-def date_to_jd(date: datetime, hour: float = 12.0) -> float:
-    """Convert datetime to Julian Day number."""
-    return swe.julday(date.year, date.month, date.day, hour)
+def jd_of(d: date, hour_ut: float = 0.0) -> float:
+    return swe.julday(d.year, d.month, d.day, hour_ut)
 
 
-def get_sun_moon_positions(jd: float) -> Tuple[float, float, float]:
-    """
-    Get sidereal longitudes of Sun and Moon, plus ayanamsa.
-
-    Returns:
-        (sun_sidereal_lon, moon_sidereal_lon, ayanamsa)
-    """
-    # Get tropical positions
-    sun_pos = swe.calc_ut(jd, swe.SUN)[0]
-    moon_pos = swe.calc_ut(jd, swe.MOON)[0]
-
-    sun_tropical = sun_pos[0]
-    moon_tropical = moon_pos[0]
-
-    # Get ayanamsa
-    ayanamsa = swe.get_ayanamsa_ut(jd)
-
-    # Convert to sidereal
-    sun_sidereal = (sun_tropical - ayanamsa) % 360
-    moon_sidereal = (moon_tropical - ayanamsa) % 360
-
-    return sun_sidereal, moon_sidereal, ayanamsa
+def longitudes(jd: float) -> tuple[float, float]:
+    sun = swe.calc_ut(jd, swe.SUN, FLAGS)[0][0]
+    moon = swe.calc_ut(jd, swe.MOON, FLAGS)[0][0]
+    return sun, moon
 
 
-def compute_tithi(sun_lon: float, moon_lon: float) -> Tuple[int, str, str]:
-    """
-    Compute tithi from sidereal longitudes.
-
-    Tithi = (Moon - Sun) / 12 degrees
-
-    Returns:
-        (tithi_num 1-30, tithi_name, paksha)
-    """
-    diff = (moon_lon - sun_lon) % 360
-    tithi_num = int(diff / 12) + 1
-
-    if tithi_num > 30:
-        tithi_num = 30
-
-    tithi_name = TITHI_NAMES[tithi_num - 1]
-    paksha = "Shukla" if tithi_num <= 15 else "Krishna"
-
-    return tithi_num, tithi_name, paksha
+def elongation(jd: float) -> float:
+    sun, moon = longitudes(jd)
+    return (moon - sun) % 360
 
 
-def compute_nakshatra(moon_lon: float) -> Tuple[int, str]:
-    """
-    Compute nakshatra from Moon's sidereal longitude.
-
-    Each nakshatra spans 13°20' (13.333... degrees).
-
-    Returns:
-        (nakshatra_num 1-27, nakshatra_name)
-    """
-    nakshatra_num = int(moon_lon / (360 / 27)) + 1
-
-    if nakshatra_num > 27:
-        nakshatra_num = 27
-
-    nakshatra_name = NAKSHATRA_NAMES[nakshatra_num - 1]
-
-    return nakshatra_num, nakshatra_name
+def sunrise_sunset(d: date) -> tuple[float, float]:
+    """Julian days (UT) of sunrise and the following sunset on civil date d in Delhi."""
+    start = jd_of(d) - IST_OFFSET_DAYS
+    _, rise = swe.rise_trans(start, swe.SUN, swe.CALC_RISE, DELHI, flags=swe.FLG_MOSEPH)
+    _, sets = swe.rise_trans(rise[0], swe.SUN, swe.CALC_SET, DELHI, flags=swe.FLG_MOSEPH)
+    return rise[0], sets[0]
 
 
-def compute_yoga(sun_lon: float, moon_lon: float) -> Tuple[int, str]:
-    """
-    Compute yoga from sidereal longitudes.
-
-    Yoga = (Sun + Moon) / 13.333... degrees
-
-    Returns:
-        (yoga_num 1-27, yoga_name)
-    """
-    total = (sun_lon + moon_lon) % 360
-    yoga_num = int(total / (360 / 27)) + 1
-
-    if yoga_num > 27:
-        yoga_num = 27
-
-    yoga_name = YOGA_NAMES[yoga_num - 1]
-
-    return yoga_num, yoga_name
-
-
-def compute_karana(sun_lon: float, moon_lon: float) -> str:
-    """
-    Compute karana from sidereal longitudes.
-
-    Karana = half-tithi, each spanning 6 degrees.
-    There are 11 karanas cycling through 60 karanas per lunar month.
-
-    Returns:
-        karana_name
-    """
-    diff = (moon_lon - sun_lon) % 360
-    karana_index = int(diff / 6)
-
-    # First karana of lunar month is Kimstughna (fixed)
-    # Last karana is Naga (fixed)
-    # Karanas 2-58 cycle through the 7 repeating karanas
-
-    if karana_index == 0:
-        return "Kimstughna"
-    elif karana_index >= 57:
-        if karana_index == 57:
-            return "Shakuni"
-        elif karana_index == 58:
-            return "Chatushpada"
-        else:
-            return "Naga"
-    else:
-        # Cycle through Bava, Balava, Kaulava, Taitila, Garaja, Vanija, Vishti
-        cycle_index = (karana_index - 1) % 7
-        return KARANA_NAMES[cycle_index]
-
-
-def compute_panchang_for_date(date: datetime, hour: float = 0.0) -> dict:
-    """Compute all panchang elements for a given date at specified hour (default: midnight UTC)."""
-    jd = date_to_jd(date, hour=hour)
-
-    # Get positions
-    sun_lon, moon_lon, ayanamsa = get_sun_moon_positions(jd)
-
-    # Compute elements
-    tithi_num, tithi_name, paksha = compute_tithi(sun_lon, moon_lon)
-    nakshatra_num, nakshatra_name = compute_nakshatra(moon_lon)
-    yoga_num, yoga_name = compute_yoga(sun_lon, moon_lon)
-    karana_name = compute_karana(sun_lon, moon_lon)
-
-    # Weekday (0=Monday in our system to match R's week_start=1)
-    weekday = date.weekday()
-    weekday_name = WEEKDAY_NAMES[weekday]
-
-    # Auspiciousness classifications
-    tithi_ausp = 1 if tithi_num in TITHI_AUSPICIOUS else 0
-    tithi_inausp = 1 if tithi_num in TITHI_INAUSPICIOUS else 0
-
-    nak_ausp = 1 if nakshatra_num in NAKSHATRA_AUSPICIOUS else 0
-    nak_inausp = 1 if nakshatra_num in NAKSHATRA_INAUSPICIOUS else 0
-
-    yoga_ausp = 1 if yoga_num in YOGA_AUSPICIOUS else 0
-    yoga_inausp = 1 if yoga_num in YOGA_INAUSPICIOUS else 0
-
-    is_vishti = 1 if karana_name == "Vishti" else 0
-
-    vara_ausp = 1 if weekday in VARA_AUSPICIOUS else 0
-    vara_inausp = 1 if weekday in VARA_INAUSPICIOUS else 0
-
-    # Composite scores
-    # shubh_strict: all elements must be auspicious, none inauspicious
-    shubh_strict = 1 if (
-        tithi_ausp and nak_ausp and yoga_ausp and vara_ausp and
-        not tithi_inausp and not nak_inausp and not yoga_inausp and not is_vishti and not vara_inausp
-    ) else 0
-
-    # shubh_loose: majority auspicious
-    ausp_count = tithi_ausp + nak_ausp + yoga_ausp + vara_ausp
-    shubh_loose = 1 if ausp_count >= 3 else 0
-
-    # ashubh: any major inauspicious element
-    ashubh = 1 if (tithi_inausp or nak_inausp or yoga_inausp or is_vishti) else 0
-
-    # score_muhurat: weighted composite (-1 to 1 scale)
-    # Weights based on traditional importance: tithi=0.2, nakshatra=0.2, yoga=0.2, karana=0.15, vara=0.15
-    # Add 0.1 bonus for good karana (non-vishti)
-    score = 0.0
-    score += 0.20 * (1 if tithi_ausp else (-1 if tithi_inausp else 0))
-    score += 0.20 * (1 if nak_ausp else (-1 if nak_inausp else 0))
-    score += 0.20 * (1 if yoga_ausp else (-1 if yoga_inausp else 0))
-    score += 0.15 * (-1 if is_vishti else (0.5 if karana_name in KARANA_AUSPICIOUS else 0))
-    score += 0.15 * (1 if vara_ausp else (-1 if vara_inausp else 0))
-
+def kala_windows(rise: float, sunset: float) -> dict[str, tuple[float, float]]:
+    day = sunset - rise
     return {
-        "date": date.strftime("%Y-%m-%d"),
-        "weekday": weekday,
-        "weekday_name": weekday_name,
-        "tithi_num": tithi_num,
-        "tithi_name": tithi_name,
-        "paksha": paksha,
-        "tithi_ausp": tithi_ausp,
-        "tithi_inausp": tithi_inausp,
-        "nakshatra_num": nakshatra_num,
-        "nakshatra_name": nakshatra_name,
-        "nak_ausp": nak_ausp,
-        "nak_inausp": nak_inausp,
-        "yoga_num": yoga_num,
-        "yoga_name": yoga_name,
-        "yoga_ausp": yoga_ausp,
-        "yoga_inausp": yoga_inausp,
-        "karana_name": karana_name,
-        "is_vishti": is_vishti,
-        "vara_ausp": vara_ausp,
-        "vara_inausp": vara_inausp,
-        "shubh_strict": shubh_strict,
-        "shubh_loose": shubh_loose,
-        "ashubh": ashubh,
-        "score_muhurat": round(score, 4),
-        "sun_sid_lon": round(sun_lon, 4),
-        "moon_sid_lon": round(moon_lon, 4),
-        "ayanamsa": round(ayanamsa, 4),
+        "sunrise": (rise, rise),
+        "purvahna": (rise + 0.2 * day, rise + 0.4 * day),
+        "aparahna": (rise + 0.6 * day, rise + 0.8 * day),
+        "pradosh": (sunset, sunset + 0.1),
     }
 
 
-def generate_panchang(start_date: datetime, end_date: datetime, hour: float = 0.0) -> pd.DataFrame:
-    """Generate panchang for a date range."""
+def new_moons(jd_start: float, jd_end: float) -> list[float]:
+    """Instants of conjunction, found by bisection on the elongation wrapping past 360."""
+    out = []
+    step = 0.5
+    jd = jd_start
+    prev = elongation(jd)
+    while jd < jd_end:
+        nxt = elongation(jd + step)
+        if nxt < prev:
+            lo, hi = jd, jd + step
+            for _ in range(40):
+                mid = (lo + hi) / 2
+                if elongation(mid) > 180:
+                    lo = mid
+                else:
+                    hi = mid
+            out.append(hi)
+        prev, jd = nxt, jd + step
+    return out
+
+
+def sun_sign(jd: float) -> int:
+    return int(longitudes(jd)[0] // 30)
+
+
+def lunar_months(conjunctions: list[float]) -> list[tuple[float, float, str, bool]]:
+    """(start, end, name, is_adhik) per amanta month.
+
+    The month in which the Sun enters Mesha is Chaitra, so the name follows the Sun's sign
+    at the opening conjunction plus one. With no ingress, the month is adhik and takes the
+    name of the month that follows it.
+    """
+    months = []
+    for start, end in zip(conjunctions[:-1], conjunctions[1:]):
+        sign_start, sign_end = sun_sign(start), sun_sign(end)
+        name = MONTH_NAMES[(sign_start + 1) % 12]
+        months.append((start, end, name, sign_start == sign_end))
+    return months
+
+
+def day_record(d: date, rise: float) -> dict:
+    sun, moon = longitudes(rise)
+    elong = (moon - sun) % 360
+    tithi = int(elong // 12) + 1
+    nakshatra = int(moon // (360 / 27)) + 1
+    yoga = int(((sun + moon) % 360) // (360 / 27)) + 1
+    k = int(elong // 6)
+    if k == 0:
+        karana = "Kimstughna"
+    elif k >= 57:
+        karana = ["Shakuni", "Chatushpada", "Naga"][k - 57]
+    else:
+        karana = MOVABLE_KARANAS[(k - 1) % 7]
+    weekday = d.weekday()
+    return {
+        "date": d.isoformat(),
+        "weekday": weekday + 1,
+        "sunrise_ist": swe.revjul(rise + IST_OFFSET_DAYS)[3],
+        "tithi_num": tithi,
+        "tithi_name": TITHI_NAMES[tithi - 1],
+        "paksha": "Shukla" if tithi <= 15 else "Krishna",
+        "tithi_ausp": int(tithi in TITHI_AUSPICIOUS),
+        "tithi_inausp": int(tithi in TITHI_INAUSPICIOUS),
+        "nakshatra_num": nakshatra,
+        "nakshatra_name": NAKSHATRA_NAMES[nakshatra - 1],
+        "nak_ausp": int(nakshatra in NAKSHATRA_AUSPICIOUS),
+        "nak_inausp": int(nakshatra in NAKSHATRA_INAUSPICIOUS),
+        "yoga_num": yoga,
+        "yoga_name": YOGA_NAMES[yoga - 1],
+        "yoga_ausp": int(yoga in YOGA_AUSPICIOUS),
+        "yoga_inausp": int(yoga in YOGA_INAUSPICIOUS),
+        "karana_name": karana,
+        "is_vishti": int(karana == "Vishti"),
+        "sun_sid_lon": round(sun, 4),
+        "moon_sid_lon": round(moon, 4),
+    }
+
+
+def tithi_at(jd: float) -> int:
+    return int(elongation(jd) // 12) + 1
+
+
+def generate(start: date, end: date) -> pd.DataFrame:
+    days = [start + timedelta(n) for n in range((end - start).days + 2)]
+    times = [kala_windows(*sunrise_sunset(d)) for d in days]
+    months = lunar_months(new_moons(times[0]["sunrise"][0] - 35, times[-1]["sunrise"][0] + 35))
+
+    def month_of(jd: float) -> tuple[str, bool, float]:
+        start_m, _, name, adhik = next(m for m in months if m[0] <= jd < m[1])
+        return name, adhik, start_m
+
     rows = []
-    current = start_date
+    for d, kt, next_kt in zip(days[:-1], times[:-1], times[1:]):
+        rec = day_record(d, kt["sunrise"][0])
+        name, adhik, _ = month_of(kt["sunrise"][0])
+        rec["lunar_month"] = name
+        rec["is_adhik"] = int(adhik)
+        for kala in KALAS:
+            w_start, w_end = kt[kala]
+            k_name, k_adhik, k_start = month_of(w_start)
+            t0, t1 = tithi_at(w_start), tithi_at(w_end)
+            in_window = [(t0 - 1 + i) % 30 + 1 for i in range((t1 - t0) % 30 + 1)]
+            mid = tithi_at((w_start + w_end) / 2)
+            rec[f"_{kala}"] = (in_window, k_name, k_adhik, k_start, mid)
+            # A tithi that starts and ends between two windows never touches one (kshaya);
+            # it belongs to the day whose window precedes it.
+            t_next = tithi_at(next_kt[kala][0])
+            rec[f"_{kala}_touched"] = [(t1 - 1 + i) % 30 + 1 for i in range((t_next - t1) % 30)]
+        rows.append(rec)
+    df = pd.DataFrame(rows)
 
-    while current <= end_date:
-        row = compute_panchang_for_date(current, hour=hour)
-        rows.append(row)
-        current += timedelta(days=1)
+    def mark(month: str, tithis: range | list[int], kala: str, first_only: bool) -> pd.Series:
+        state = df[f"_{kala}"]
+        in_month = state.map(lambda s: s[1] == month and not s[2])
+        out = pd.Series(0, index=df.index)
+        if not first_only:
+            out[in_month & state.map(lambda s: s[4] in tithis)] = 1
+            return out
+        hit = in_month & state.map(lambda s: any(t in tithis for t in s[0]))
+        for key in state[in_month].map(lambda s: s[3]).unique():
+            same = state.map(lambda s, key=key: s[3] == key)
+            exact = df.index[same & hit]
+            if len(exact):
+                # When the tithi holds the kala on two consecutive days, the almanacs take
+                # the second (Dharmasindhu's rule for Dhanteras, Vijayadashami, Lakshmi Puja).
+                last = exact[0]
+                while last + 1 in exact:
+                    last += 1
+                out[last] = 1
+                continue
+            # Kshaya fallback: the day whose kala window contains the tithi. The window can
+            # straddle the new moon, so the next day's month label is accepted too.
+            nxt = same.shift(-1, fill_value=False)
+            touched = df[f"_{kala}_touched"].map(lambda ts: any(t in tithis for t in ts))
+            cand = df.index[(same | nxt) & touched]
+            out[cand[:1]] = 1
+        return out
 
-    return pd.DataFrame(rows)
+    for col, (month, tithi, kala) in FESTIVALS.items():
+        df[col] = mark(month, [tithi], kala, first_only=True)
+    for col, (month, tithis, kala) in SPANS.items():
+        df[col] = mark(month, tithis, kala, first_only=False)
+
+    return df.drop(columns=[c for c in df.columns if c.startswith("_")])
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Generate panchang data using Swiss Ephemeris"
-    )
+def apply_almanac(df: pd.DataFrame, path: str) -> pd.DataFrame:
+    """Replace the rule-based festival dates with the published almanac's.
+
+    Almanacs disagree on festivals whose lunar day straddles two civil days, so the dates
+    used are Drik Panchang's (scripts/scrape_drik_festivals.py). The rule-based dates stay in
+    `<column>_rule` for comparison.
+    """
+    drik = pd.read_csv(path)
+    years = set(df["date"].str[:4].astype(int))
+    missing = drik[drik["year"].isin(years) & drik["drik_date"].isna()]
+    if len(missing) or not years <= set(drik["year"]):
+        raise SystemExit(f"Almanac dates missing:\n{missing}")
+    dates = drik.set_index(["event", "year"])["drik_date"]
+    for col in list(FESTIVALS) + list(SPANS):
+        df[f"{col}_rule"] = df[col]
+        df[col] = 0
+    for (event, _), d in dates.items():
+        if event in FESTIVALS:
+            df.loc[df["date"] == d, event] = 1
+    for span in SPANS:
+        for year in years:
+            first, last = dates[(f"{span}_first", year)], dates[(f"{span}_last", year)]
+            df.loc[(df["date"] >= first) & (df["date"] <= last), span] = 1
+    return df
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--start", default="2005-01-01")
+    parser.add_argument("--end", default="2021-12-31")
+    parser.add_argument("--output", default="data/panchang.csv")
     parser.add_argument(
-        "--start",
-        type=str,
-        required=True,
-        help="Start date (YYYY-MM-DD)"
+        "--almanac",
+        default="data/festivals_drik.csv",
+        help="published festival dates; 'none' keeps the rule-based dates",
     )
-    parser.add_argument(
-        "--end",
-        type=str,
-        required=True,
-        help="End date (YYYY-MM-DD)"
-    )
-    parser.add_argument(
-        "--output",
-        type=str,
-        required=True,
-        help="Output path (.parquet or .csv)"
-    )
-    parser.add_argument(
-        "--hour",
-        type=float,
-        default=0.0,
-        help="Calculation hour in UTC (default: 0.0 = midnight)"
-    )
-
     args = parser.parse_args()
 
-    start_date = datetime.strptime(args.start, "%Y-%m-%d")
-    end_date = datetime.strptime(args.end, "%Y-%m-%d")
-
-    print(f"Generating panchang from {args.start} to {args.end} (hour={args.hour})...")
-    df = generate_panchang(start_date, end_date, hour=args.hour)
-    print(f"Generated {len(df)} rows")
-
-    if args.output.endswith(".parquet"):
-        df.to_parquet(args.output, index=False)
-    else:
-        df.to_csv(args.output, index=False)
-
-    print(f"Saved to {args.output}")
+    df = generate(date.fromisoformat(args.start), date.fromisoformat(args.end))
+    if args.almanac != "none":
+        df = apply_almanac(df, args.almanac)
+    df.to_csv(args.output, index=False)
+    print(f"Wrote {len(df):,} days to {args.output}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,137 @@
+date,tithi_ours,tithi_drik,nak_ours,nak_drik,tithi_ok,nak_ok
+2005-03-10,Amavasya,Amavasya,Purva Bhadrapada,Purva Bhadrapada,True,True
+2005-10-19,Dwitiya,Dwitiya,Bharani,Bharani,True,True
+2005-02-02,Ashtami,Ashtami,Swati,Swati,True,True
+2005-05-11,Tritiya,Tritiya,Mrigashira,Mrigashira,True,True
+2005-03-02,Shashthi,Shashthi,Vishakha,Vishakha,True,True
+2005-09-11,Ashtami,Ashtami,Jyeshtha,Jyeshtha,True,True
+2005-08-19,Purnima,Purnima,Shravana,Shravana,True,True
+2005-08-30,Ekadashi,Ekadashi,Punarvasu,Punarvasu,True,True
+2006-11-30,Dashami,Dashami,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2006-07-14,Chaturthi,Chaturthi,Shatabhisha,Shatabhisha,True,True
+2006-04-18,Panchami,Panchami,Jyeshtha,Jyeshtha,True,True
+2006-02-18,Panchami,Panchami,Chitra,Chitra,True,True
+2006-09-07,Purnima,Purnima,Shatabhisha,Shatabhisha,True,True
+2006-01-15,Pratipada,Pratipada,Pushya,Pushya,True,True
+2006-07-19,Navami,Navami,Bharani,Bharani,True,True
+2006-08-10,Pratipada,Pratipada,Dhanishta,Dhanishtha,True,True
+2007-11-08,Chaturdashi,Chaturdashi,Chitra,Chitra,True,True
+2007-01-02,Chaturdashi,Chaturdashi,Mrigashira,Mrigashira,True,True
+2007-12-23,Chaturdashi,Chaturdashi,Rohini,Rohini,True,True
+2007-08-17,Chaturthi,Chaturthi,Hasta,Hasta,True,True
+2007-05-17,Pratipada,Pratipada,Krittika,Krittika,True,True
+2007-04-28,Dwadashi,Dwadashi,Purva Phalguni,Purva Phalguni,True,True
+2007-10-30,Panchami,Panchami,Mrigashira,Mrigashira,True,True
+2007-02-22,Shashthi,Shashthi,Ashwini,Ashwini,True,True
+2008-06-11,Ashtami,Ashtami,Uttara Phalguni,Uttara Phalguni,True,True
+2008-01-16,Ashtami,Ashtami,Ashwini,Ashwini,True,True
+2008-01-12,Chaturthi,Chaturthi,Shatabhisha,Shatabhisha,True,True
+2008-01-14,Shashthi,Shashthi,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2008-11-28,Pratipada,Pratipada,Anuradha,Anuradha,True,True
+2008-10-04,Panchami,Panchami,Anuradha,Anuradha,True,True
+2008-01-05,Dwadashi,Dwadashi,Anuradha,Anuradha,True,True
+2008-07-14,Dwadashi,Dwadashi,Anuradha,Anuradha,True,True
+2009-12-18,Dwitiya,Dwitiya,Purva Ashadha,Purva Ashadha,True,True
+2009-04-21,Ekadashi,Ekadashi,Shatabhisha,Shatabhisha,True,True
+2009-08-05,Purnima,Purnima,Uttara Ashadha,Uttara Ashadha,True,True
+2009-01-15,Panchami,Panchami,Purva Phalguni,Purva Phalguni,True,True
+2009-09-28,Dashami,Dashami,Uttara Ashadha,Uttara Ashadha,True,True
+2009-04-24,Chaturdashi,Chaturdashi,Revati,Revati,True,True
+2009-08-13,Saptami,Saptami,Bharani,Bharani,True,True
+2009-09-11,Saptami,Saptami,Rohini,Rohini,True,True
+2010-10-11,Chaturthi,Chaturthi,Anuradha,Anuradha,True,True
+2010-04-30,Dwitiya,Dwitiya,Anuradha,Anuradha,True,True
+2010-06-26,Purnima,Purnima,Mula,Mula,True,True
+2010-04-29,Pratipada,Pratipada,Vishakha,Vishakha,True,True
+2010-12-13,Ashtami,Ashtami,Purva Bhadrapada,Purva Bhadrapada,True,True
+2010-04-23,Navami,Navami,Ashlesha,Ashlesha,True,True
+2010-08-24,Purnima,Purnima,Dhanishta,Dhanishtha,True,True
+2010-05-29,Dwitiya,Dwitiya,Jyeshtha,Jyeshtha,True,True
+2011-01-12,Ashtami,Ashtami,Revati,Revati,True,True
+2011-08-02,Tritiya,Tritiya,Purva Phalguni,Purva Phalguni,True,True
+2011-10-12,Purnima,Purnima,Revati,Revati,True,True
+2011-11-25,Amavasya,Amavasya,Anuradha,Anuradha,True,True
+2011-02-21,Chaturthi,Chaturthi,Hasta,Hasta,True,True
+2011-04-06,Tritiya,Tritiya,Bharani,Bharani,True,True
+2011-11-19,Ashtami,Ashtami,Magha,Magha,True,True
+2011-06-01,Amavasya,Amavasya,Krittika,Krittika,True,True
+2012-03-02,Navami,Navami,Mrigashira,Mrigashira,True,True
+2012-06-19,Amavasya,Amavasya,Mrigashira,Mrigashira,True,True
+2012-12-30,Dwitiya,Dwitiya,Punarvasu,Punarvasu,True,True
+2012-09-13,Dwadashi,Dwadashi,Ashlesha,Ashlesha,True,True
+2012-08-04,Dwitiya,Dwitiya,Shatabhisha,Shatabhisha,True,True
+2012-09-16,Amavasya,Amavasya,Uttara Phalguni,Uttara Phalguni,True,True
+2012-12-09,Ekadashi,Ekadashi,Chitra,Chitra,True,True
+2012-04-07,Pratipada,Pratipada,Chitra,Chitra,True,True
+2013-06-05,Dwadashi,Dwadashi,Ashwini,Ashwini,True,True
+2013-05-26,Pratipada,Pratipada,Jyeshtha,Jyeshtha,True,True
+2013-10-28,Navami,Navami,Ashlesha,Ashlesha,True,True
+2013-09-13,Ashtami,Ashtami,Mula,Mula,True,True
+2013-09-16,Dwadashi,Dwadashi,Shravana,Shravana,True,True
+2013-07-21,Trayodashi,Trayodashi,Mula,Mula,True,True
+2013-10-29,Dashami,Dashami,Magha,Magha,True,True
+2013-01-18,Saptami,Saptami,Revati,Revati,True,True
+2014-09-03,Navami,Navami,Jyeshtha,Jyeshtha,True,True
+2014-05-05,Shashthi,Shashthi,Punarvasu,Punarvasu,True,True
+2014-07-26,Amavasya,Amavasya,Punarvasu,Punarvasu,True,True
+2014-08-01,Panchami,Panchami,Uttara Phalguni,Uttara Phalguni,True,True
+2014-12-07,Pratipada,Pratipada,Mrigashira,Mrigashira,True,True
+2014-03-30,Amavasya,Amavasya,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2014-07-07,Navami,Navami,Swati,Swati,True,True
+2014-10-08,Purnima,Purnima,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2015-12-26,Pratipada,Pratipada,Ardra,Ardra,True,True
+2015-12-12,Pratipada,Pratipada,Mula,Mula,True,True
+2015-07-11,Dashami,Dashami,Bharani,Bharani,True,True
+2015-02-14,Dashami,Dashami,Jyeshtha,Jyeshtha,True,True
+2015-08-13,Chaturdashi,Chaturdashi,Pushya,Pushya,True,True
+2015-12-06,Dashami,Dashami,Hasta,Hasta,True,True
+2015-09-18,Panchami,Panchami,Vishakha,Vishakha,True,True
+2015-02-25,Saptami,Saptami,Krittika,Krittika,True,True
+2016-03-24,Pratipada,Pratipada,Hasta,Hasta,True,True
+2016-09-23,Ashtami,Ashtami,Mrigashira,Mrigashira,True,True
+2016-07-20,Pratipada,Pratipada,Uttara Ashadha,Uttara Ashadha,True,True
+2016-07-08,Chaturthi,Chaturthi,Magha,Magha,True,True
+2016-09-07,Shashthi,Shashthi,Vishakha,Vishakha,True,True
+2016-01-16,Saptami,Saptami,Revati,Revati,True,True
+2016-08-28,Ekadashi,Ekadashi,Ardra,Ardra,True,True
+2016-01-23,Chaturdashi,Chaturdashi,Punarvasu,Punarvasu,True,True
+2017-06-07,Trayodashi,Trayodashi,Vishakha,Vishakha,True,True
+2017-12-27,Navami,Navami,Revati,Revati,True,True
+2017-11-11,Ashtami,Ashtami,Ashlesha,Ashlesha,True,True
+2017-10-31,Ekadashi,Ekadashi,Shatabhisha,Shatabhisha,True,True
+2017-10-24,Chaturthi,Chaturthi,Jyeshtha,Jyeshtha,True,True
+2017-07-21,Trayodashi,Trayodashi,Mrigashira,Mrigashira,True,True
+2017-11-28,Navami,Navami,Purva Bhadrapada,Purva Bhadrapada,True,True
+2017-03-29,Dwitiya,Dwitiya,Revati,Revati,True,True
+2018-03-28,Dwadashi,Dwadashi,Ashlesha,Ashlesha,True,True
+2018-09-15,Shashthi,Shashthi,Anuradha,Anuradha,True,True
+2018-04-27,Dwadashi,Dwadashi,Uttara Phalguni,Uttara Phalguni,True,True
+2018-01-07,Shashthi,Shashthi,Uttara Phalguni,Uttara Phalguni,True,True
+2018-04-13,Dwadashi,Dwadashi,Purva Bhadrapada,Purva Bhadrapada,True,True
+2018-10-04,Dashami,Dashami,Pushya,Pushya,True,True
+2018-10-08,Chaturdashi,Chaturdashi,Uttara Phalguni,Uttara Phalguni,True,True
+2018-04-29,Chaturdashi,Chaturdashi,Chitra,Chitra,True,True
+2019-07-27,Dashami,Dashami,Krittika,Krittika,True,True
+2019-09-21,Saptami,Saptami,Rohini,Rohini,True,True
+2019-06-26,Navami,Navami,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2019-10-23,Dashami,Dashami,Ashlesha,Ashlesha,True,True
+2019-06-30,Dwadashi,Dwadashi,Krittika,Krittika,True,True
+2019-08-24,Ashtami,Ashtami,Rohini,Rohini,True,True
+2019-05-18,Purnima,Purnima,Vishakha,Vishakha,True,True
+2019-12-04,Ashtami,Ashtami,Shatabhisha,Shatabhisha,True,True
+2020-10-07,Panchami,Panchami,Rohini,Rohini,True,True
+2020-11-07,Shashthi,Shashthi,Punarvasu,Punarvasu,True,True
+2020-01-03,Ashtami,Ashtami,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2020-07-15,Dashami,Dashami,Bharani,Bharani,True,True
+2020-09-19,Dwitiya,Dwitiya,Chitra,Chitra,True,True
+2020-03-07,Dwadashi,Dwadashi,Pushya,Pushya,True,True
+2020-09-22,Shashthi,Shashthi,Anuradha,Anuradha,True,True
+2020-10-14,Dwadashi,Dwadashi,Purva Phalguni,Purva Phalguni,True,True
+2021-04-16,Chaturthi,Chaturthi,Rohini,Rohini,True,True
+2021-08-07,Chaturdashi,Chaturdashi,Punarvasu,Punarvasu,True,True
+2021-01-29,Pratipada,Pratipada,Ashlesha,Ashlesha,True,True
+2021-09-04,Dwadashi,Dwadashi,Pushya,Pushya,True,True
+2021-07-06,Dwadashi,Dwadashi,Krittika,Krittika,True,True
+2021-10-19,Chaturdashi,Chaturdashi,Uttara Bhadrapada,Uttara Bhadrapada,True,True
+2021-10-11,Shashthi,Shashthi,Jyeshtha,Jyeshtha,True,True
+2021-04-13,Pratipada,Pratipada,Ashwini,Ashwini,True,True

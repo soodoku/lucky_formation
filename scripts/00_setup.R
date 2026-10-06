@@ -1,96 +1,74 @@
 # 00_setup.R
-# Common setup sourced by all scripts
+# Shared configuration, sourced by every analysis script.
 
-library(tidyverse)
-library(arrow)
-library(fixest)
-library(modelsummary)
-library(lubridate)
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(arrow)
+  library(fixest)
+  library(lubridate)
+})
 
-# Paths
 PATH_DATA <- "data"
 PATH_TABS <- "tabs"
 PATH_FIGS <- "figs"
-
-# Configurable paths (from environment or defaults)
-CONFIG <- list(
-  panchang_path = Sys.getenv("LUCKY_PANCHANG_PATH", "data/real_panchang_2000_2024.csv"),
-  companies_path = Sys.getenv("LUCKY_COMPANIES_PATH", "data/registered_companies.csv.zip"),
-  start_year = as.integer(Sys.getenv("LUCKY_START_YEAR", "2010")),
-  end_year = as.integer(Sys.getenv("LUCKY_END_YEAR", "2023"))
-)
-
-# Ensure output directories exist
 dir.create(PATH_TABS, showWarnings = FALSE)
 dir.create(PATH_FIGS, showWarnings = FALSE)
 
-# Color scheme
-COL_AUSP <- "#FF9933"
-COL_INAUSP <- "#8B0000"
-COL_NEUTRAL <- "gray50"
-
-# Theme for plots
-theme_lucky <- theme_minimal(base_size = 12) +
-  theme(
-    panel.grid.minor = element_blank(),
-    legend.position = "bottom",
-    plot.title = element_text(face = "bold"),
-    axis.title = element_text(face = "bold")
-  )
-theme_set(theme_lucky)
-
-# Control formulas
-CONTROLS_MINIMAL <- "| weekday + month"
-CONTROLS_STANDARD <- "| weekday + month + year"
-CONTROLS_FULL <- "| weekday + month + year + is_fiscal_yearend + is_demonetization + is_gst_rollout + is_covid"
-
-# Hindu belt states
-HINDU_BELT_STATES <- c(
-
-  "Uttar Pradesh", "Madhya Pradesh", "Gujarat", "Rajasthan", "Bihar",
-  "Jharkhand", "Chhattisgarh", "Uttarakhand", "Haryana", "Himachal Pradesh"
+CONFIG <- list(
+  panchang_path = Sys.getenv("LUCKY_PANCHANG_PATH", "data/panchang.csv"),
+  companies_path = Sys.getenv("LUCKY_COMPANIES_PATH", "data/registered_companies.csv.zip")
 )
 
-COSMOPOLITAN_STATES <- c("Maharashtra", "Karnataka", "Delhi", "Tamil Nadu", "Telangana")
+# Electronic filing became mandatory on 2006-09-16; the snapshot ends in January 2020.
+SAMPLE_START <- as.Date("2006-10-01")
+SAMPLE_END <- as.Date("2020-01-31")
+# DoPT's holiday memoranda, which define registrar closures, are available from 2008.
+OFFICIAL_CALENDAR_START <- as.Date("2008-01-01")
+# CRC Phase 2: incorporations nationwide approved centrally, typically within a day.
+CRC_DATE <- as.Date("2016-03-23")
 
-# Modelsummary settings
-gm <- list(
-  list("raw" = "nobs", "clean" = "Observations", "fmt" = function(x) format(x, big.mark = ",")),
-  list("raw" = "r.squared", "clean" = "R²", "fmt" = 3),
-  list("raw" = "adj.r.squared", "clean" = "Adj. R²", "fmt" = 3)
+# Fixed in ms/pap.md before any estimate using it was run.
+RELIGIOUS_WORDS <- c(
+  "SHRI", "SHREE", "SRI", "SREE", "LAXMI", "LAKSHMI", "MAHALAXMI", "MAHALAKSHMI",
+  "GANESH", "GANESHA", "GANAPATI", "GANAPATHY", "VINAYAK", "VINAYAKA", "BALAJI",
+  "TIRUPATI", "VENKATESHWARA", "SAI", "DURGA", "AMBIKA", "BHAWANI", "BHAVANI",
+  "JAGDAMBA", "SHIV", "SHIVA", "MAHADEV", "KRISHNA", "GOPAL", "GOVIND", "HANUMAN",
+  "BAJRANG", "OM", "SHUBH", "SHUBHLABH", "SIDDHI", "RIDDHI", "SARASWATI", "PARVATI",
+  "MAA", "ISHWAR", "MANGALAM", "TIRUMALA", "MURUGAN", "AYYAPPA"
 )
 
-# Function to save tables
+COL_MAIN <- "#B5551D"
+COL_REF <- "gray45"
+
+theme_set(
+  theme_minimal(base_size = 11) +
+    theme(
+      panel.grid.minor = element_blank(),
+      legend.position = "bottom",
+      plot.title.position = "plot"
+    )
+)
+
 save_tex_table <- function(tab, filename) {
-  if (inherits(tab, "tinytable")) {
-    tinytable::save_tt(tab, file.path(PATH_TABS, filename), overwrite = TRUE)
-  } else if (is.character(tab)) {
-    writeLines(tab, file.path(PATH_TABS, filename))
-  } else {
-    writeLines(as.character(tab), file.path(PATH_TABS, filename))
-  }
-  message("Saved: ", file.path(PATH_TABS, filename))
+  path <- file.path(PATH_TABS, filename)
+  writeLines(as.character(tab), path)
+  message("Saved: ", path)
 }
 
-# Function to save figures
-save_fig <- function(p, filename, width = 8, height = 6) {
-  ggsave(file.path(PATH_FIGS, filename), p, width = width, height = height, dpi = 300)
+save_fig <- function(p, filename, width = 7, height = 4.5) {
+  ggsave(file.path(PATH_FIGS, filename), p, width = width, height = height)
   message("Saved: ", file.path(PATH_FIGS, filename))
 }
 
-# Helper function to extract coefficients from fixest models
-tidy_fixest <- function(model, conf.int = TRUE) {
-  coefs <- coef(model)
-  se <- sqrt(diag(vcov(model)))
-  pvals <- 2 * pnorm(-abs(coefs / se))
-  tibble(
-    term = names(coefs),
-    estimate = as.numeric(coefs),
-    std.error = se,
-    p.value = pvals,
-    conf.low = estimate - 1.96 * std.error,
-    conf.high = estimate + 1.96 * std.error
-  )
+# Numbers quoted in the paper's prose are written here as LaTeX macros, one file per script,
+# so the text cannot drift from the code that produced it.
+write_numbers <- function(values, filename) {
+  stopifnot(!is.null(names(values)), all(grepl("^[A-Za-z]+$", names(values))))
+  lines <- sprintf("\\newcommand{\\%s}{%s}", names(values), unlist(values))
+  path <- file.path(PATH_TABS, filename)
+  writeLines(lines, path)
+  message("Saved: ", path)
 }
 
-message("Setup loaded successfully")
+fmt_pct <- function(x, digits = 1) sprintf(paste0("%.", digits, "f"), 100 * x)
+fmt_int <- function(x) format(round(x), big.mark = ",", scientific = FALSE)
