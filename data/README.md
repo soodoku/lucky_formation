@@ -5,7 +5,7 @@
 | File | What it is | Source |
 |---|---|---|
 | `sources/mca_company_master_2020-12.parquet` | Every company on the Ministry of Corporate Affairs register in the December 2020 snapshot (1,992,170 rows), 12 of its 17 columns as the original strings. Registered-office address and e-mail columns are dropped. Built by `scripts/00_slim_registry.R` from `registered_companies.csv.zip`, which is too large for GitHub. | MCA company master data, as published on data.gov.in under the Government Open Data License – India |
-| `sources/dopt/HolidaysYYYY.pdf` | DoPT office memoranda listing holidays in central government offices, 2008–2020 | Department of Personnel and Training, Government of India (copies from referencer.in) |
+| `sources/dopt/HolidaysYYYY.pdf` | DoPT office memoranda listing holidays in central government offices, 2007–2020, and the April 2006 order declaring 14 April a closed holiday | Department of Personnel and Training, Government of India (2008–2020 copies from referencer.in; 2007 and the 2006 order from DoPT's site, persmin.nic.in, via the Internet Archive) |
 | `dopt_holidays_transcribed.csv` | The memoranda's Annexure I and II tables, transcribed from the scans, one row per printed row with the printed weekday | Transcribed for this project; checked by `scripts/check_transcription.py` |
 | `festivals_drik.csv` | Dates of the named muhurat days and of Pitru Paksha and Navratri, 2005–2021 | Drik Panchang day pages for New Delhi (`scripts/scrape_drik_festivals.py`) |
 

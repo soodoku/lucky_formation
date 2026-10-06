@@ -1,4 +1,37 @@
 date,holiday,kind,group,movable
+2007-01-01,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2007-01-14,Makar Sankranti,optional,makar sankranti,False
+2007-01-15,Pongal,optional,pongal,False
+2007-01-23,Basanta Panchami / Sri Panchami,optional,sri panchami,False
+2007-01-26,Republic Day,compulsory,republic day,False
+2007-01-30,Muharram,compulsory,muharram,True
+2007-02-16,Maha Shivaratri,delhi_choice,maha shivaratri,False
+2007-03-04,Holi,optional,holi,False
+2007-03-19,Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand,optional,vishu group,False
+2007-03-27,Ram Navami,delhi_choice,ram navami,False
+2007-03-31,Mahavir Jayanti,compulsory,mahavir jayanti,False
+2007-04-01,Milad-Un-Nabi,compulsory,milad un nabi,True
+2007-04-06,Good Friday,compulsory,good friday,False
+2007-04-14,Vaisakhi,optional,vishu group,False
+2007-04-15,Vaisakhadi (Bengal) / Bahag Bihu (Assam),optional,vishu group,False
+2007-05-02,Buddha Purnima,compulsory,buddha purnima,False
+2007-07-16,Rath Yatra,optional,rath yatra,False
+2007-08-15,Independence Day,compulsory,independence day,False
+2007-08-20,Parsi New Year,optional,vishu group,False
+2007-08-27,Onam,optional,onam,False
+2007-09-03,Janmashtami (Smarta),optional,janmashtami,False
+2007-09-04,Janmashtami,delhi_choice,janmashtami,False
+2007-09-15,Ganesh Chaturthi / Vinayaka Chaturthi,optional,ganesh chaturthi,False
+2007-10-02,Mahatma Gandhi's Birthday,compulsory,gandhi jayanti,False
+2007-10-14,Idu'l Fitr,compulsory,id ul fitr,True
+2007-10-18,Dussehra (Maha Saptami) (Additional),optional,dussehra additional day,False
+2007-10-19,Dussehra (Maha Ashtami) (Additional),optional,dussehra additional day,False
+2007-10-20,Dussehra (Maha Navami) (Additional),optional,dussehra additional day,False
+2007-10-21,Dussehra (Vijaya Dashami),compulsory,dussehra,False
+2007-11-09,Diwali (Deepavali),compulsory,diwali,True
+2007-11-24,Guru Nanak's Birthday,compulsory,guru nanak,False
+2007-12-21,Idu'l Zuha (Bakrid),compulsory,id ul zuha,True
+2007-12-25,Christmas Day,compulsory,christmas,False
 2008-01-14,Makar Sankranti (N. India),optional,makar sankranti,False
 2008-01-15,Makar Sankranti (Bengal),optional,makar sankranti,False
 2008-01-15,Pongal,optional,pongal,False
