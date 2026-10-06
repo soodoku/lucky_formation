@@ -9,6 +9,11 @@ occasions. State committees' choices were not published centrally, so for regist
 Delhi the optional occasions are candidates; 02_build_panel.R marks one closed only where the
 registrar visibly shut.
 
+14 April (Ambedkar Jayanti) was declared a closed holiday by separate annual orders (for
+example data/sources/dopt/Holidays2006_amendment_14April.pdf). It needs no entry here: 14 April
+is also on the optional list (Vaisakhi/Mesadi), so a shut-down that day is already a listed
+holiday closure.
+
 Input: data/dopt_holidays_transcribed.csv, transcribed from the scanned memoranda in
 data/sources/dopt/ (one row per printed row, with the printed weekday as a checksum).
 """

@@ -108,15 +108,15 @@ v_fest <- fest %>%
   arrange(event)
 tab_val <- c(
   "\\begin{tabular}{lcc}", "\\toprule",
-  " & 2008--2020 & 2005--2021 \\\\", "\\midrule",
+  " & 2007--2020 & 2005--2021 \\\\", "\\midrule",
   "\\multicolumn{3}{l}{\\textit{Festival dates: classical rules reproduce the almanac}} \\\\",
   sprintf("\\quad %s & %s & %s \\\\", v_fest$event, v_fest$sample, v_fest$all),
   "\\multicolumn{3}{l}{\\textit{Daily values at sunrise, random days}} \\\\",
   sprintf("\\quad Tithi & %s & %s \\\\",
-          with(filter(days, between(year(date), 2008, 2020)), cell(sum(tithi_ok), length(tithi_ok))),
+          with(filter(days, between(year(date), 2007, 2020)), cell(sum(tithi_ok), length(tithi_ok))),
           cell(sum(days$tithi_ok), nrow(days))),
   sprintf("\\quad Nakshatra & %s & %s \\\\",
-          with(filter(days, between(year(date), 2008, 2020)), cell(sum(nak_ok), length(nak_ok))),
+          with(filter(days, between(year(date), 2007, 2020)), cell(sum(nak_ok), length(nak_ok))),
           cell(sum(days$nak_ok), nrow(days))),
   "\\bottomrule", "\\end{tabular}"
 )

@@ -154,15 +154,16 @@ hypotheses or the inference, but the first results had been seen, so these are d
   out of sample. The rule-based dates are kept for comparison. Daily tithi and nakshatra stay
   computed from the ephemeris and are checked against the almanac on random days in every year.
 - **Holidays** now come from DoPT's annual office memoranda on holidays in central government
-  offices, 2008–2020, transcribed from the scanned documents (`data/sources/dopt/`) with the
+  offices, 2007–2020, transcribed from the scanned documents (`data/sources/dopt/`) with the
   printed weekday as a checksum. Registrars of Companies are central offices: they observe 14
   compulsory holidays and 3 of 12 optional occasions chosen by each state's coordination
   committee, whose choices were not published centrally. A listed holiday is excluded where the
   registrar visibly shut. The central registry approved companies on many gazetted holidays
   after March 2016, so a listed holiday on which the registrar worked is kept, with an
   indicator added to the controls.
-- **Sample start** moves from October 2006 to January 2008, the first year for which the
-  memoranda could be obtained.
+- **Sample start** moves from October 2006 to January 2007, the first year whose memorandum
+  survives (the 2007 order was recovered from DoPT's archived site; the 2006 list was posted
+  only as images that were never archived).
 - **Robustness**: the two closure-source variants ("listed holidays only", "detected only")
   are replaced by "all listed holidays excluded, worked or not" and "unexplained single-registrar
   shut-downs kept as open days".

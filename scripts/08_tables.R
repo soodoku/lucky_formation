@@ -98,6 +98,11 @@ g <- function(df, t, col = "pct", digits = 1) sprintf(paste0("%.", digits, "f"),
                                                       df[[col]][df$term == t])
 ex_both <- filter(x$models, model == "+ both")
 nw <- s$net_week
+# The paper names which robustness checks leave the muhurat interval clear of zero; stop if a
+# rebuild changes that, so the prose cannot go stale silently.
+p2_clear <- with(filter(s$robust, hypothesis == "P2"), sort(variant[lo > 0]))
+stopifnot(identical(p2_clear, sort(c("2010--2020 only", "Unexplained shut-downs kept"))))
+
 write_numbers(c(
   DhanterasPct = g(s$named, "dhanteras"), DhanterasLo = g(s$named, "dhanteras", "lo"),
   DhanterasHi = g(s$named, "dhanteras", "hi"),
@@ -119,6 +124,12 @@ write_numbers(c(
     rep(s$robust$hypothesis == "P1", 2)])))),
   RobPThreeMax = sprintf("%.0f", ceiling(max(abs(c(s$robust$lo, s$robust$hi)[
     rep(s$robust$hypothesis == "P3", 2)])))),
+  RobTenLo = sprintf("%.1f", s$robust$lo[s$robust$variant == "2010--2020 only" &
+                                             s$robust$hypothesis == "P2"]),
+  RobKeptLo = sprintf("%.2f", s$robust$lo[s$robust$variant == "Unexplained shut-downs kept" &
+                                              s$robust$hypothesis == "P2"]),
+  RobPTwoInclZero = sum(with(filter(s$robust, hypothesis == "P2"), lo < 0 & hi > 0)),
+  RobN = n_distinct(s$robust$variant),
   NDhanterasDates = x$exposure$dates[x$exposure$day == "Dhanteras"],
   NGudiDates = x$exposure$dates[x$exposure$day == "Gudi Padwa"],
   GudiNearFy = fmt_pct(x$exposure$share_fy_last_10[x$exposure$day == "Gudi Padwa"], 0),
