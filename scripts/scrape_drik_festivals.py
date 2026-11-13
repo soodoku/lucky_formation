@@ -36,7 +36,7 @@ def find(anchor: date, labels: list[str]) -> tuple[date | None, int]:
         d = anchor + timedelta(off)
         if events_on(d) & set(labels):
             hits.append(d)
-            # Confirm the neighbours do not carry it too before accepting.
+            # Confirm the neighbors do not carry it too before accepting.
             for nb in (d - timedelta(1), d + timedelta(1)):
                 if abs((nb - anchor).days) <= 3 and events_on(nb) & set(labels):
                     hits.append(nb)

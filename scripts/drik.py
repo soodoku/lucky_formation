@@ -43,7 +43,7 @@ def raw_page(d: date) -> str:
 
 
 def events_on(d: date) -> set[str]:
-    """Event labels Drik attributes to date d itself (not to neighbouring days)."""
+    """Event labels Drik attributes to date d itself (not to neighboring days)."""
     month = d.strftime("%B")
     return {
         label

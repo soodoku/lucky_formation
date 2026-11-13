@@ -47,8 +47,8 @@ m_days <- fit(d, "n_dom", "gudi_padwa + akshaya_tritiya + vijayadashami + dhante
 named <- tidy(m_days, c("gudi_padwa", "akshaya_tritiya", "vijayadashami", "dhanteras"))
 
 # Event time relative to the nearest muhurat day, built on the full calendar so that
-# neighbours of a day dropped as closed are still marked. Vijayadashami is left out: it is
-# always a closure, so its neighbours would measure holiday catch-up, not shifting.
+# neighbors of a day dropped as closed are still marked. Vijayadashami is left out: it is
+# always a closure, so its neighbors would measure holiday catch-up, not shifting.
 cal <- panel %>%
   distinct(date) %>%
   left_join(distinct(panel, date, gudi_padwa, akshaya_tritiya, vijayadashami, dhanteras),
