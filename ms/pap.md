@@ -100,7 +100,7 @@ inauspicious tithis) is detectable.
 1. P3 unrestricted: auspicious and inauspicious tithi separately, nakshatra auspicious and
    inauspicious, Vishti karana.
 2. Each named day separately. Days -3..-1 and +1..+3 around the pooled muhurat days, to
-   separate shifting (a dip on neighbouring days) from added registrations.
+   separate shifting (a dip on neighboring days) from added registrations.
 3. Navratri rebound after Pitru Paksha (the `navratri` coefficient in P1).
 4. Heterogeneity, each as an interaction in a stacked model where the group is a column of
    the fixed effects:
@@ -123,7 +123,7 @@ inauspicious tithis) is detectable.
   registrations moved per year.
 - A null is reported with what its interval excludes, compared against the MDE. It is not
   reported as "no effect".
-- Analyses added after this plan, and any deviation, are labelled exploratory in the paper.
+- Analyses added after this plan, and any deviation, are labeled exploratory in the paper.
 
 ## Deviations from the working plan, made before estimation
 

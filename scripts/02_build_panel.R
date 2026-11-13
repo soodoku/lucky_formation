@@ -122,7 +122,7 @@ panel <- panel %>%
   left_join(select(disrupted, week, disrupted_week), by = "week") %>%
   mutate(disrupted_week = replace_na(disrupted_week, FALSE))
 
-# Backlog: a closure pushes approvals onto the neighbouring open days.
+# Backlog: a closure pushes approvals onto the neighboring open days.
 panel <- panel %>%
   arrange(roc, date) %>%
   group_by(roc) %>%

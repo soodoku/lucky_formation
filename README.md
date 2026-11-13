@@ -43,7 +43,7 @@ pre-analysis plan, with its timestamped revision, is `ms/pap.md`.
 
 ## Data
 
-All inputs are committed; `data/README.md` lists sources and licences.
+All inputs are committed; `data/README.md` lists sources and licenses.
 
 - **Companies**: MCA company master data, December 2020 snapshot (Government Open Data
   License – India), as a slim parquet of the columns used.
